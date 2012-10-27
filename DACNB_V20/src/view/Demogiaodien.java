@@ -1,3 +1,4 @@
+package view;
 
 import org.eclipse.swt.*;
 import org.eclipse.swt.widgets.*;
@@ -53,7 +54,7 @@ public class Demogiaodien {
 
 				if (selected == "") {
 					MessageBox messageBox = new MessageBox(shell, SWT.OK
-							| SWT.ICON_WARNING | SWT.CANCEL);
+							| SWT.ICON_ERROR | SWT.CANCEL);
 					messageBox
 							.setMessage("Vui Long Khai Bao Username Va Password");
 					messageBox.open();
@@ -72,11 +73,14 @@ public class Demogiaodien {
 				}
 			}
 		});
+		
+
 
 		Button buttonCancel = new Button(shell, SWT.CENTER);
 		buttonCancel.setSize(50, 25);
 		buttonCancel.setText("Cancel");
 		buttonCancel.setLocation(225, 130);
+		
 
 		Button buttonluu = new Button(shell, SWT.RADIO);
 		buttonluu.setLocation(220, 104);
