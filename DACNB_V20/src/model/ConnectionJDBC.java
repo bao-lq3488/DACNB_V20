@@ -7,6 +7,10 @@ import java.sql.SQLException;
 public class ConnectionJDBC {
 
 	private Connection connection = null;
+	public Connection getConnection() {
+		return connection;
+	}
+
 	private String driverName;
 	private String serverName;
 	private String portNumber;

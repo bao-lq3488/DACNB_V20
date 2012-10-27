@@ -1,4 +1,5 @@
 package view;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
@@ -7,11 +8,11 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_ThemSV {
+	Display display;
+	Shell shell;
+
 	public Form_ThemSV() {
-		Display display = new Display();
-		Shell shell = new Shell(display, SWT.CLOSE);
-		shell.setText("Them Sinh Vien");
-		shell.setSize(300, 200);
+		setDisPlay();
 
 		Label ThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
 		ThongTin.setText("Nhap Thong Tin Can Them");
@@ -39,6 +40,13 @@ public class Form_ThemSV {
 				display.sleep();
 		}
 		display.dispose();
+	}
+
+	public void setDisPlay() {
+		this.display = new Display();
+		this.shell = new Shell(display, SWT.CLOSE);
+		this.shell.setText("Them Sinh Vien");
+		this.shell.setSize(300, 200);
 	}
 
 	public static void main(String args[]) {

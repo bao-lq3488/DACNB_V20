@@ -1,7 +1,11 @@
 package view;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.swt.*;
 import org.eclipse.swt.widgets.*;
+
+import controller.User;
 
 public class Demogiaodien {
 
@@ -49,27 +53,33 @@ public class Demogiaodien {
 		buttonOk.setLocation(150, 130);
 		buttonOk.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
-				String selected = textacc.getText();
-				String selected1 = textpass.getText();
+				String username = textacc.getText();
+				String password = textpass.getText();
 
-				if (selected == "") {
+				if ("".equals(username)) {
+		
+					
 					MessageBox messageBox = new MessageBox(shell, SWT.OK
 							| SWT.ICON_ERROR | SWT.CANCEL);
 					messageBox
 							.setMessage("Vui Long Khai Bao Username Va Password");
 					messageBox.open();
 				}
-				if (selected1 == "") {
+				if (password == "") {
 					MessageBox messageBox = new MessageBox(shell, SWT.OK
 							| SWT.ICON_WARNING | SWT.CANCEL);
 					messageBox.setMessage("Nhap Password");
 					messageBox.open();
 				} else {
-					MessageBox messageBox = new MessageBox(shell, SWT.OK
-							| SWT.CANCEL);
-					messageBox.setText("Login Form");
-					messageBox.setMessage("Welcome: " + textacc.getText());
-					messageBox.open();
+//					MessageBox messageBox = new MessageBox(shell, SWT.OK
+//							| SWT.CANCEL);
+//					messageBox.setText("Login Form");
+//					messageBox.setMessage("Welcome: " + textacc.getText());
+//					messageBox.open();
+					User user = new User();
+					if (user.checkLogin(username, password)){
+						// hello welcome
+					}
 				}
 			}
 		});
