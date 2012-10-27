@@ -1,18 +1,20 @@
 package model;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionJDBC {
 
-	Connection connection = null;
-	String driverName;
-	String serverName;
-	String portNumber;
-	String sid;
-	String username;
-	String password;
-	String url = "jdbc:oracle:thin:@" + this.getServerName() + ":"
+	private Connection connection = null;
+	private String driverName;
+	private String serverName;
+	private String portNumber;
+	private String sid;
+	private String username;
+	private String password;
+
+	private String url = "jdbc:oracle:thin:@" + this.getServerName() + ":"
 			+ this.getPortNumber() + ":" + this.getSid();
 
 	public String getDriverName() {
@@ -63,12 +65,9 @@ public class ConnectionJDBC {
 		this.password = password;
 	}
 
-	
-	public ConnectionJDBC(String driverName,
-			String serverName, String portNumber, String sid, String username,
-			String password, Connection connection) {
+	public ConnectionJDBC(String driverName, String serverName,
+			String portNumber, String sid, String username, String password) {
 		super();
-		this.connection = connection;
 		this.driverName = driverName;
 		this.serverName = serverName;
 		this.portNumber = portNumber;
