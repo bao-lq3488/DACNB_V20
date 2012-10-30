@@ -1,3 +1,4 @@
+use QuanLySinhVien
 /*-----------------Table SinhVien----------------*/
 alter table SINHVIEN add constraint SinhVien_idsinhvien_pk primary key (IDSinhVien);
 alter table SINHVIEN add constraint SINHVIEN_IDSINHVIEN_UNI UNIQUE (IDSINHVIEN);
@@ -23,7 +24,7 @@ alter table DIEM add constraint DIEM_iddiem_uni unique (IDDIEM);
 alter table DIEM ADD constraint DIEM_idmon_fk foreign key (idmon) references MON(idmon);
 
 /*rename nganh -> IDNganh table sinhvien*/
-alter table sinhvien rename column nganh to idnganh;
+alter table sinhvien add column nganh to idnganh;
 
 
 

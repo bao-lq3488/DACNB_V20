@@ -1,4 +1,5 @@
- use databaseName
+ use QuanLySinhVien
+ -------------------------
 select TenSV, IDSinhVien
 from SinhVien
 

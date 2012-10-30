@@ -1,3 +1,5 @@
+use QuanLySinhVien
+
 CREATE TABLE SinhVien(
   IDSinhVien varchar2(10),
   TenSV varchar2(50),
