@@ -1,18 +1,10 @@
 package view;
 import java.awt.*;  
 import java.awt.event.*;  
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 import javax.swing.*;  
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.widgets.Shell;
-public class Form_AWT_Login  
+
+public class Form_AWT_Login
 {  
     public static void main(String[] args)  
     {  
