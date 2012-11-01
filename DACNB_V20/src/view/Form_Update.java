@@ -1,4 +1,5 @@
 package view;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
@@ -7,36 +8,39 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_Update {
+	Display display;
+	Shell shell;
+	Label Label;
+	Text Text;
+	Button Button;
+
 	public Form_Update() {
-		Display display = new Display();
-		Shell shell = new Shell(display, SWT.CLOSE);
-		shell.setText("Cap Nhat Diem");
-		shell.setSize(300, 180);
+		setDisplay();
 
-		Label Thongtin = new Label(shell, SWT.CENTER | SWT.BORDER);
-		Thongtin.setText("Nhap Ten Mon Hoc");
-		Thongtin.setSize(120, 20);
-		Thongtin.setLocation(90, 20);
+		setLabelThongTin();
+		this.Label.setText("Nhap Ten Mon Hoc");
+		this.Label.setSize(120, 20);
+		this.Label.setLocation(90, 20);
 
-		Text textbox = new Text(shell, SWT.LEFT);
-		textbox.setSize(150, 20);
-		textbox.setLocation(75, 50);
+		setTextbox();
+		this.Text.setSize(150, 20);
+		this.Text.setLocation(75, 50);
 
-		Button Ok = new Button(shell, SWT.CENTER);
-		Ok.setSize(50, 25);
-		Ok.setLocation(140, 90);
-		Ok.setText("Ok");
+		setButtonOk();
+		this.Button.setSize(50, 25);
+		this.Button.setLocation(140, 90);
+		this.Button.setText("Ok");
 
-		Button Cancel = new Button(shell, SWT.CENTER);
-		Cancel.setSize(50, 25);
-		Cancel.setLocation(200, 90);
-		Cancel.setText("Cancel");
+		setButtonCancel();
+		this.Button.setSize(50, 25);
+		this.Button.setLocation(200, 90);
+		this.Button.setText("Cancel");
 
-		Label LietKeMH = new Label(shell, SWT.LEFT);
-		LietKeMH.setText("Danh Sach Mon Hoc");
-		LietKeMH.setLocation(15, 95);
-		LietKeMH.setSize(110, 20);
-		LietKeMH.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
+		setLabelLietKe();
+		this.Label.setText("Danh Sach Mon Hoc");
+		this.Label.setLocation(15, 95);
+		this.Label.setSize(110, 20);
+		this.Label.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
 
 		shell.open();
 
@@ -45,6 +49,33 @@ public class Form_Update {
 				display.sleep();
 		}
 		display.dispose();
+	}
+
+	public void setDisplay() {
+		this.display = new Display();
+		this.shell = new Shell(display, SWT.CLOSE);
+		this.shell.setText("Cap Nhat Diem");
+		this.shell.setSize(300, 180);
+	}
+
+	public void setLabelThongTin() {
+		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+	}
+
+	public void setTextbox() {
+		this.Text = new Text(shell, SWT.LEFT);
+	}
+
+	public void setButtonOk() {
+		this.Button = new Button(shell, SWT.CENTER);
+	}
+
+	public void setButtonCancel() {
+		this.Button = new Button(shell, SWT.CENTER);
+	}
+
+	public void setLabelLietKe() {
+		this.Label = new Label(shell, SWT.LEFT);
 	}
 
 	public static void main(String args[]) {

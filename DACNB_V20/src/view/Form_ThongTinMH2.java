@@ -1,4 +1,5 @@
 package view;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
@@ -6,30 +7,30 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-
 public class Form_ThongTinMH2 {
+	Display display;
+	Shell shell;
+	Label Label;
+	Button Button;
+	Text Text;
 
-	public Form_ThongTinMH2(){
+	public Form_ThongTinMH2() {
+		setDisplay();
 
-		Display display = new Display();
-		Shell shell = new Shell(display, SWT.CLOSE);
-		shell.setText("Thong Tin Mon Hoc");
-		shell.setSize(300, 180);
-		
-		Label NhapTen = new Label(shell, SWT.CENTER | SWT.BORDER);
-		NhapTen.setSize(120, 20);
-		NhapTen.setText("Thong Tin Mon Hoc");
-		NhapTen.setLocation(80, 20);
-		
-		Text textbox = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.BORDER | SWT.V_SCROLL);
-		textbox.setSize(160, 40);
-		textbox.setLocation(60, 55);
-		
-		Button Thoat = new Button(shell, SWT.CENTER);
-		Thoat.setSize(50, 25);
-		Thoat.setText("Thoat");
-		Thoat.setLocation(200, 110);
-		
+		setLabel();
+		this.Label.setSize(120, 20);
+		this.Label.setText("Thong Tin Mon Hoc");
+		this.Label.setLocation(80, 20);
+
+		setTextbox();
+		this.Text.setSize(160, 40);
+		this.Text.setLocation(60, 55);
+
+		setButton();
+		this.Button.setSize(50, 25);
+		this.Button.setText("Thoat");
+		this.Button.setLocation(200, 110);
+
 		shell.open();
 
 		while (!shell.isDisposed()) {
@@ -39,10 +40,29 @@ public class Form_ThongTinMH2 {
 		display.dispose();
 	}
 
+	public void setDisplay() {
+		this.display = new Display();
+		this.shell = new Shell(display, SWT.CLOSE);
+		this.shell.setText("Thong Tin Mon Hoc");
+		this.shell.setSize(300, 180);
+	}
+
+	public void setLabel() {
+		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+	}
+
+	public void setTextbox() {
+		this.Text = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.BORDER
+				| SWT.V_SCROLL);
+	}
+
+	public void setButton() {
+		this.Button = new Button(shell, SWT.CENTER);
+	}
+
 	public static void main(String args[]) {
 		new Form_ThongTinMH2();
-		
-	}
-	
-}
 
+	}
+
+}

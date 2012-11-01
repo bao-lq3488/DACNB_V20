@@ -1,4 +1,5 @@
 package view;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
@@ -7,36 +8,38 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_XoaSua2 {
+	Display display;
+	Shell shell;
+	Label Label;
+	Text Text;
+	Button Button;
+
 	public Form_XoaSua2() {
+		setDisplay();
 
-		Display display = new Display();
-		Shell shell = new Shell(display, SWT.CLOSE);
-		shell.setText("Xoa");
-		shell.setSize(300, 180);
+		setLabelThongTin();
+		this.Label.setText("Thong Tin Mon Hoc");
+		this.Label.setSize(120, 20);
+		this.Label.setLocation(80, 20);
 
-		Label Thongtin = new Label(shell, SWT.CENTER | SWT.BORDER);
-		Thongtin.setText("Thong Tin Mon Hoc");
-		Thongtin.setSize(120, 20);
-		Thongtin.setLocation(80, 20);
+		setTextbox();
+		this.Text.setSize(170, 40);
+		this.Text.setLocation(60, 50);
 
-		Text textbox = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.V_SCROLL | SWT.BORDER);
-		textbox.setSize(170, 40);
-		textbox.setLocation(60, 50);
+		setButtonSua();
+		this.Button.setSize(50, 25);
+		this.Button.setLocation(60, 110);
+		this.Button.setText("Sua");
 
-		Button Sua = new Button(shell, SWT.CENTER);
-		Sua.setSize(50, 25);
-		Sua.setLocation(60, 110);
-		Sua.setText("Sua");
+		setButtonXoa();
+		this.Button.setSize(50, 25);
+		this.Button.setLocation(120, 110);
+		this.Button.setText("Xoa");
 
-		Button Xoa = new Button(shell, SWT.CENTER);
-		Xoa.setSize(50, 25);
-		Xoa.setLocation(120, 110);
-		Xoa.setText("Xoa");
-
-		Button Cancel = new Button(shell, SWT.CENTER);
-		Cancel.setSize(50, 25);
-		Cancel.setLocation(180, 110);
-		Cancel.setText("Cancel");
+		setButtonCancel();
+		this.Button.setSize(50, 25);
+		this.Button.setLocation(180, 110);
+		this.Button.setText("Cancel");
 
 		shell.open();
 
@@ -45,6 +48,35 @@ public class Form_XoaSua2 {
 				display.sleep();
 		}
 		display.dispose();
+	}
+
+	public void setDisplay() {
+		this.display = new Display();
+		this.shell = new Shell(display, SWT.CLOSE);
+		this.shell.setText("Xoa");
+		this.shell.setSize(300, 180);
+
+	}
+
+	public void setLabelThongTin() {
+		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+	}
+
+	public void setTextbox() {
+		this.Text = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.V_SCROLL
+				| SWT.BORDER);
+	}
+
+	public void setButtonSua() {
+		this.Button = new Button(shell, SWT.CENTER);
+	}
+
+	public void setButtonXoa() {
+		this.Button = new Button(shell, SWT.CENTER);
+	}
+
+	public void setButtonCancel() {
+		this.Button = new Button(shell, SWT.CENTER);
 	}
 
 	public static void main(String args[]) {

@@ -10,28 +10,31 @@ import org.eclipse.swt.widgets.Text;
 public class Form_ThemSV {
 	Display display;
 	Shell shell;
+	Label Label;
+	Text Text;
+	Button Button;
 
 	public Form_ThemSV() {
-		setDisPlay();
+		setDisplay();
 
-		Label ThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
-		ThongTin.setText("Nhap Thong Tin Can Them");
-		ThongTin.setLocation(60, 20);
-		ThongTin.setSize(160, 20);
+		setLabelThongTin();
+		this.Label.setText("Nhap Thong Tin Can Them");
+		this.Label.setLocation(60, 20);
+		this.Label.setSize(160, 20);
 
-		Text textbox = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
-		textbox.setLocation(45, 50);
-		textbox.setSize(200, 70);
+		setTextbox();
+		this.Text.setLocation(45, 50);
+		this.Text.setSize(200, 70);
 
-		Button Ok = new Button(shell, SWT.CENTER);
-		Ok.setSize(50, 25);
-		Ok.setLocation(140, 130);
-		Ok.setText("Ok");
+		setButtonOk();
+		this.Button.setSize(50, 25);
+		this.Button.setLocation(140, 130);
+		this.Button.setText("Ok");
 
-		Button Cancel = new Button(shell, SWT.CENTER);
-		Cancel.setSize(50, 25);
-		Cancel.setLocation(200, 130);
-		Cancel.setText("Cancel");
+		setButtonCancel();
+		this.Button.setSize(50, 25);
+		this.Button.setLocation(200, 130);
+		this.Button.setText("Cancel");
 
 		shell.open();
 
@@ -42,11 +45,27 @@ public class Form_ThemSV {
 		display.dispose();
 	}
 
-	public void setDisPlay() {
+	public void setDisplay() {
 		this.display = new Display();
 		this.shell = new Shell(display, SWT.CLOSE);
 		this.shell.setText("Them Sinh Vien");
 		this.shell.setSize(300, 200);
+	}
+
+	public void setLabelThongTin() {
+		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+	}
+
+	public void setTextbox() {
+		this.Text = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
+	}
+
+	public void setButtonOk() {
+		this.Button = new Button(shell, SWT.CENTER);
+	}
+
+	public void setButtonCancel() {
+		this.Button = new Button(shell, SWT.CENTER);
 	}
 
 	public static void main(String args[]) {
