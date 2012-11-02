@@ -6,20 +6,14 @@ import java.sql.SQLException;
 
 public class ConnectionJDBC {
 
-	private Connection connection = null;
-	public Connection getConnection() {
-		return connection;
-	}
-
-	private String driverName;
-	private String serverName;
-	private String portNumber;
-	private String sid;
-	private String username;
-	private String password;
-
-	private String url = "jdbc:oracle:thin:@" + this.getServerName() + ":"
-			+ this.getPortNumber() + ":" + this.getSid();
+	Connection connection = null;
+	String driverName;
+	String serverName;
+	String portNumber;
+	String sid;
+	public String username;
+	public String password;
+	public String url;
 
 	public String getDriverName() {
 		return driverName;
@@ -70,14 +64,20 @@ public class ConnectionJDBC {
 	}
 
 	public ConnectionJDBC(String driverName, String serverName,
-			String portNumber, String sid, String username, String password) {
+			String portNumber, String sid, String username, String password,
+			Connection connection) {
 		super();
+		this.connection = connection;
 		this.driverName = driverName;
 		this.serverName = serverName;
 		this.portNumber = portNumber;
 		this.sid = sid;
 		this.username = username;
 		this.password = password;
+
+		url = "jdbc:oracle:thin:@" + this.getServerName() + ":"
+				+ this.getPortNumber() + ":" + this.getSid();
+
 	}
 
 	public boolean doConnection() {
@@ -95,6 +95,13 @@ public class ConnectionJDBC {
 			return false;
 		}
 		return true;
+	}
+	public ConnectionJDBC getConnection() throws SQLException{
+		ConnectionJDBC conn = null;
+		url = "jdbc:oracle:thin:@" + this.getServerName() + ":"
+				+ this.getPortNumber() + ":" + this.getSid();
+		conn = (ConnectionJDBC) DriverManager.getConnection(url, this.getUsername(), this.getPassword());
+		return conn;
 	}
 
 }
