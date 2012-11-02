@@ -4,44 +4,40 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Form_AWT_Login {
+public class Form_AWT_InDSSV {
 	public static void main(String[] args) {
-		JFrame frame = new LoginFrame();
+		JFrame frame = new InDSSVFrame();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
 
-class LoginFrame extends JFrame implements ActionListener {
+class InDSSVFrame extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton login;
+	JButton ok;
 	JButton cancel;
-	JTextField t2;
 	JTextField t1;
 	JLabel l1;
 	JLabel l2;
-	JLabel l3;
 
-	public LoginFrame() {
+	public InDSSVFrame() {
 		setSize(320, 230);
-		setTitle("Login Form");
+		setTitle("InDanhSachSinhVien");
 		setResizable(false);
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		login = new JButton("Login");
+		ok = new JButton("Submit");
 		cancel = new JButton("Cancel");
-		t1 = new JTextField(20);
-		t2 = new JPasswordField(20);
-		l1 = new JLabel("Welcome");
-		l2 = new JLabel("Username : ");
-		l3 = new JLabel("Password : ");
+		t1 = new JTextField(25);
+		l1 = new JLabel("InDanhSachSinhVien");
+		l2 = new JLabel("NhapTenMonHoc: ");
 
-		login.addActionListener(this);
+		ok.addActionListener(this);
 		cancel.addActionListener(this);
 
 		contentPane.add(panel1, "North");
@@ -50,31 +46,23 @@ class LoginFrame extends JFrame implements ActionListener {
 		panel1.add(l1);
 		panel2.add(l2);
 		panel2.add(t1);
-		panel2.add(l3);
-		panel2.add(t2);
-		panel2.add(login);
+		panel2.add(ok);
 		panel2.add(cancel);
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		String Username = t1.getText();
-		String Password = t2.getText();
+		String Ok = t1.getText();
 
-		if (e.getSource() == login) {
-			if (Username.equals("") && Password.equals("")) {
+		if (e.getSource() == ok) {
+			if (Ok.equals("")) {
 				JOptionPane.showMessageDialog(null,
-						"Enter Username or Password", "Error",
+						"Enter The Name of Subject", "Error",
 						JOptionPane.ERROR_MESSAGE);
-			}
-			if (Password.equals("")) {
-				JOptionPane.showMessageDialog(null, "Enter Your Password",
-						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		if (e.getSource() == cancel) {
-			JOptionPane.showMessageDialog(this, "Thanks");
 			System.exit(0);
 		}
 
