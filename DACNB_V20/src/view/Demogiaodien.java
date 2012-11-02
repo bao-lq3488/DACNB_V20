@@ -1,11 +1,15 @@
 package view;
 
-import javax.swing.JOptionPane;
-
-import org.eclipse.swt.*;
-import org.eclipse.swt.widgets.*;
-
-import controller.User;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 
 public class Demogiaodien {
 
@@ -76,12 +80,12 @@ public class Demogiaodien {
 //					messageBox.setText("Login Form");
 //					messageBox.setMessage("Welcome: " + textacc.getText());
 //					messageBox.open();
-					User user = new User();
-					if (user.checkLogin(username, password)){
+				//	User user = new User();
+					//if (user.checkLogin(username, password)){
 						// hello welcome
 					}
 				}
-			}
+			
 		});
 		
 
