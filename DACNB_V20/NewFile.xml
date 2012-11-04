@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN">
+<hibernate-maping>
+	<class table="SinhVien" Name="DACNB.V20.QL091A.SinhVien">
+		<id name="id" columm="ID" type="long">
+			<generator class="assigned"/>
+		</id>
+		<property name="name"> 
+			<column name="NAME"/> 
+		</property> 
+		<property name="birth"> 
+			<column name="BIRTH"/> 
+		</property> 
+		<property name="email"> 
+			<column name="EMAIL"/> 
+		</property>
+		<property name="schoolyear"> 
+			<column name="SCHOOLYEAR"/>
+		</property>
+		<property name="address"> 
+			<column name="ADDRESS"/> 
+		</property>  
+	</class>
