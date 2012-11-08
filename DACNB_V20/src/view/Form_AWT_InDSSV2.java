@@ -31,11 +31,11 @@ class InDSSV2Frame extends JFrame implements ActionListener {
 		panel2 = new JPanel();
 		
 		
-		print = new JButton("Print");
-		exit = new JButton("Exit");
+		print = new JButton("In");
+		exit = new JButton("Thoát");
 		t1 = new JTextField(25);
 		t1.setText("DanhSachSinhVien");
-		l1 = new JLabel("InDanhSachSinhVien");
+		l1 = new JLabel("In Danh Sách Sinh Viên");
 
 		exit.addActionListener(this);
 	

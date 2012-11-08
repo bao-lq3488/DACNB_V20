@@ -27,7 +27,6 @@ class THEMSVFrame extends JFrame implements ActionListener {
 	JTextField t6;
 	JTextField t7;
 	JTextField t8;
-	JLabel l1;
 	JLabel l2;
 	JLabel l3;
 	JLabel l4;
@@ -38,14 +37,14 @@ class THEMSVFrame extends JFrame implements ActionListener {
 
 	public THEMSVFrame() {
 		setSize(400, 420);
-		setTitle("ThemMSinhVien");
+		setTitle("ThemSinhVien");
 		setResizable(false);
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		add = new JButton("Them");
-		cancel = new JButton("Cancel");
+		add = new JButton("Thêm");
+		cancel = new JButton("Hủy Bỏ");
 		t1 = new JTextField(20);
 		t2 = new JTextField(20);
 		t3 = new JTextField(20);
@@ -54,22 +53,21 @@ class THEMSVFrame extends JFrame implements ActionListener {
 		t6 = new JTextField(20);
 		t7 = new JTextField(20);
 		t8 = new JTextField(20);
-		l1 = new JLabel("ThemSinhVien");
-		l2 = new JLabel("TenSV");
-		l3 = new JLabel("MaSoSinhVien");
-		l4 = new JLabel("NgayThangNamSinh");
-		l5 = new JLabel("DiaChi");
-		l6 = new JLabel("Nganh");
-		l7 = new JLabel("Lop");
-		l8 = new JLabel("KhoaHoc");
+		l2 = new JLabel("Tên Sinh Viên");
+		l3 = new JLabel("Mã Số Sinh Viên");
+		l4 = new JLabel("Ngày Tháng Năm Sinh");
+		l5 = new JLabel("Địa Chỉ");
+		l6 = new JLabel("Ngành");
+		l7 = new JLabel("Lớp");
+		l8 = new JLabel("Khóa Học");
 
 		add.addActionListener(this);
 		cancel.addActionListener(this);
 
-		contentPane.add(panel1, "North");
-		contentPane.add(panel2, "Center");
+		contentPane.add(panel2);
+		
+		panel2.setLayout(new GridLayout(8, 2));
 
-		panel1.add(l1);
 		panel2.add(l2);
 		panel2.add(t1);
 		panel2.add(l3);
@@ -102,7 +100,7 @@ class THEMSVFrame extends JFrame implements ActionListener {
 			if (add1.equals("") && add2.equals("") && add3.equals("")
 					&& add4.equals("") && add5.equals("") && add6.equals("")
 					&& add7.equals("") && add8.equals("")) {
-				JOptionPane.showMessageDialog(null, "Enter Full Information",
+				JOptionPane.showMessageDialog(null, "Điền Đầy Đủ Thông Tin Sinh Viên",
 						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}

@@ -30,11 +30,11 @@ class CapNhatDiemMonHoc2Frame extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		update = new JButton("Update");
-		cancel = new JButton("Cancel");
+		update = new JButton("Cập Nhật");
+		cancel = new JButton("Hủy Bỏ");
 		t1 = new JTextField(25);
 		t1.setText("InDanhSachSinhVienMonHoc");
-		l1 = new JLabel("CapNhatDiemMonHoc");
+		l1 = new JLabel("Cập Nhật Điểm Môn Học");
 
 		update.addActionListener(this);
 		cancel.addActionListener(this);
@@ -52,8 +52,8 @@ class CapNhatDiemMonHoc2Frame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == update) {
-			JOptionPane.showMessageDialog(this, "Are You Sure", "ChuY",
-					JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Đã Cập Nhật Thành Công", "Complete",
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 
 		if (e.getSource() == cancel) {

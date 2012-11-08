@@ -31,11 +31,11 @@ class InDSSVFrame extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		ok = new JButton("Submit");
-		cancel = new JButton("Cancel");
+		ok = new JButton("Đồng Ý");
+		cancel = new JButton("Hủy Bỏ");
 		t1 = new JTextField(25);
-		l1 = new JLabel("InDanhSachSinhVien");
-		l2 = new JLabel("NhapTenMonHoc: ");
+		l1 = new JLabel("In Danh Sách Sinh Viên");
+		l2 = new JLabel("Nhập Tên Môn Học: ");
 
 		ok.addActionListener(this);
 		cancel.addActionListener(this);
@@ -58,7 +58,7 @@ class InDSSVFrame extends JFrame implements ActionListener {
 		if (e.getSource() == ok) {
 			if (Ok.equals("")) {
 				JOptionPane.showMessageDialog(null,
-						"Enter The Name of Subject", "Error",
+						"Chưa Nhập Tên Môn Học", "Error",
 						JOptionPane.ERROR_MESSAGE);
 			}
 		}

@@ -33,8 +33,8 @@ class LoginFrame extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		login = new JButton("Login");
-		cancel = new JButton("Cancel");
+		login = new JButton("Đăng Nhập");
+		cancel = new JButton("Hủy Bỏ");
 		t1 = new JTextField(20);
 		t2 = new JPasswordField(20);
 		l1 = new JLabel("Welcome");
