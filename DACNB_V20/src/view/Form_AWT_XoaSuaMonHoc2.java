@@ -18,6 +18,7 @@ class XoaSuaMonHoc2Frame extends JFrame implements ActionListener {
 	JPanel panel2;
 	JButton del;
 	JButton edit;
+	JButton back;
 	JButton cancel;
 	JTextField t1;
 	JLabel l1;
@@ -31,12 +32,13 @@ class XoaSuaMonHoc2Frame extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		del = new JButton("Delete");
-		edit = new JButton("Edit");
-		cancel = new JButton("Cancel");
+		del = new JButton("Xóa");
+		edit = new JButton("Sửa");
+		cancel = new JButton("Thoát");
+		back = new JButton("Quay Lại");
 		t1 = new JTextField(25);
-		t1.setText("InThongTinSMonHoc");
-		l1 = new JLabel("XoaSuaMonHoc");
+		t1.setText("InThongTinMonHoc");
+		l1 = new JLabel("Xóa Sửa Môn Học");
 
 		del.addActionListener(this);
 		edit.addActionListener(this);
@@ -49,6 +51,7 @@ class XoaSuaMonHoc2Frame extends JFrame implements ActionListener {
 		panel2.add(t1);
 		panel2.add(del);
 		panel2.add(edit);
+		panel2.add(back);
 		panel2.add(cancel);
 
 	}

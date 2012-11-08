@@ -18,7 +18,7 @@ class THEMSVFrame extends JFrame implements ActionListener {
 	JPanel panel1;
 	JPanel panel2;
 	JButton add;
-	JButton cancel;
+	JButton back;
 	JTextField t1;
 	JTextField t2;
 	JTextField t3;
@@ -44,7 +44,7 @@ class THEMSVFrame extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 		add = new JButton("Thêm");
-		cancel = new JButton("Hủy Bỏ");
+		back = new JButton("Quay Lại");
 		t1 = new JTextField(20);
 		t2 = new JTextField(20);
 		t3 = new JTextField(20);
@@ -62,7 +62,7 @@ class THEMSVFrame extends JFrame implements ActionListener {
 		l8 = new JLabel("Khóa Học");
 
 		add.addActionListener(this);
-		cancel.addActionListener(this);
+		back.addActionListener(this);
 
 		contentPane.add(panel2);
 		
@@ -83,7 +83,7 @@ class THEMSVFrame extends JFrame implements ActionListener {
 		panel2.add(l8);
 		panel2.add(t8);
 		panel2.add(add);
-		panel2.add(cancel);
+		panel2.add(back);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -104,9 +104,6 @@ class THEMSVFrame extends JFrame implements ActionListener {
 						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-
-		if (e.getSource() == cancel)
-			System.exit(0);
 	}
 
 }
