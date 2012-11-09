@@ -95,13 +95,12 @@ public class SinhVien {
 				sv.setKhoaHoc(rs.getString("KHOAHOC"));
 				sv.setLop(rs.getString("LOP"));
 				sv.setNganh(rs.getString("IDNGANH"));
-				 System.out.println(sv.getIDSinhVien() + "     "
-				 + sv.getTenSinhVien() + "    " + sv.getNgaySinh()
-				 + "   " + sv.getDiaChi() + "    " + sv.getKhoaHoc()
-				 + "    " + sv.getLop() + "   " + sv.getNganh());
+				System.out.println(sv.getIDSinhVien() + "     "
+						+ sv.getTenSinhVien() + "    " + sv.getNgaySinh()
+						+ "   " + sv.getDiaChi() + "    " + sv.getKhoaHoc()
+						+ "    " + sv.getLop() + "   " + sv.getNganh());
 				svList.add(sv);
 			}
-	
 
 		} catch (SQLException e) {
 			e.printStackTrace();

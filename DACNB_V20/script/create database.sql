@@ -2,3 +2,5 @@
  create database QuanLySinhVien
  use QuanLySinhVien
  go
+ 
+ -- Oracle hay SQL Server???
