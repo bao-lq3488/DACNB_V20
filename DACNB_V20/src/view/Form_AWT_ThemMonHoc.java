@@ -18,7 +18,7 @@ class THEMMHFrame extends JFrame implements ActionListener {
 	JPanel panel1;
 	JPanel panel2;
 	JButton add;
-	JButton cancel;
+	JButton back;
 	JTextField t1;
 	JTextField t2;
 	JTextField t3;
@@ -26,7 +26,6 @@ class THEMMHFrame extends JFrame implements ActionListener {
 	JTextField t5;
 	JTextField t6;
 	JTextField t7;
-	JLabel l1;
 	JLabel l2;
 	JLabel l3;
 	JLabel l4;
@@ -42,8 +41,8 @@ class THEMMHFrame extends JFrame implements ActionListener {
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		add = new JButton("Them");
-		cancel = new JButton("Cancel");
+		add = new JButton("Thêm");
+		back = new JButton("Quay Lại");
 		t1 = new JTextField(20);
 		t2 = new JTextField(20);
 		t3 = new JTextField(20);
@@ -51,21 +50,20 @@ class THEMMHFrame extends JFrame implements ActionListener {
 		t5 = new JTextField(20);
 		t6 = new JTextField(20);
 		t7 = new JTextField(20);
-		l1 = new JLabel("ThemMonHoc");
-		l2 = new JLabel("TenMH");
-		l3 = new JLabel("KyHieuMonHoc");
-		l4 = new JLabel("SoTC");
-		l5 = new JLabel("TongSoTiet");
-		l6 = new JLabel("Nganh");
-		l7 = new JLabel("KhoaHoc");
+		l2 = new JLabel("Tên Môn Học");
+		l3 = new JLabel("Ký Hiệu Môn Học");
+		l4 = new JLabel("Số Tín Chỉ");
+		l5 = new JLabel("Tổng Số Tiết");
+		l6 = new JLabel("Ngành");
+		l7 = new JLabel("Khóa Học");
 
 		add.addActionListener(this);
-		cancel.addActionListener(this);
+		back.addActionListener(this);
 
-		contentPane.add(panel1, "North");
-		contentPane.add(panel2, "Center");
-
-		panel1.add(l1);
+		contentPane.add(panel2);
+		
+		panel2.setLayout(new GridLayout(7, 2));
+		
 		panel2.add(l2);
 		panel2.add(t1);
 		panel2.add(l3);
@@ -79,7 +77,7 @@ class THEMMHFrame extends JFrame implements ActionListener {
 		panel2.add(l7);
 		panel2.add(t7);
 		panel2.add(add);
-		panel2.add(cancel);
+		panel2.add(back);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -95,13 +93,10 @@ class THEMMHFrame extends JFrame implements ActionListener {
 			if (add1.equals("") && add2.equals("") && add3.equals("")
 					&& add4.equals("") && add5.equals("") && add6.equals("")
 					&& add7.equals("")) {
-				JOptionPane.showMessageDialog(null, "Enter Full Information",
+				JOptionPane.showMessageDialog(null, "Điền Đầy Đủ Thông Tin Môn Học",
 						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-
-		if (e.getSource() == cancel)
-			System.exit(0);
 	}
 
 }

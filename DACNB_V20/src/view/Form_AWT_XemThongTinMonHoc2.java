@@ -17,6 +17,7 @@ class XemThongTinMonHoc2Frame extends JFrame implements ActionListener {
 	JPanel panel1;
 	JPanel panel2;
 	JButton exit;
+	JButton back;
 	JTextField t1;
 	JLabel l1;
 
@@ -29,10 +30,11 @@ class XemThongTinMonHoc2Frame extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		exit = new JButton("Exit");
+		exit = new JButton("Thoát");
+		back = new JButton("Quay Lại");
 		t1 = new JTextField(25);
 		t1.setText("InThongTinSMonHoc");
-		l1 = new JLabel("XemThongTinMonHoc");
+		l1 = new JLabel("Xem Thông Tin Môn Học");
 
 		exit.addActionListener(this);
 	
@@ -41,6 +43,7 @@ class XemThongTinMonHoc2Frame extends JFrame implements ActionListener {
 
 		panel1.add(l1);
 		panel2.add(t1);
+		panel2.add(back);
 		panel2.add(exit);
 
 

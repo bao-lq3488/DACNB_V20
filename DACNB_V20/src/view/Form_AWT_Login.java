@@ -33,8 +33,8 @@ class LoginFrame extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		login = new JButton("Login");
-		cancel = new JButton("Cancel");
+		login = new JButton("Đăng Nhập");
+		cancel = new JButton("Thoát");
 		t1 = new JTextField(20);
 		t2 = new JPasswordField(20);
 		l1 = new JLabel("Welcome");
@@ -74,7 +74,7 @@ class LoginFrame extends JFrame implements ActionListener {
 			}
 		}
 		if (e.getSource() == cancel) {
-			JOptionPane.showMessageDialog(this, "Thanks");
+			JOptionPane.showMessageDialog(this, "Cám Ơn Đã Sử Dụng Chương Trình Của Nhóm Ba Con Sói");
 			System.exit(0);
 		}
 
