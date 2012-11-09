@@ -4,7 +4,14 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Display;
+<<<<<<< HEAD
 import org.eclipse.swt.widgets.Label;
+=======
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.MessageBox;
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
@@ -57,6 +64,7 @@ public class Demogiaodien {
 		this.Button.setText("Login");
 		this.Button.setLocation(150, 130);
 		
+<<<<<<< HEAD
 //		 buttonOk.addListener(SWT.Selection, new Listener()) {
 //		 public void handleEvent(Event event) {
 //		 String username = textacc.getText();
@@ -91,6 +99,34 @@ public class Demogiaodien {
 //		 hello welcome
 //		 }
 //		});
+=======
+					
+					MessageBox messageBox = new MessageBox(shell, SWT.OK
+							| SWT.ICON_ERROR | SWT.CANCEL);
+					messageBox
+							.setMessage("Vui Long Khai Bao Username Va Password");
+					messageBox.open();
+				}
+				if (password == "") {
+					MessageBox messageBox = new MessageBox(shell, SWT.OK
+							| SWT.ICON_WARNING | SWT.CANCEL);
+					messageBox.setMessage("Nhap Password");
+					messageBox.open();
+				} else {
+//					MessageBox messageBox = new MessageBox(shell, SWT.OK
+//							| SWT.CANCEL);
+//					messageBox.setText("Login Form");
+//					messageBox.setMessage("Welcome: " + textacc.getText());
+//					messageBox.open();
+				//	User user = new User();
+					//if (user.checkLogin(username, password)){
+						// hello welcome
+					}
+				}
+			
+		});
+		
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 
 		setButtonCancel();
 		this.Button.setSize(50, 25);

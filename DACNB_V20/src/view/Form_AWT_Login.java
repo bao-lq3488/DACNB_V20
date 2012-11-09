@@ -31,6 +31,7 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 
 		btnLogin = new JButton("Login");
 		btnCancel = new JButton("Cancel");
+
 		t1 = new JTextField(20);
 		t2 = new JPasswordField(20);
 		l1 = new JLabel("Welcome");
@@ -60,24 +61,11 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 		} else {
 			JOptionPane.showMessageDialog(this, "Cancel");
 		}
-		// String Username = t1.getText();
-		// String Password = t2.getText();
-		//
-		// if (e.getSource() == login) {
-		// if (Username.equals("") && Password.equals("")) {
-		// JOptionPane.showMessageDialog(null,
-		// "Enter Username or Password", "Error",
-		// JOptionPane.ERROR_MESSAGE);
-		// }
-		// if (Password.equals("")) {
-		// JOptionPane.showMessageDialog(null, "Enter Your Password",
-		// "Error", JOptionPane.ERROR_MESSAGE);
-		// }
-		// }
-		// if (e.getSource() == cancel) {
-		// JOptionPane.showMessageDialog(this, "Thanks");
-		// System.exit(0);
-		// }
+
+		if (e.getSource() == "cancel") {
+			JOptionPane.showMessageDialog(this, "");
+			System.exit(0);
+		}
 
 	}
 

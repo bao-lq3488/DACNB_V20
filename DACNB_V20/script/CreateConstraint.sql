@@ -6,7 +6,7 @@ alter table SINHVIEN add constraint SINHVIEN_IDSINHVIEN_UNI UNIQUE (IDSINHVIEN);
 /*-------------------TABLE MON-----------------*/
 alter table MON add constraint MON_idmon_pk primary key (IDMON);
 alter table MON add constraint MON_idsinhvien_fk foreign key (IDSINHVIEN) references SINHVIEN(IDSINHVIEN);
-alter table MON Add constraint MON_IDkhoa_fk foreign key (IDKhoa) references Khoa(IDKHOA);
+alter table MON add constraint MON_IDkhoa_fk foreign key (IDKhoa) references Khoa(IDKHOA);
 alter table MON add constraint MON_idMon_UNI UNIQUE (IDMON);
 
 /*--------------------TABLE NGANH---------------*/
