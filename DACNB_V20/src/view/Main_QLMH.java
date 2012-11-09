@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.MenuBar;
+
 import org.eclipse.swt.*;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
@@ -10,72 +12,76 @@ import org.eclipse.swt.widgets.Text;
 public class Main_QLMH {
 	Display display;
 	Shell shell;
+	Menu menu2, menu, menu3;
+	MenuItem menuItem, menu2Item, menu3Item;
 
 	public Main_QLMH() {
 		setDisplay();
+		
+		setMenuBar();
+		this.shell.setMenuBar(menu);
+		
+		setTabQLMH();
+		this.menuItem.setText("QLMH");
 
-		Menu menu = new Menu(shell, SWT.BAR);
-		shell.setMenuBar(menu);
+		menuQLMH();
+		this.menuItem.setMenu(menu);
 
-		MenuItem QLMH = new MenuItem(menu, SWT.CASCADE);
-		QLMH.setText("QLMH");
-		Menu menuQLMH = new Menu(shell, SWT.DROP_DOWN);
-		QLMH.setMenu(menuQLMH);
+		setLietKeMH_QLMH();
+		this.menuItem.setText("Liet Ke");
 
-		MenuItem LietKe_QLMH = new MenuItem(menuQLMH, SWT.PUSH);
-		LietKe_QLMH.setText("Liet Ke");
+		setThemMH_QLMH();
+		this.menuItem.setText("Them");
 
-		MenuItem Them_QLMH = new MenuItem(menuQLMH, SWT.PUSH);
-		Them_QLMH.setText("Them");
+		setXoaMH_QLMH();
+		this.menuItem.setText("Xoa");
 
-		MenuItem Xoa_QLMH = new MenuItem(menuQLMH, SWT.PUSH);
-		Xoa_QLMH.setText("Xoa");
+		setSuaMH_QLMH();
+		this.menuItem.setText("Sua");
 
-		MenuItem Sua_QLMH = new MenuItem(menuQLMH, SWT.PUSH);
-		Sua_QLMH.setText("Sua");
+		setXemMH_QLMH();
+		this.menuItem.setText("Xem");
 
-		MenuItem Xem_QLMH = new MenuItem(menuQLMH, SWT.PUSH);
-		Xem_QLMH.setText("Xem");
+		setCapNhat_QLMH();
+		this.menuItem.setText("Cap Nhat Diem");
 
-		MenuItem CapNhat_QLMH = new MenuItem(menuQLMH, SWT.PUSH);
-		CapNhat_QLMH.setText("Cap Nhat Diem");
+		setTabQLSV();
+		this.menuItem.setText("QLSV");
 
-		MenuItem QLSV = new MenuItem(menu, SWT.CASCADE);
-		QLSV.setText("QLSV");
-		Menu menuQLSV = new Menu(shell, SWT.DROP_DOWN);
-		QLSV.setMenu(menuQLSV);
+		menuQLSV();
+		this.menuItem.setMenu(menu);
 
-		MenuItem LietKe_QLSV = new MenuItem(menuQLSV, SWT.PUSH);
-		LietKe_QLSV.setText("Liet Ke");
+		setLietKeMH_QLSV();
+		this.menuItem.setText("Liet Ke");
 
-		MenuItem Them_QLSV = new MenuItem(menuQLSV, SWT.PUSH);
-		Them_QLSV.setText("Them");
+		setThemMH_QLSV();
+		this.menuItem.setText("Them");
 
-		MenuItem Xoa_QLSV = new MenuItem(menuQLSV, SWT.PUSH);
-		Xoa_QLSV.setText("Xoa");
+		setXoaMH_QLSV();
+		this.menuItem.setText("Xoa");
 
-		MenuItem Sua_QLSV = new MenuItem(menuQLSV, SWT.PUSH);
-		Sua_QLSV.setText("Sua");
+		setSuaMH_QLSV();
+		this.menuItem.setText("Sua");
 
-		MenuItem Xem_QLSV = new MenuItem(menuQLSV, SWT.PUSH);
-		Xem_QLSV.setText("Xem");
+		setXemMH_QLSV();
+		this.menuItem.setText("Xem");
 
-		MenuItem CapNhat_QLSV = new MenuItem(menuQLSV, SWT.PUSH);
-		CapNhat_QLSV.setText("Cap Nhat Diem");
+		setCapNhat_QLSV();
+		this.menuItem.setText("Cap Nhat Diem");
 
-		MenuItem InAn = new MenuItem(menu, SWT.CASCADE);
-		InAn.setText("In An");
-		Menu menuInAn = new Menu(shell, SWT.DROP_DOWN);
-		InAn.setMenu(menuInAn);
-
-		MenuItem DSSV = new MenuItem(menuInAn, SWT.PUSH);
-		DSSV.setText("Danh Sach SV");
-
-		MenuItem DiemMH = new MenuItem(menuInAn, SWT.PUSH);
-		DiemMH.setText("Diem Mon Hoc");
-
-		MenuItem DiemSV = new MenuItem(menuInAn, SWT.PUSH);
-		DiemSV.setText("Diem Sinh Vien");
+		// MenuItem InAn = new MenuItem(menu, SWT.CASCADE);
+		// InAn.setText("In An");
+		// Menu menuInAn = new Menu(shell, SWT.DROP_DOWN);
+		// InAn.setMenu(menuInAn);
+		//
+		// MenuItem DSSV = new MenuItem(menuInAn, SWT.PUSH);
+		// DSSV.setText("Danh Sach SV");
+		//
+		// MenuItem DiemMH = new MenuItem(menuInAn, SWT.PUSH);
+		// DiemMH.setText("Diem Mon Hoc");
+		//
+		// MenuItem DiemSV = new MenuItem(menuInAn, SWT.PUSH);
+		// DiemSV.setText("Diem Sinh Vien");
 
 		shell.open();
 
@@ -92,6 +98,74 @@ public class Main_QLMH {
 		this.shell.setText("Quan Ly Sinh Vien");
 		this.shell.setSize(400, 300);
 
+	}
+
+	public void setMenuBar() {
+		this.menu = new Menu(shell, SWT.BAR);
+	}
+
+	public void setTabQLMH() {
+		this.menuItem = new MenuItem(menu, SWT.CASCADE);
+	}
+
+	public void menuQLMH() {
+		this.menu = new Menu(shell, SWT.DROP_DOWN);
+	}
+
+	public void setLietKeMH_QLMH() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setThemMH_QLMH() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setXoaMH_QLMH() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setSuaMH_QLMH() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setXemMH_QLMH() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setCapNhat_QLMH() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setTabQLSV() {
+		this.menu = new Menu(shell, SWT.CASCADE);
+	}
+
+	public void menuQLSV() {
+		this.menu = new Menu(shell, SWT.DROP_DOWN);
+	}
+
+	public void setLietKeMH_QLSV() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setThemMH_QLSV() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setXoaMH_QLSV() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setSuaMH_QLSV() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setXemMH_QLSV() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
+	}
+
+	public void setCapNhat_QLSV() {
+		this.menuItem = new MenuItem(menu, SWT.PUSH);
 	}
 
 	public static void main(String args[]) {

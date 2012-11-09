@@ -5,15 +5,11 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_ThemMonHoc {
-	public static void main(String[] args) {
-		JFrame frame = new THEMMHFrame();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-}
-
-class THEMMHFrame extends JFrame implements ActionListener {
+public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8054095306133526836L;
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
@@ -34,7 +30,7 @@ class THEMMHFrame extends JFrame implements ActionListener {
 	JLabel l6;
 	JLabel l7;
 
-	public THEMMHFrame() {
+	public Form_AWT_ThemMonHoc() {
 		setSize(400, 420);
 		setTitle("ThemMonHoc");
 		setResizable(false);
