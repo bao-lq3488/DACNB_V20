@@ -55,25 +55,27 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-//		String Login = t1.getText();
-//		String Pass = t2.getText();
-
-//		if (e.getSource() == btnLogin) {
-//			if (Login.equals("") && Pass.equals("")) {
-//				JOptionPane.showMessageDialog(null,
-//						"Nhap Ten Dang Nhap Va Mat Khau", "Error",
-//						JOptionPane.ERROR_MESSAGE);
-//			}
+		String Login = t1.getText();
+		String Pass = t2.getText();
 
 		if (e.getActionCommand().equals("Login")) {
-		 JFrame f = new Form_AWT_Main();
-		 f.setVisible(true);
-		 }
-		
-		if (e.getActionCommand().equals("Cancel")) {
-				System.exit(0);
+			if (e.getSource() == btnLogin) {
+				if (Login.equals("") && Pass.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Nhap Ten Dang Nhap Va Mat Khau", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
+
+				else {
+					JFrame f = new Form_AWT_Main();
+					f.setVisible(true);
+					this.setVisible(false);
+				}
 			}
 		}
+
+		if (e.getActionCommand().equals("Cancel")) {
+			System.exit(0);
+		}
 	}
-
-
+}
