@@ -2,7 +2,7 @@ package view;
 
 import javax.swing.SwingUtilities;
 
-public class QLSVMain {
+public class AWTMain {
 
 
 	public static void main(String[] args) {

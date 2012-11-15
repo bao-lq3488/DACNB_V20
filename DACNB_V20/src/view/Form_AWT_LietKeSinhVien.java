@@ -5,15 +5,11 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_LietKeSinhVien {
-	public static void main(String[] args) {
-		JFrame frame = new LietKeSVFrame();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-}
-
-class LietKeSVFrame extends JFrame implements ActionListener {
+public class Form_AWT_LietKeSinhVien extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
@@ -34,7 +30,7 @@ class LietKeSVFrame extends JFrame implements ActionListener {
 	JLabel l13;
 	JLabel l14;
 	
-	public LietKeSVFrame() {
+	public Form_AWT_LietKeSinhVien() {
 		setSize(1000, 420);
 		setTitle("LietKeSinhVien");
 		setResizable(false);

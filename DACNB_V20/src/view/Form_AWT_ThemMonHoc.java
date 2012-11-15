@@ -57,9 +57,9 @@ public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
 		back.addActionListener(this);
 
 		contentPane.add(panel2);
-		
+
 		panel2.setLayout(new GridLayout(7, 2));
-		
+
 		panel2.add(l2);
 		panel2.add(t1);
 		panel2.add(l3);
@@ -89,8 +89,9 @@ public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
 			if (add1.equals("") && add2.equals("") && add3.equals("")
 					&& add4.equals("") && add5.equals("") && add6.equals("")
 					&& add7.equals("")) {
-				JOptionPane.showMessageDialog(null, "Điền Đầy Đủ Thông Tin Môn Học",
-						"Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,
+						"Điền Đầy Đủ Thông Tin Môn Học", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

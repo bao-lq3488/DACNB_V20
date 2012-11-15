@@ -4,15 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Form_AWT_XoaSuaMonHoc {
-	public static void main(String[] args) {
-		JFrame frame = new XoaSuaMonHocFrame();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-}
-
-class XoaSuaMonHocFrame extends JFrame implements ActionListener {
+public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
@@ -23,7 +19,7 @@ class XoaSuaMonHocFrame extends JFrame implements ActionListener {
 	JLabel l1;
 	JLabel l2;
 
-	public XoaSuaMonHocFrame() {
+	public Form_AWT_XoaSuaMonHoc() {
 		setSize(320, 230);
 		setTitle("XoaSuaMonHoc");
 		setResizable(false);

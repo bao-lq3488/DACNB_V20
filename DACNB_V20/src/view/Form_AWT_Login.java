@@ -14,8 +14,8 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 	JPanel panel2;
 	JButton btnLogin;
 	JButton btnCancel;
-	JTextField t2;
 	JTextField t1;
+	JTextField t2;
 	JLabel l1;
 	JLabel l2;
 	JLabel l3;
@@ -55,18 +55,25 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+//		String Login = t1.getText();
+//		String Pass = t2.getText();
+
+//		if (e.getSource() == btnLogin) {
+//			if (Login.equals("") && Pass.equals("")) {
+//				JOptionPane.showMessageDialog(null,
+//						"Nhap Ten Dang Nhap Va Mat Khau", "Error",
+//						JOptionPane.ERROR_MESSAGE);
+//			}
+
 		if (e.getActionCommand().equals("Login")) {
-			JFrame f = new Form_AWT_ThemMonHoc();
-			f.setVisible(true);
-		} else {
-			JOptionPane.showMessageDialog(this, "Cancel");
+		 JFrame f = new Form_AWT_Main();
+		 f.setVisible(true);
+		 }
+		
+		if (e.getActionCommand().equals("Cancel")) {
+				System.exit(0);
+			}
 		}
-
-		if (e.getSource() == "cancel") {
-			JOptionPane.showMessageDialog(this, "");
-			System.exit(0);
-		}
-
 	}
 
-}
+

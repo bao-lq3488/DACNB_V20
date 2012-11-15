@@ -5,15 +5,11 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_LietKeMonHoc {
-	public static void main(String[] args) {
-		JFrame frame = new LietKeMHFrame();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-}
-
-class LietKeMHFrame extends JFrame implements ActionListener {
+public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
@@ -32,7 +28,7 @@ class LietKeMHFrame extends JFrame implements ActionListener {
 	JLabel l12;
 	JLabel l13;
 	
-	public LietKeMHFrame() {
+	public Form_AWT_LietKeMonHoc() {
 		setSize(800, 420);
 		setTitle("LietKeMonHoc");
 		setResizable(false);

@@ -5,15 +5,11 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_ThemSinhVien {
-	public static void main(String[] args) {
-		JFrame frame = new THEMSVFrame();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-}
-
-class THEMSVFrame extends JFrame implements ActionListener {
+public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
@@ -35,7 +31,7 @@ class THEMSVFrame extends JFrame implements ActionListener {
 	JLabel l7;
 	JLabel l8;
 
-	public THEMSVFrame() {
+	public Form_AWT_ThemSinhVien() {
 		setSize(400, 420);
 		setTitle("ThemSinhVien");
 		setResizable(false);

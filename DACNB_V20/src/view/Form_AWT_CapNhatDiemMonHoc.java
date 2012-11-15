@@ -4,15 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Form_AWT_CapNhatDiemMonHoc {
-	public static void main(String[] args) {
-		JFrame frame = new CapNhatDiemMonHocFrame();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-}
-
-class CapNhatDiemMonHocFrame extends JFrame implements ActionListener {
+public class Form_AWT_CapNhatDiemMonHoc extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
@@ -23,7 +19,7 @@ class CapNhatDiemMonHocFrame extends JFrame implements ActionListener {
 	JLabel l1;
 	JLabel l2;
 
-	public CapNhatDiemMonHocFrame() {
+	public Form_AWT_CapNhatDiemMonHoc() {
 		setSize(320, 230);
 		setTitle("CapNhatDiemMonHoc");
 		setResizable(false);

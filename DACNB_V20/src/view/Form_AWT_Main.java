@@ -5,87 +5,79 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_Main {
-	public static void main(String[] args) {
-		JFrame frame = new MainFrame();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+public class Form_AWT_Main extends JFrame implements ActionListener {
+		/**
+	 * 
+	 */
+		private static final long serialVersionUID = 1L;
+		Container contentPane;
+		JPanel panel1;
+		JPanel panel2;
+		JButton btnLietKeMH;
+		JButton btnThemMH;
+		JButton btnXoaSuaMH;
+		JButton btnXemTTMH;
+		JButton btnCapNhatDiemMH;
+		JButton btnLietKeSV;
+		JButton btnThemSV;
+		JButton btnXoaSuaSV;
+		JButton btnXemTTSV;
+		JButton btnInDSSV;
+		JButton btnCancel;
+
+		public Form_AWT_Main() {
+			setSize(400, 420);
+			setTitle("Main");
+			setResizable(false);
+
+			contentPane = getContentPane();
+			panel1 = new JPanel();
+			panel2 = new JPanel();
+			btnLietKeMH = new JButton("Liet Ke Mon Hoc");
+			btnThemMH = new JButton("Them Mon Hoc");
+			btnXoaSuaMH = new JButton("Xoa Sua Mon Hoc");
+			btnXemTTMH = new JButton("Xem Thong Tin Mon Hoc");
+			btnCapNhatDiemMH = new JButton("Cap Nhat Diem");
+			btnLietKeSV = new JButton("Liet Ke Sinh Vien");
+			btnThemSV = new JButton("Them Sinh Vien");
+			btnXoaSuaSV = new JButton("Xoa Sua Sinh Vien");
+			btnXemTTSV = new JButton("Xem Thong Tin Sinh Vien");
+			btnInDSSV = new JButton("In Danh Sach Sinh Vien");
+			btnCancel = new JButton("Thoat");
+
+			btnLietKeMH.addActionListener(this);
+			btnThemMH.addActionListener(this);
+			btnXoaSuaMH.addActionListener(this);
+			btnXemTTMH.addActionListener(this);
+			btnCapNhatDiemMH.addActionListener(this);
+			btnLietKeSV.addActionListener(this);
+			btnThemSV.addActionListener(this);
+			btnXoaSuaSV.addActionListener(this);
+			btnXemTTSV.addActionListener(this);
+			btnInDSSV.addActionListener(this);
+			btnCancel.addActionListener(this);
+
+			contentPane.add(panel2);
+
+			panel2.setLayout(new GridLayout(6, 2));
+
+			panel2.add(btnLietKeMH);
+			panel2.add(btnThemMH);
+			panel2.add(btnXoaSuaMH);
+			panel2.add(btnXemTTMH);
+			panel2.add(btnCapNhatDiemMH);
+			panel2.add(btnLietKeSV);
+			panel2.add(btnThemSV);
+			panel2.add(btnXoaSuaSV);
+			panel2.add(btnXemTTSV);
+			panel2.add(btnInDSSV);
+			panel2.add(btnCancel);
+		}
+
+		public void actionPerformed(ActionEvent e) {
+
+			if (e.getSource() == btnCancel)
+				System.exit(0);
+		}
+
 	}
-}
-
-class MainFrame extends JFrame implements ActionListener {
-	Container contentPane;
-	JPanel panel1;
-	JPanel panel2;
-	JButton lietkemh;
-	JButton themmh;
-	JButton xoasuamh;
-	JButton xemttmh;
-	JButton capnhatdiemmh;
-	JButton lietkesv;
-	JButton themsv;
-	JButton xoasuasv;
-	JButton xemttsv;
-	JButton indssv;
-	JButton cancel;
-	
-
-	public MainFrame() {
-		setSize(400, 420);
-		setTitle("Main");
-		setResizable(false);
-
-		contentPane = getContentPane();
-		panel1 = new JPanel();
-		panel2 = new JPanel();
-		lietkemh = new JButton("Liệt Kê Môn Học");
-		themmh = new JButton("Thêm Môn Học");
-		xoasuamh = new JButton("Xóa Sửa Môn Học");
-		xemttmh = new JButton("Xem Thông Tin Môn Học");
-		capnhatdiemmh = new JButton("Cập Nhật Điểm");
-		lietkesv = new JButton("Liệt Kê Sinh Viên");
-		themsv = new JButton("Thêm Sinh Viên");
-		xoasuasv = new JButton("Xóa Sửa Sinh Viên");
-		xemttsv = new JButton("Xem Thông Tin Sinh Viên");
-		indssv = new JButton("In Danh Sách Sinh Viên");
-		cancel = new JButton("Thoát");
-	
-
-		lietkemh.addActionListener(this);
-		themmh.addActionListener(this);
-		xoasuamh.addActionListener(this);
-		xemttmh.addActionListener(this);
-		capnhatdiemmh.addActionListener(this);
-		lietkesv.addActionListener(this);
-		themsv.addActionListener(this);
-		xoasuasv.addActionListener(this);
-		xemttsv.addActionListener(this);
-		indssv.addActionListener(this);
-		cancel.addActionListener(this);
-
-		contentPane.add(panel2);
-		
-		panel2.setLayout(new GridLayout(6, 2));
-		
-
-		panel2.add(lietkemh);
-		panel2.add(themmh);
-		panel2.add(xoasuamh);
-		panel2.add(xemttmh);
-		panel2.add(capnhatdiemmh);
-		panel2.add(lietkesv);
-		panel2.add(themsv);
-		panel2.add(xoasuasv);
-		panel2.add(xemttsv);
-		panel2.add(indssv);
-		panel2.add(cancel);
-	}
-
-	public void actionPerformed(ActionEvent e) {
-	
-
-		if (e.getSource() == cancel)
-			System.exit(0);
-	}
-
-}
