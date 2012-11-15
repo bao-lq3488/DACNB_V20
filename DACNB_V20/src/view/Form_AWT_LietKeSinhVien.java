@@ -13,8 +13,8 @@ public class Form_AWT_LietKeSinhVien extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton exit;
-	JButton back;
+	JButton btnExit;
+	JButton btnBack;
 	JLabel l1;
 	JLabel l2;
 	JLabel l3;
@@ -29,7 +29,7 @@ public class Form_AWT_LietKeSinhVien extends JFrame implements ActionListener {
 	JLabel l12;
 	JLabel l13;
 	JLabel l14;
-	
+
 	public Form_AWT_LietKeSinhVien() {
 		setSize(1000, 420);
 		setTitle("LietKeSinhVien");
@@ -38,8 +38,8 @@ public class Form_AWT_LietKeSinhVien extends JFrame implements ActionListener {
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		exit = new JButton("Thoát");
-		back = new JButton("Quay Lại");
+		btnExit = new JButton("Thoat");
+		btnBack = new JButton("Quay Lai");
 		l8 = new JLabel();
 		l9 = new JLabel();
 		l10 = new JLabel();
@@ -47,21 +47,21 @@ public class Form_AWT_LietKeSinhVien extends JFrame implements ActionListener {
 		l12 = new JLabel();
 		l13 = new JLabel();
 		l14 = new JLabel();
-		l1 = new JLabel("Tên Sinh Viên");
-		l2 = new JLabel("Mã Số Sinh Viên");
-		l3 = new JLabel("Ngày Tháng Năm Sinh");
-		l4 = new JLabel("Địa Chỉ");
-		l5 = new JLabel("Ngành");
-		l6 = new JLabel("Lớp");
-		l7 = new JLabel("Khóa Học");
+		l1 = new JLabel("Ten Sinh Vien");
+		l2 = new JLabel("Ma So Sinh Vien");
+		l3 = new JLabel("Ngay Thang Nam Sinh");
+		l4 = new JLabel("Đia Chi");
+		l5 = new JLabel("Nganh");
+		l6 = new JLabel("Lop");
+		l7 = new JLabel("Khoa Hoc");
 
-
-		exit.addActionListener(this);
+		btnBack.addActionListener(this);
+		btnExit.addActionListener(this);
 
 		contentPane.add(panel2);
-		
-		panel2.setLayout(new GridLayout(2,5));
-		
+
+		panel2.setLayout(new GridLayout(2, 5));
+
 		panel2.add(l1);
 		panel2.add(l2);
 		panel2.add(l3);
@@ -69,7 +69,7 @@ public class Form_AWT_LietKeSinhVien extends JFrame implements ActionListener {
 		panel2.add(l5);
 		panel2.add(l6);
 		panel2.add(l7);
-		panel2.add(exit);
+		panel2.add(btnExit);
 		panel2.add(l8);
 		panel2.add(l9);
 		panel2.add(l10);
@@ -77,14 +77,19 @@ public class Form_AWT_LietKeSinhVien extends JFrame implements ActionListener {
 		panel2.add(l12);
 		panel2.add(l13);
 		panel2.add(l14);
-		panel2.add(back);
-		
+		panel2.add(btnBack);
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == exit)
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_Main();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		if (e.getActionCommand().equals("Thoat")) {
 			System.exit(0);
+		}
 	}
-
 }

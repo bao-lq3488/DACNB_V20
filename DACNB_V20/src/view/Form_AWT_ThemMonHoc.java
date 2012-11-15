@@ -13,8 +13,8 @@ public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton add;
-	JButton back;
+	JButton btnAdd;
+	JButton btnBack;
 	JTextField t1;
 	JTextField t2;
 	JTextField t3;
@@ -37,8 +37,8 @@ public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		add = new JButton("Thêm");
-		back = new JButton("Quay Lại");
+		btnAdd = new JButton("Them");
+		btnBack = new JButton("Quay Lai");
 		t1 = new JTextField(20);
 		t2 = new JTextField(20);
 		t3 = new JTextField(20);
@@ -46,15 +46,15 @@ public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
 		t5 = new JTextField(20);
 		t6 = new JTextField(20);
 		t7 = new JTextField(20);
-		l2 = new JLabel("Tên Môn Học");
-		l3 = new JLabel("Ký Hiệu Môn Học");
-		l4 = new JLabel("Số Tín Chỉ");
-		l5 = new JLabel("Tổng Số Tiết");
-		l6 = new JLabel("Ngành");
-		l7 = new JLabel("Khóa Học");
+		l2 = new JLabel("Ten Mon Hoc");
+		l3 = new JLabel("Ky Hieu Mon Hoc");
+		l4 = new JLabel("So Tin Chi");
+		l5 = new JLabel("Tong So Tiet");
+		l6 = new JLabel("Nganh");
+		l7 = new JLabel("Khoa Hoc");
 
-		add.addActionListener(this);
-		back.addActionListener(this);
+		btnAdd.addActionListener(this);
+		btnBack.addActionListener(this);
 
 		contentPane.add(panel2);
 
@@ -72,8 +72,8 @@ public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
 		panel2.add(t6);
 		panel2.add(l7);
 		panel2.add(t7);
-		panel2.add(add);
-		panel2.add(back);
+		panel2.add(btnAdd);
+		panel2.add(btnBack);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -85,15 +85,26 @@ public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
 		String add6 = t6.getText();
 		String add7 = t7.getText();
 
-		if (e.getSource() == add) {
-			if (add1.equals("") && add2.equals("") && add3.equals("")
-					&& add4.equals("") && add5.equals("") && add6.equals("")
-					&& add7.equals("")) {
-				JOptionPane.showMessageDialog(null,
-						"Điền Đầy Đủ Thông Tin Môn Học", "Error",
-						JOptionPane.ERROR_MESSAGE);
+		if (e.getActionCommand().equals("Them")) {
+			if (e.getSource() == btnAdd) {
+				if (add1.equals("") || add2.equals("") || add3.equals("")
+						|| add4.equals("") || add5.equals("")
+						|| add6.equals("") || add7.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Dien Day Du Thong Tin Mon Hoc", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					JFrame f = new Form_AWT_LietKeMonHoc();
+					f.setVisible(true);
+					this.setVisible(false);
+				}
 			}
 		}
-	}
 
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_Main();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+	}
 }

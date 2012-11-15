@@ -2,6 +2,7 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
@@ -12,9 +13,9 @@ public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton ok;
-	JButton cancel;
-	JButton back;
+	JButton btnOK;
+	JButton btnCancel;
+	JButton btnBack;
 	JTextField t1;
 	JLabel l1;
 	JLabel l2;
@@ -28,15 +29,16 @@ public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		ok = new JButton("Đồng Ý");
-		cancel = new JButton("Thoát");
-		back = new JButton("Quay Lại");
+		btnOK = new JButton("Dong Y");
+		btnCancel = new JButton("Thoat");
+		btnBack = new JButton("Quay Lai");
 		t1 = new JTextField(25);
-		l1 = new JLabel("Xóa Môn Học");
-		l2 = new JLabel("Nhập Tên Môn Học Cần Xóa : ");
+		l1 = new JLabel("Xoa Mon Hoc");
+		l2 = new JLabel("Nhap Ten Mon Hoc Can Xoa Hoac Sua : ");
 
-		ok.addActionListener(this);
-		cancel.addActionListener(this);
+		btnOK.addActionListener(this);
+		btnBack.addActionListener(this);
+		btnCancel.addActionListener(this);
 
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
@@ -44,9 +46,9 @@ public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
 		panel1.add(l1);
 		panel2.add(l2);
 		panel2.add(t1);
-		panel2.add(ok);
-		panel2.add(back);
-		panel2.add(cancel);
+		panel2.add(btnOK);
+		panel2.add(btnBack);
+		panel2.add(btnCancel);
 
 	}
 
@@ -54,15 +56,24 @@ public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
 
 		String Ok = t1.getText();
 
-		if (e.getSource() == ok) {
-			if (Ok.equals("")) {
-				JOptionPane.showMessageDialog(null,
-						"Enter The Name of Subject", "Error",
-						JOptionPane.ERROR_MESSAGE);
-//				JOptionPane.showInternalConfirmDialog(ok, "Is this OK?");
+		if (e.getActionCommand().equals("Dong Y")) {
+			if (e.getSource() == btnOK) {
+				if (Ok.equals("")) {
+					JOptionPane.showMessageDialog(null, "Dien Ten Mon Hoc",
+							"Error", JOptionPane.ERROR_MESSAGE);
+				} else {
+					JFrame f = new Form_AWT_XoaSuaMonHoc2();
+					f.setVisible(true);
+					this.setVisible(false);
+				}
 			}
 		}
-		if (e.getSource() == cancel) {
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_Main();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		if (e.getActionCommand().equals("Thoat")) {
 			System.exit(0);
 		}
 

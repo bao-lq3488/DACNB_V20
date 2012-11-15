@@ -12,8 +12,8 @@ public class Form_AWT_XemThongTinMonHoc2 extends JFrame implements ActionListene
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton exit;
-	JButton back;
+	JButton btnExit;
+	JButton btnBack;
 	JTextField t1;
 	JLabel l1;
 
@@ -26,28 +26,34 @@ public class Form_AWT_XemThongTinMonHoc2 extends JFrame implements ActionListene
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		exit = new JButton("Thoát");
-		back = new JButton("Quay Lại");
+		btnExit = new JButton("Thoat");
+		btnBack = new JButton("Quay Lai");
 		t1 = new JTextField(25);
-		t1.setText("InThongTinSMonHoc");
-		l1 = new JLabel("Xem Thông Tin Môn Học");
+		t1.setText("InThongTinMonHoc");
+		l1 = new JLabel("Xem Thong Tin Mon Hoc");
 
-		exit.addActionListener(this);
+		btnBack.addActionListener(this);
+		btnExit.addActionListener(this);
 	
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
 
 		panel1.add(l1);
 		panel2.add(t1);
-		panel2.add(back);
-		panel2.add(exit);
+		panel2.add(btnBack);
+		panel2.add(btnExit);
 
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == exit) {
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_XemThongTinMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		if (e.getActionCommand().equals("Thoat")) {
 			System.exit(0);
 		}
 

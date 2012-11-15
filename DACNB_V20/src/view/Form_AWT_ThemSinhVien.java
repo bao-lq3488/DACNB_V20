@@ -13,8 +13,8 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton add;
-	JButton back;
+	JButton btnAdd;
+	JButton btnBack;
 	JTextField t1;
 	JTextField t2;
 	JTextField t3;
@@ -23,13 +23,13 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 	JTextField t6;
 	JTextField t7;
 	JTextField t8;
+	JLabel l1;
 	JLabel l2;
 	JLabel l3;
 	JLabel l4;
 	JLabel l5;
 	JLabel l6;
 	JLabel l7;
-	JLabel l8;
 
 	public Form_AWT_ThemSinhVien() {
 		setSize(400, 420);
@@ -39,8 +39,8 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		add = new JButton("Thêm");
-		back = new JButton("Quay Lại");
+		btnAdd = new JButton("Them");
+		btnBack = new JButton("Quay Lai");
 		t1 = new JTextField(20);
 		t2 = new JTextField(20);
 		t3 = new JTextField(20);
@@ -49,23 +49,25 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 		t6 = new JTextField(20);
 		t7 = new JTextField(20);
 		t8 = new JTextField(20);
-		l2 = new JLabel("Tên Sinh Viên");
-		l3 = new JLabel("Mã Số Sinh Viên");
-		l4 = new JLabel("Ngày Tháng Năm Sinh");
-		l5 = new JLabel("Địa Chỉ");
-		l6 = new JLabel("Ngành");
-		l7 = new JLabel("Lớp");
-		l8 = new JLabel("Khóa Học");
+		l1 = new JLabel("Ten Sinh Vien");
+		l2 = new JLabel("Ma So Sinh Vien");
+		l3 = new JLabel("Ngay Thang Nam Sinh");
+		l4 = new JLabel("Đia Chi");
+		l5 = new JLabel("Nganh");
+		l6 = new JLabel("Lop");
+		l7 = new JLabel("Khoa Hoc");
 
-		add.addActionListener(this);
-		back.addActionListener(this);
+		btnAdd.addActionListener(this);
+		btnBack.addActionListener(this);
 
 		contentPane.add(panel2);
-		
+
 		panel2.setLayout(new GridLayout(8, 2));
 
-		panel2.add(l2);
+		panel2.add(l1);
 		panel2.add(t1);
+		panel2.add(l2);
+		panel2.add(t2);
 		panel2.add(l3);
 		panel2.add(t3);
 		panel2.add(l4);
@@ -76,10 +78,8 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 		panel2.add(t6);
 		panel2.add(l7);
 		panel2.add(t7);
-		panel2.add(l8);
-		panel2.add(t8);
-		panel2.add(add);
-		panel2.add(back);
+		panel2.add(btnAdd);
+		panel2.add(btnBack);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -90,16 +90,27 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 		String add5 = t5.getText();
 		String add6 = t6.getText();
 		String add7 = t7.getText();
-		String add8 = t8.getText();
 
-		if (e.getSource() == add) {
-			if (add1.equals("") && add2.equals("") && add3.equals("")
-					&& add4.equals("") && add5.equals("") && add6.equals("")
-					&& add7.equals("") && add8.equals("")) {
-				JOptionPane.showMessageDialog(null, "Điền Đầy Đủ Thông Tin Sinh Viên",
-						"Error", JOptionPane.ERROR_MESSAGE);
+		if (e.getActionCommand().equals("Them")) {
+			if (e.getSource() == btnAdd) {
+				if (add1.equals("") || add2.equals("") || add3.equals("")
+						|| add4.equals("") || add5.equals("")
+						|| add6.equals("") || add7.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Dien Day Du Thong Tin Sinh Vien", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					JFrame f = new Form_AWT_LietKeSinhVien();
+					f.setVisible(true);
+					this.setVisible(false);
+				}
 			}
 		}
-	}
 
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_Main();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+	}
 }

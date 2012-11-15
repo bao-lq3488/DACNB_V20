@@ -4,7 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Form_AWT_CapNhatDiemMonHoc2 extends JFrame implements ActionListener {
+public class Form_AWT_CapNhatDiemMonHoc2 extends JFrame implements
+		ActionListener {
 	/**
 	 * 
 	 */
@@ -12,9 +13,9 @@ public class Form_AWT_CapNhatDiemMonHoc2 extends JFrame implements ActionListene
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton update;
-	JButton back;
-	JButton cancel;
+	JButton btnUpdate;
+	JButton btnBack;
+	JButton btnCancel;
 	JTextField t1;
 	JLabel l1;
 
@@ -27,36 +28,44 @@ public class Form_AWT_CapNhatDiemMonHoc2 extends JFrame implements ActionListene
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
-		update = new JButton("Cập Nhật");
-		cancel = new JButton("Thoát");
-		back = new JButton("Quay Lại");
+		btnUpdate = new JButton("Cap Nhat");
+		btnCancel = new JButton("Thoat");
+		btnBack = new JButton("Quay Lai");
 		t1 = new JTextField(25);
 		t1.setText("InDanhSachSinhVienMonHoc");
-		l1 = new JLabel("Cập Nhật Điểm Môn Học");
+		l1 = new JLabel("Cap Nhat Diem Mon Hoc");
 
-		update.addActionListener(this);
-		cancel.addActionListener(this);
-		back.addActionListener(this);
+		btnUpdate.addActionListener(this);
+		btnCancel.addActionListener(this);
+		btnBack.addActionListener(this);
 
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
 
 		panel1.add(l1);
 		panel2.add(t1);
-		panel2.add(update);
-		panel2.add(back);
-		panel2.add(cancel);
+		panel2.add(btnUpdate);
+		panel2.add(btnBack);
+		panel2.add(btnCancel);
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == update) {
-			JOptionPane.showMessageDialog(this, "Đã Cập Nhật Thành Công", "Complete",
-					JOptionPane.INFORMATION_MESSAGE);
+		if (e.getSource() == btnUpdate) {
+			JOptionPane.showMessageDialog(this, "Da Cap Nhat Thanh Cong",
+					"Complete", JOptionPane.INFORMATION_MESSAGE);
+			JFrame f = new Form_AWT_CapNhatDiemMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
 		}
 
-		if (e.getSource() == cancel) {
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_CapNhatDiemMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		if (e.getActionCommand().equals("Thoat")) {
 			System.exit(0);
 		}
 

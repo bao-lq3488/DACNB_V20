@@ -13,8 +13,8 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton exit;
-	JButton back;
+	JButton btnExit;
+	JButton btnBack;
 	JLabel l2;
 	JLabel l3;
 	JLabel l4;
@@ -27,7 +27,7 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 	JLabel l11;
 	JLabel l12;
 	JLabel l13;
-	
+
 	public Form_AWT_LietKeMonHoc() {
 		setSize(800, 420);
 		setTitle("LietKeMonHoc");
@@ -36,48 +36,54 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		exit = new JButton("Thoát");
-		back = new JButton("Quay Lại");
+		btnExit = new JButton("Thoat");
+		btnBack = new JButton("Quay Lai");
 		l8 = new JLabel();
 		l9 = new JLabel();
 		l10 = new JLabel();
 		l11 = new JLabel();
 		l12 = new JLabel();
 		l13 = new JLabel();
-		l2 = new JLabel("Tên Môn Học");
-		l3 = new JLabel("Ký Hiệu Môn Học");
-		l4 = new JLabel("Số Tín Chỉ");
-		l5 = new JLabel("Tổng Số Tiết");
-		l6 = new JLabel("Ngành");
-		l7 = new JLabel("Khóa Học");
+		l2 = new JLabel("Ten Mon Hoc");
+		l3 = new JLabel("Ky Hieu Mon Hoc");
+		l4 = new JLabel("So Tin Chi");
+		l5 = new JLabel("Tong So Tiet");
+		l6 = new JLabel("Nganh");
+		l7 = new JLabel("Khoa Hoc");
 
-		exit.addActionListener(this);
+		btnBack.addActionListener(this);
+		btnExit.addActionListener(this);
 
 		contentPane.add(panel2);
-		
-		panel2.setLayout(new GridLayout(2,5));
-		
+
+		panel2.setLayout(new GridLayout(2, 5));
+
 		panel2.add(l2);
 		panel2.add(l3);
 		panel2.add(l4);
 		panel2.add(l5);
 		panel2.add(l6);
 		panel2.add(l7);
-		panel2.add(exit);
+		panel2.add(btnExit);
 		panel2.add(l8);
 		panel2.add(l9);
 		panel2.add(l10);
 		panel2.add(l11);
 		panel2.add(l12);
 		panel2.add(l13);
-		panel2.add(back);
-		
+		panel2.add(btnBack);
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == exit)
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_Main();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		if (e.getActionCommand().equals("Thoat")) {
 			System.exit(0);
+		}
 	}
-
 }

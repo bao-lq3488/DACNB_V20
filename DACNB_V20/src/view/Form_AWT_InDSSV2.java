@@ -12,9 +12,9 @@ public class Form_AWT_InDSSV2 extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton print;
-	JButton exit;
-	JButton back;
+	JButton btnPrint;
+	JButton btnExit;
+	JButton btnBack;
 	JTextField t1;
 	JLabel l1;
 
@@ -26,32 +26,46 @@ public class Form_AWT_InDSSV2 extends JFrame implements ActionListener {
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		
-		
-		print = new JButton("In");
-		back = new JButton("Quay Lại");
-		exit = new JButton("Thoát");
+
+		btnPrint = new JButton("In");
+		btnBack = new JButton("Quay Lai");
+		btnExit = new JButton("Thoat");
 		t1 = new JTextField(25);
 		t1.setText("DanhSachSinhVien");
-		l1 = new JLabel("In Danh Sách Sinh Viên");
+		l1 = new JLabel("In Danh Sach Sinh Vien");
+		
+		btnPrint.addActionListener(this);
+		btnBack.addActionListener(this);
+		btnExit.addActionListener(this);
 
-		exit.addActionListener(this);
-	
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
 
 		panel1.add(l1);
 		panel2.add(t1);
-		panel2.add(print);
-		panel2.add(back);
-		panel2.add(exit);
-
+		panel2.add(btnPrint);
+		panel2.add(btnBack);
+		panel2.add(btnExit);
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == exit) {
+		if (e.getSource() == btnPrint) {
+			JOptionPane.showMessageDialog(this, "Da In Thanh Cong", "Complete",
+					JOptionPane.INFORMATION_MESSAGE);
+			JFrame f = new Form_AWT_InDSSV();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Quay Lai")) {
+			JFrame f = new Form_AWT_InDSSV();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Thoat")) {
 			System.exit(0);
 		}
 

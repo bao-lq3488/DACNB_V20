@@ -60,7 +60,7 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 
 		if (e.getActionCommand().equals("Login")) {
 			if (e.getSource() == btnLogin) {
-				if (Login.equals("") && Pass.equals("")) {
+				if (Login.equals("") || Pass.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Nhap Ten Dang Nhap Va Mat Khau", "Error",
 							JOptionPane.ERROR_MESSAGE);
