@@ -67,7 +67,7 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 				}
 
 				else {
-					JFrame f = new Form_AWT_Main();
+					JFrame f = new Form_AWT_Menu();
 					f.setVisible(true);
 					this.setVisible(false);
 				}
