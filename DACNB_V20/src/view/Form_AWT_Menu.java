@@ -31,13 +31,20 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 		mnBar.add(mnInAn);
 		mnBar.add(Exit);
 
-		mnQLMH.add(new JMenuItem("Liet Ke Mon Hoc"));
+//		mnQLMH.add(new JMenuItem("Liet Ke Mon Hoc"));
+//		JMenuItem mnuLietKeMonHoc = new JMenuItem("Liet Ke Mon Hoc");
+//		mnuLietKeMonHoc.setActionCommand("Liet ke mon hoc");
+//		mnQLMH.add(mnuLietKeMonHoc);
+		
+		createMenuItem("Liet ke mon hoc" , mnQLMH);
+		
 		mnQLMH.add(new JMenuItem("Them Mon Hoc"));
 		mnQLMH.add(new JMenuItem("Xem Thong Tin Mon Hoc"));
 		mnQLMH.add(new JMenuItem("Xem Thong Tin Mon Hoc"));
 		mnQLMH.add(new JMenuItem("Cap Nhat Diem"));
 
 		mnQLSV.add(new JMenuItem("Liet Ke Sinh Vien"));
+		
 		mnQLSV.add(new JMenuItem("Them Sinh Vien"));
 		mnQLSV.add(new JMenuItem("Xoa Sua Sinh Vien"));
 		mnQLSV.add(new JMenuItem("Xem Thong Tin Sinh Vien"));
@@ -47,6 +54,7 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 		Exit.add(new JMenuItem("Thoat"));
 
 		mnQLMH.addActionListener(this);
+//		mnuLietKeMonHoc.addActionListener(this);
 		mnQLSV.addActionListener(this);
 		mnInAn.addActionListener(this);
 		Exit.addActionListener(this);
@@ -58,9 +66,15 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 
 	}
 
+	public void createMenuItem(String menuItemName, JMenu parentMenu){
+		JMenuItem item = new JMenuItem(menuItemName);
+		item.setActionCommand(menuItemName);
+		parentMenu.add(item);
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getActionCommand().equals("Liet Ke Mon Hoc")) {
+		if (e.getActionCommand().equals("Liet ke mon hoc")) {
 			JFrame f = new Form_AWT_LietKeMonHoc();
 			f.setVisible(true);
 			this.setVisible(false);
