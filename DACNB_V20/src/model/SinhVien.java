@@ -74,7 +74,7 @@ public class SinhVien {
 	String Lop;
 	String Nganh;
 
-	public static void selectSinhVien() throws SQLException {
+	public static ArrayList<SinhVien> setAllSinhvien() throws SQLException {
 		ArrayList<SinhVien> svList = new ArrayList<SinhVien>();
 		ConnectionJDBC conn = new ConnectionJDBC(
 				"oracle.jdbc.driver.OracleDriver", "localhost", "1521", "XE",
@@ -121,6 +121,7 @@ public class SinhVien {
 
 			}
 		}
+		return svList;
 
 	}
 

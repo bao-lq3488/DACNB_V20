@@ -7,54 +7,38 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Khoa {
-
-	public String getIDKhoa() {
-		return IDKhoa;
+public class Nganh {
+	public String getIDNganh() {
+		return IDNganh;
 	}
-
-	public void setIDKhoa(String iDKhoa) {
-		IDKhoa = iDKhoa;
+	public void setIDNganh(String iDNganh) {
+		IDNganh = iDNganh;
 	}
-
-	public String getTenKhoa() {
-		return TenKhoa;
+	public String getTenNganh() {
+		return TenNganh;
 	}
-
-	public void setTenKhoa(String tenKhoa) {
-		TenKhoa = tenKhoa;
+	public void setTenNganh(String tenNganh) {
+		TenNganh = tenNganh;
 	}
-
-	public String getTruongKhoa() {
-		return TruongKhoa;
-	}
-
-	public void setTruongKhoa(String truongKhoa) {
-		TruongKhoa = truongKhoa;
-	}
-
-	String IDKhoa;
-	String TenKhoa;
-	String TruongKhoa;
-	
-	public static ArrayList<Khoa> setAllSinhvien() throws SQLException {
-		ArrayList<Khoa> kList = new ArrayList<Khoa>();
+	String IDNganh;
+	String TenNganh;
+	public static ArrayList<Nganh> setAllNganh() throws SQLException {
+		ArrayList<Nganh> nganhList = new ArrayList<Nganh>();
 		ConnectionJDBC conn = new ConnectionJDBC(
 				"oracle.jdbc.driver.OracleDriver", "localhost", "1521", "XE",
 				"QLSV", "12345", null);
 		Connection con = DriverManager.getConnection(conn.url,
 				conn.getUsername(), conn.getPassword());
-		String qry = "SELECT IDKHOA,TENKHOA,TRUONGKHOA FROM KHOA";
+		String qry = "SELECT IDNganh,TENGANH FROM NGANH";
 		Statement stmt = null;
 		try {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(qry);
 			while (rs.next()) {
-				Khoa k = new Khoa();
-				k.setIDKhoa(rs.getString("IDKHOA"));
-				k.setTenKhoa(rs.getString("TENKHOA"));
-				k.setTruongKhoa(rs.getString("TRUONGKHOA"));
-				kList.add(k);
+				Nganh nganh = new Nganh();
+				nganh.setIDNganh(rs.getString("IDNGANH"));
+				nganh.setTenNganh(rs.getString("TENMON"));
+				nganhList.add(nganh);
 			}
 	
 
@@ -77,7 +61,6 @@ public class Khoa {
 
 			}
 		}
-		return kList;
-
+		return nganhList;
 	}
 }

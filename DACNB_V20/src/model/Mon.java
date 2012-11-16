@@ -7,54 +7,38 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Khoa {
-
-	public String getIDKhoa() {
-		return IDKhoa;
+public class Mon {
+	public String getIDMon() {
+		return IDMon;
 	}
-
-	public void setIDKhoa(String iDKhoa) {
-		IDKhoa = iDKhoa;
+	public void setIDMon(String iDMon) {
+		IDMon = iDMon;
 	}
-
-	public String getTenKhoa() {
-		return TenKhoa;
+	public String getTenMon() {
+		return TenMon;
 	}
-
-	public void setTenKhoa(String tenKhoa) {
-		TenKhoa = tenKhoa;
+	public void setTenMon(String tenMon) {
+		TenMon = tenMon;
 	}
-
-	public String getTruongKhoa() {
-		return TruongKhoa;
-	}
-
-	public void setTruongKhoa(String truongKhoa) {
-		TruongKhoa = truongKhoa;
-	}
-
-	String IDKhoa;
-	String TenKhoa;
-	String TruongKhoa;
-	
-	public static ArrayList<Khoa> setAllSinhvien() throws SQLException {
-		ArrayList<Khoa> kList = new ArrayList<Khoa>();
+	String IDMon;
+	String TenMon;
+	public static ArrayList<Mon> setAllMon() throws SQLException {
+		ArrayList<Mon> monList = new ArrayList<Mon>();
 		ConnectionJDBC conn = new ConnectionJDBC(
 				"oracle.jdbc.driver.OracleDriver", "localhost", "1521", "XE",
 				"QLSV", "12345", null);
 		Connection con = DriverManager.getConnection(conn.url,
 				conn.getUsername(), conn.getPassword());
-		String qry = "SELECT IDKHOA,TENKHOA,TRUONGKHOA FROM KHOA";
+		String qry = "SELECT IDMON,TENMON FROM MON";
 		Statement stmt = null;
 		try {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(qry);
 			while (rs.next()) {
-				Khoa k = new Khoa();
-				k.setIDKhoa(rs.getString("IDKHOA"));
-				k.setTenKhoa(rs.getString("TENKHOA"));
-				k.setTruongKhoa(rs.getString("TRUONGKHOA"));
-				kList.add(k);
+				Mon mon = new Mon();
+				mon.setIDMon(rs.getString("IDMON"));
+				mon.setTenMon(rs.getString("TENMON"));
+				monList.add(mon);
 			}
 	
 
@@ -77,7 +61,8 @@ public class Khoa {
 
 			}
 		}
-		return kList;
+		return monList;
 
 	}
+	
 }
