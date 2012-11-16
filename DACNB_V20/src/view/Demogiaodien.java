@@ -4,14 +4,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Display;
-<<<<<<< HEAD
 import org.eclipse.swt.widgets.Label;
-=======
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
