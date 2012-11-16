@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -11,7 +10,6 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	JTextArea ta;
 	JMenuBar mnBar;
 	JMenu mnQLMH;
 	JMenu mnQLSV;
@@ -27,9 +25,6 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 		mnQLSV = new JMenu("Quan Ly Sinh Vien");
 		mnInAn = new JMenu("In An");
 		Exit = new JMenu("Thoat");
-
-		ta = new JTextArea(10, 40);
-		ta.setBackground(Color.white);
 
 		mnBar.add(mnQLMH);
 		mnBar.add(mnQLSV);
@@ -56,7 +51,6 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 		mnInAn.addActionListener(this);
 		Exit.addActionListener(this);
 
-		add(ta, "Center");
 
 		setTitle("Menu");
 		setSize(400, 400);
