@@ -31,33 +31,54 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 		mnBar.add(mnInAn);
 		mnBar.add(Exit);
 
-//		mnQLMH.add(new JMenuItem("Liet Ke Mon Hoc"));
-//		JMenuItem mnuLietKeMonHoc = new JMenuItem("Liet Ke Mon Hoc");
-//		mnuLietKeMonHoc.setActionCommand("Liet ke mon hoc");
-//		mnQLMH.add(mnuLietKeMonHoc);
+		JMenuItem mnuLietKeMonHoc = new JMenuItem("Liet Ke Mon Hoc");
+		mnQLMH.add(mnuLietKeMonHoc);
+		JMenuItem mnuThemMonHoc = new JMenuItem("Them Mon Hoc");
+		mnQLMH.add(mnuThemMonHoc);
+		JMenuItem mnuXoaSuaMonHoc = new JMenuItem("Xoa Sua Mon Hoc");
+		mnQLMH.add(mnuXoaSuaMonHoc);
+		JMenuItem mnuXemThongTinMonHoc = new JMenuItem("Xem Thong Tin Mon Hoc");
+		mnQLMH.add(mnuXemThongTinMonHoc);
+		JMenuItem mnuCapNhatDiem = new JMenuItem("Cap Nhat Diem");
+		mnQLMH.add(mnuCapNhatDiem);
 		
-		createMenuItem("Liet ke mon hoc" , mnQLMH);
+		JMenuItem mnuLietKeSinhVien = new JMenuItem("Liet Ke Sinh Vien");
+		mnQLSV.add(mnuLietKeSinhVien);
+		JMenuItem mnuThemSinhVien = new JMenuItem("Them Sinh Vien");
+		mnQLSV.add(mnuThemSinhVien);
+		JMenuItem mnuXoaSuaSinhVien = new JMenuItem("Xoa Sua Sinh Vien");
+		mnQLSV.add(mnuXoaSuaSinhVien);
+		JMenuItem mnuXemThongTinSinhVien = new JMenuItem("Xem Thong Tin Sinh Vien");
+		mnQLSV.add(mnuXemThongTinSinhVien);
 		
-		mnQLMH.add(new JMenuItem("Them Mon Hoc"));
-		mnQLMH.add(new JMenuItem("Xem Thong Tin Mon Hoc"));
-		mnQLMH.add(new JMenuItem("Xem Thong Tin Mon Hoc"));
-		mnQLMH.add(new JMenuItem("Cap Nhat Diem"));
-
-		mnQLSV.add(new JMenuItem("Liet Ke Sinh Vien"));
+		JMenuItem mnuInDSSV = new JMenuItem("In Danh Sach Sinh Vien");
+		mnInAn.add(mnuInDSSV);
 		
-		mnQLSV.add(new JMenuItem("Them Sinh Vien"));
-		mnQLSV.add(new JMenuItem("Xoa Sua Sinh Vien"));
-		mnQLSV.add(new JMenuItem("Xem Thong Tin Sinh Vien"));
+		JMenuItem mnuExit = new JMenuItem("Thoat");
+		Exit.add(mnuExit);
+		
 
-		mnInAn.add(new JMenuItem("In Danh Sach Sinh Vien"));
-
-		Exit.add(new JMenuItem("Thoat"));
+		
 
 		mnQLMH.addActionListener(this);
-//		mnuLietKeMonHoc.addActionListener(this);
 		mnQLSV.addActionListener(this);
 		mnInAn.addActionListener(this);
 		Exit.addActionListener(this);
+		
+		mnuLietKeMonHoc.addActionListener(this);
+		mnuThemMonHoc.addActionListener(this);
+		mnuXoaSuaMonHoc.addActionListener(this);
+		mnuXemThongTinMonHoc.addActionListener(this);
+		mnuCapNhatDiem.addActionListener(this);
+		
+		mnuLietKeSinhVien.addActionListener(this);
+		mnuThemSinhVien.addActionListener(this);
+		mnuXoaSuaSinhVien.addActionListener(this);
+		mnuXemThongTinSinhVien.addActionListener(this);
+		
+		mnuInDSSV.addActionListener(this);
+		
+		mnuExit.addActionListener(this);
 
 
 		setTitle("Menu");
@@ -66,16 +87,72 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 
 	}
 
-	public void createMenuItem(String menuItemName, JMenu parentMenu){
-		JMenuItem item = new JMenuItem(menuItemName);
-		item.setActionCommand(menuItemName);
-		parentMenu.add(item);
-	}
+//	public void createMenuItem(String menuItemName, JMenu parentMenu){
+//		JMenuItem item = new JMenuItem(menuItemName);
+//		item.setActionCommand(menuItemName);
+//		parentMenu.add(item);
+//	}
+	
+//	createMenuItem("Liet ke mon hoc" , mnQLMH);
 	
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getActionCommand().equals("Liet ke mon hoc")) {
+		if (e.getActionCommand().equals("Liet Ke Mon Hoc")) {
 			JFrame f = new Form_AWT_LietKeMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Them Mon Hoc")) {
+			JFrame f = new Form_AWT_ThemMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Xoa Sua Mon Hoc")) {
+			JFrame f = new Form_AWT_XoaSuaMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Xem Thong Tin Mon Hoc")) {
+			JFrame f = new Form_AWT_XemThongTinMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Cap Nhat Diem")) {
+			JFrame f = new Form_AWT_CapNhatDiemMonHoc();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Liet Ke Sinh Vien")) {
+			JFrame f = new Form_AWT_LietKeSinhVien();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Them Sinh Vien")) {
+			JFrame f = new Form_AWT_ThemSinhVien();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Xoa Sua Sinh Vien")) {
+			JFrame f = new Form_AWT_XoaSuaSinhVien();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("Xem Thong Tin Sinh Vien")) {
+			JFrame f = new Form_AWT_XemThongTinSinhVien();
+			f.setVisible(true);
+			this.setVisible(false);
+		}
+		
+		if (e.getActionCommand().equals("In Danh Sach Sinh Vien")) {
+			JFrame f = new Form_AWT_InDSSV();
 			f.setVisible(true);
 			this.setVisible(false);
 		}

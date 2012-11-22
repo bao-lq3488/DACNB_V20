@@ -80,7 +80,7 @@ public class Form_AWT_XoaSuaMonHoc2 extends JFrame implements ActionListener {
 		}
 
 		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Main();
+			JFrame f = new Form_AWT_Menu();
 			f.setVisible(true);
 			this.setVisible(false);
 		}

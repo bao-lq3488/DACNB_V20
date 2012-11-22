@@ -78,7 +78,7 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Main();
+			JFrame f = new Form_AWT_Menu();
 			f.setVisible(true);
 			this.setVisible(false);
 		}

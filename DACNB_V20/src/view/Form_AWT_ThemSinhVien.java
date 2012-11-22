@@ -52,7 +52,7 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 		l1 = new JLabel("Ten Sinh Vien");
 		l2 = new JLabel("Ma So Sinh Vien");
 		l3 = new JLabel("Ngay Thang Nam Sinh");
-		l4 = new JLabel("Đia Chi");
+		l4 = new JLabel("Dia Chi");
 		l5 = new JLabel("Nganh");
 		l6 = new JLabel("Lop");
 		l7 = new JLabel("Khoa Hoc");
@@ -108,7 +108,7 @@ public class Form_AWT_ThemSinhVien extends JFrame implements ActionListener {
 		}
 
 		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Main();
+			JFrame f = new Form_AWT_Menu();
 			f.setVisible(true);
 			this.setVisible(false);
 		}
