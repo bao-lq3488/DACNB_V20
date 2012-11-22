@@ -3,44 +3,51 @@ package view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_XoaSua {
 	Display display;
 	Shell shell;
-	Label Label;
-	Text Text;
-	Button Button;
+	Label label;
+	Text lext;
+	Button button;
 
 	public Form_XoaSua() {
 		setDisplay();
 
 		setLabelThongTin();
-		this.Label.setText("Nhap Ten Mon Can Xoa - Sua");
-		this.Label.setSize(170, 20);
-		this.Label.setLocation(70, 20);
+		this.label.setText("Nhap Ten Mon Can Xoa - Sua");
+		this.label.setSize(170, 20);
+		this.label.setLocation(70, 20);
 
 		setTextbox();
-		this.Text.setSize(150, 20);
-		this.Text.setLocation(80, 50);
+		this.lext.setSize(150, 20);
+		this.lext.setLocation(80, 50);
 
 		setButtonSearch();
-		this.Button.setSize(50, 25);
-		this.Button.setLocation(140, 90);
-		this.Button.setText("Search");
+		this.button.setSize(50, 25);
+		this.button.setLocation(140, 90);
+		this.button.setText("Search");
 
 		setButtonCancel();
-		this.Button.setSize(50, 25);
-		this.Button.setLocation(200, 90);
-		this.Button.setText("Cancel");
-
+		this.button.setSize(50, 25);
+		this.button.setLocation(200, 90);
+		this.button.setText("Cancel");
+		this.button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event event) {
+				System.exit(0);
+			}
+		});
+		
 		setLabelLKMH();
-		this.Label.setText("Liet Ke Mon Hoc");
-		this.Label.setLocation(30, 95);
-		this.Label.setSize(90, 20);
-		this.Label.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
+		this.label.setText("Liet Ke Mon Hoc");
+		this.label.setLocation(30, 95);
+		this.label.setSize(90, 20);
+		this.label.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
 
 		shell.open();
 
@@ -59,23 +66,23 @@ public class Form_XoaSua {
 	}
 
 	public void setLabelThongTin() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
 	}
 
 	public void setTextbox() {
-		this.Text = new Text(shell, SWT.LEFT);
+		this.lext = new Text(shell, SWT.LEFT);
 	}
 
 	public void setButtonSearch() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public void setButtonCancel() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public void setLabelLKMH() {
-		this.Label = new Label(shell, SWT.LEFT);
+		this.label = new Label(shell, SWT.LEFT);
 	}
 
 	public static void main(String args[]) {

@@ -3,39 +3,45 @@ package view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_ThemSV {
 	Display display;
 	Shell shell;
-	Label Label;
-	Text Text;
-	Button Button;
+	Label label;
+	Text text;
+	Button button;
 
 	public Form_ThemSV() {
 		setDisplay();
 
 		setLabelThongTin();
-		this.Label.setText("Nhap Thong Tin Can Them");
-		this.Label.setLocation(60, 20);
-		this.Label.setSize(160, 20);
+		this.label.setText("Nhap Thong Tin Can Them");
+		this.label.setLocation(60, 20);
+		this.label.setSize(160, 20);
 
 		setTextbox();
-		this.Text.setLocation(45, 50);
-		this.Text.setSize(200, 70);
+		this.text.setLocation(45, 50);
+		this.text.setSize(200, 70);
 
 		setButtonOk();
-		this.Button.setSize(50, 25);
-		this.Button.setLocation(140, 130);
-		this.Button.setText("Ok");
+		this.button.setSize(50, 25);
+		this.button.setLocation(140, 130);
+		this.button.setText("Ok");
 
 		setButtonCancel();
-		this.Button.setSize(50, 25);
-		this.Button.setLocation(200, 130);
-		this.Button.setText("Cancel");
-
+		this.button.setSize(50, 25);
+		this.button.setLocation(200, 130);
+		this.button.setText("Cancel");
+		this.button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event event) {
+				System.exit(0);
+			}
+		});
 		shell.open();
 
 		while (!shell.isDisposed()) {
@@ -53,19 +59,19 @@ public class Form_ThemSV {
 	}
 
 	public void setLabelThongTin() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
 	}
 
 	public void setTextbox() {
-		this.Text = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
+		this.text = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
 	}
 
 	public void setButtonOk() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public void setButtonCancel() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public static void main(String args[]) {

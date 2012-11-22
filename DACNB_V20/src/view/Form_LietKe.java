@@ -8,37 +8,37 @@ import org.eclipse.swt.widgets.Shell;
 public class Form_LietKe {
 	Display display;
 	Shell shell;
-	Label Label;
+	Label label;
 
 	public Form_LietKe() {
 		setDisplay();
 
 		setLabelTenMH();
-		this.Label.setText("Ten Mon Hoc");
-		this.Label.setSize(85, 20);
-		this.Label.setLocation(5, 10);
+		this.label.setText("Ten Mon Hoc");
+		this.label.setSize(85, 20);
+		this.label.setLocation(5, 10);
 
 		setLabelKedoc1();
-		this.Label.setLocation(90, 0);
-		this.Label.setSize(30, 200);
+		this.label.setLocation(90, 0);
+		this.label.setSize(30, 200);
 
 		setLabelKiHieu();
-		this.Label.setText("Ki Hieu");
-		this.Label.setSize(45, 20);
-		this.Label.setLocation(120, 10);
+		this.label.setText("Ki Hieu");
+		this.label.setSize(45, 20);
+		this.label.setLocation(120, 10);
 
 		setLabelKedoc2();
-		this.Label.setLocation(160, 0);
-		this.Label.setSize(30, 200);
+		this.label.setLocation(160, 0);
+		this.label.setSize(30, 200);
 
 		setLabelTC();
-		this.Label.setText("So Tin Chi");
-		this.Label.setSize(70, 20);
-		this.Label.setLocation(190, 10);
+		this.label.setText("So Tin Chi");
+		this.label.setSize(70, 20);
+		this.label.setLocation(190, 10);
 
 		setLabelKengang();
-		this.Label.setLocation(0, 20);
-		this.Label.setSize(300, 30);
+		this.label.setLocation(0, 20);
+		this.label.setSize(300, 30);
 
 		shell.open();
 
@@ -57,27 +57,27 @@ public class Form_LietKe {
 	}
 
 	public void setLabelTenMH() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
 	}
 
 	public void setLabelKedoc1() {
-		this.Label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		this.label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 	}
 
 	public void setLabelKiHieu() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
 	}
 
 	public void setLabelKedoc2() {
-		this.Label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		this.label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 	}
 
 	public void setLabelTC() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
 	}
 
 	public void setLabelKengang() {
-		this.Label = new Label(shell, SWT.SEPARATOR | SWT.HORIZONTAL
+		this.label = new Label(shell, SWT.SEPARATOR | SWT.HORIZONTAL
 				| SWT.SHADOW_OUT);
 	}
 

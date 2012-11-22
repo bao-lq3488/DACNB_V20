@@ -3,44 +3,51 @@ package view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_ThongTinMH {
 	Display display;
 	Shell shell;
-	Label Label;
+	Label label;
 	Text Text;
-	Button Button;
+	Button button;
 
 	public Form_ThongTinMH() {
 		setDisplay();
 
 		setLabel();
-		this.Label.setSize(120, 20);
-		this.Label.setText("Nhap Ten Mon Hoc");
-		this.Label.setLocation(80, 20);
+		this.label.setSize(120, 20);
+		this.label.setText("Nhap Ten Mon Hoc");
+		this.label.setLocation(80, 20);
 
 		setTextbox();
 		this.Text.setSize(140, 20);
 		this.Text.setLocation(70, 55);
 
 		setButtonSearch();
-		this.Button.setSize(50, 25);
-		this.Button.setText("Search");
-		this.Button.setLocation(140, 90);
+		this.button.setSize(50, 25);
+		this.button.setText("Search");
+		this.button.setLocation(140, 90);
 
 		setButtonCancel();
-		this.Button.setSize(50, 25);
-		this.Button.setText("Cancel");
-		this.Button.setLocation(200, 90);
+		this.button.setSize(50, 25);
+		this.button.setText("Cancel");
+		this.button.setLocation(200, 90);
+		this.button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event event) {
+				System.exit(0);
+			}
+		});
 
 		setLabelDanhSach();
-		this.Label.setText("Danh Sach Mon Hoc");
-		this.Label.setSize(115, 20);
-		this.Label.setLocation(10, 95);
-		this.Label.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
+		this.label.setText("Danh Sach Mon Hoc");
+		this.label.setSize(115, 20);
+		this.label.setLocation(10, 95);
+		this.label.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
 
 		shell.open();
 
@@ -59,7 +66,7 @@ public class Form_ThongTinMH {
 	}
 
 	public void setLabel() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
 	}
 
 	public void setTextbox() {
@@ -67,15 +74,15 @@ public class Form_ThongTinMH {
 	}
 
 	public void setButtonSearch() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public void setButtonCancel() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public void setLabelDanhSach() {
-		this.Label = new Label(shell, SWT.LEFT);
+		this.label = new Label(shell, SWT.LEFT);
 	}
 
 	public static void main(String args[]) {

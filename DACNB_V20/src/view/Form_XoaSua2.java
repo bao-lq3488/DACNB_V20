@@ -3,7 +3,9 @@ package view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
@@ -12,7 +14,7 @@ public class Form_XoaSua2 {
 	Shell shell;
 	Label Label;
 	Text Text;
-	Button Button;
+	Button button;
 
 	public Form_XoaSua2() {
 		setDisplay();
@@ -27,20 +29,25 @@ public class Form_XoaSua2 {
 		this.Text.setLocation(60, 50);
 
 		setButtonSua();
-		this.Button.setSize(50, 25);
-		this.Button.setLocation(60, 110);
-		this.Button.setText("Sua");
+		this.button.setSize(50, 25);
+		this.button.setLocation(60, 110);
+		this.button.setText("Sua");
 
 		setButtonXoa();
-		this.Button.setSize(50, 25);
-		this.Button.setLocation(120, 110);
-		this.Button.setText("Xoa");
+		this.button.setSize(50, 25);
+		this.button.setLocation(120, 110);
+		this.button.setText("Xoa");
 
 		setButtonCancel();
-		this.Button.setSize(50, 25);
-		this.Button.setLocation(180, 110);
-		this.Button.setText("Cancel");
-
+		this.button.setSize(50, 25);
+		this.button.setLocation(180, 110);
+		this.button.setText("Cancel");
+		this.button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event event) {
+				System.exit(0);
+			}
+		});
+		
 		shell.open();
 
 		while (!shell.isDisposed()) {
@@ -68,15 +75,15 @@ public class Form_XoaSua2 {
 	}
 
 	public void setButtonSua() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public void setButtonXoa() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public void setButtonCancel() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public static void main(String args[]) {

@@ -3,34 +3,41 @@ package view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_ThongTinMH2 {
 	Display display;
 	Shell shell;
-	Label Label;
-	Button Button;
-	Text Text;
+	Label label;
+	Button button;
+	Text text;
 
 	public Form_ThongTinMH2() {
 		setDisplay();
 
 		setLabel();
-		this.Label.setSize(120, 20);
-		this.Label.setText("Thong Tin Mon Hoc");
-		this.Label.setLocation(80, 20);
+		this.label.setSize(120, 20);
+		this.label.setText("Thong Tin Mon Hoc");
+		this.label.setLocation(80, 20);
 
 		setTextbox();
-		this.Text.setSize(160, 40);
-		this.Text.setLocation(60, 55);
+		this.text.setSize(160, 40);
+		this.text.setLocation(60, 55);
 
 		setButton();
-		this.Button.setSize(50, 25);
-		this.Button.setText("Thoat");
-		this.Button.setLocation(200, 110);
-
+		this.button.setSize(50, 25);
+		this.button.setText("Cancel");
+		this.button.setLocation(200, 110);
+		this.button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event event) {
+				System.exit(0);
+			}
+		});
+		
 		shell.open();
 
 		while (!shell.isDisposed()) {
@@ -48,16 +55,16 @@ public class Form_ThongTinMH2 {
 	}
 
 	public void setLabel() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
+		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
 	}
 
 	public void setTextbox() {
-		this.Text = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.BORDER
+		this.text = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.BORDER
 				| SWT.V_SCROLL);
 	}
 
 	public void setButton() {
-		this.Button = new Button(shell, SWT.CENTER);
+		this.button = new Button(shell, SWT.CENTER);
 	}
 
 	public static void main(String args[]) {
