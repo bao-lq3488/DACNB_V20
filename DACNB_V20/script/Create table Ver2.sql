@@ -9,7 +9,7 @@ CREATE TYPE SinhVien_O AS OBJECT(
 constructor function SinhVien_O(IDSinhVien varchar) return self as result
   member function 
   get_inforSV return varchar
-) not final
+) not final;
 
 ----------create type body... la chi dinh attribute nao cua object duoc su dung de dang nhap ? ----------
 create type body SinhVien_O is 
@@ -76,7 +76,7 @@ create type Mon_O as object(
   IDMon varchar(10),
   TenMon varchar(50),
   Mon_Diem ref Diem_O
-)not final
+)not final;
 --create type Mon1 as table of Mon;
 create table Mon of Mon(
   IDMon not null,
@@ -112,7 +112,7 @@ create type Lop_O as object(
   IDLop varchat(20),
   TenLop varchar(20),
   ThoiGianHoc ThoiGianHoc_O
-)not final
+)not final;
 create table Lop of Lop_O(
   IDLop not final,
   primary key (IDLop),
