@@ -6,10 +6,19 @@ CREATE TYPE SinhVien_O AS OBJECT(
 --  KhoaHoc varchar(10),
 --  Lop varchar(10),
 --  Nganh varchar(50)
+constructor function SinhVien_O(IDSinhVien varchar) return self as result
   member function 
   get_inforSV return varchar
 ) not final
-create 
+
+----------create type body... la chi dinh attribute nao cua object duoc su dung de dang nhap ? ----------
+create type body SinhVien_O is 
+  constructor function SinhVien_O(IDSinhVien varchar) return self as result
+  is external IDSinhVien "093488"
+  end;
+  
+grant select on SinhVien_O to user1 --- user1 ?-----
+
 create type NgaySinh_O as object(
 thu varchar(20),
 ngay date,
@@ -28,26 +37,28 @@ create type SinhVien_in_term under SinhVien_O(
 create type SinhVien_put_term under SinhVien_O(
 
 );
---create table SinhVien3(
---  SinhVienHS SinhVien
---);
 
 create type Khoa_O as object(
   IDKhoa varchar(10),
   TenKhoa varchar(50),
   TruongKhoa varchar(50),
   Mon_Khoa ref Mon_O
-  member function
-  get_inforK return varchar
+constructor function Khoa_O(IDKhoa varchar) return self as result
+  member function 
+  get_inforSV return varchar
 );
+
+create type body SinhVien_O is 
+  constructor function Khoa_O(IDKhoa varchar) return self as result
+  is external IDKhoa "093488"
+  end;
+  
+grant select on Khoa_O to user2 --- user1 ?-----
 --create type Khoa1 as table of Khoa;
 create table Khoa of Khoa_O(
   IDKhoa not null,
   primary key(IDKhoa)
 );
---create table Khoa3(
---  KhoaHS Khoa
---);
 
 create type Nganh_O as object(
   IDNganh varchar(10),
@@ -58,11 +69,8 @@ create type Nganh_O as object(
 create table Nganh of Nganh_O(
   IDNganh not null,
   primary key (IDNganh),
---  foreign key (IDSinhVien) reference SinhVien2(IDSinhVien)
+
 );
---create table Nganh3(
---  NganhHS Nganh
---);
 
 create type Mon_O as object(
   IDMon varchar(10),
@@ -73,8 +81,6 @@ create type Mon_O as object(
 create table Mon of Mon(
   IDMon not null,
   primary key (IDMon),
- -- foreign key (IDKhoa) reference Khoa(IDKhoa),
- -- foreign key (IDSinhVien) reference SinhVien(IDSinhVien),
 );
 create type Mon_in_term under Mon_O(
 
@@ -82,9 +88,6 @@ create type Mon_in_term under Mon_O(
 create type Mon_out_term under Mon_O(
 
 );
---create table Mon3(
---  MonHS Mon
---);
 
 create type Diem as object(
   IDMon varchar(10),
@@ -96,10 +99,6 @@ create type Diem as object(
 create table Diem2 of Diem(
   IDMon not null,
   primary key (IDMon),
- -- foreign key (IDMon) reference Mon(IDMon)
-);
---create table Diem3(
---  DiemHS Diem,
 );
 
 create type ThoiGianHoc_O as object(
