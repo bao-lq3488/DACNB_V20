@@ -1,11 +1,15 @@
 package view;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 
 public class Main_QLMH {
@@ -95,11 +99,36 @@ public class Main_QLMH {
 
 		LietKe_MH.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
-				if (event.widget == LietKe_MH) {
+				//if (event.widget == LietKe_MH) {
+					//MessageBox mb = new MessageBox(s);
+					//mb.setMessage("hello");
+					//mb.open();
+					lietke_SV();
+					
+				//}
+			}
 
+			public void lietke_SV() {
+				Shell s2 = new Shell(s);
+				GridLayout gridlayout = new GridLayout();
+				gridlayout.numColumns = 3;
+				s2.setLayout(gridlayout);
+				
+				Label lb1 = new Label(s2, SWT.NONE);
+				lb1.setText("alo");
+				
+				Button bt = new Button(s2, SWT.PUSH);
+				bt.setText("ola");
+
+				s2.open();
+				while (!s2.isDisposed()) {
+					if (!d.readAndDispatch()) {
+						d.sleep();
+					}
 				}
 			}
 		});
+		
 
 		s.setMenuBar(MenuBar);
 		s.open();
