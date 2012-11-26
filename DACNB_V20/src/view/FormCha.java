@@ -26,7 +26,7 @@ public class FormCha {
 		createUI();
 		
 		shell.pack();
-		shell.setLocation(25,25);
+		shell.setLocation(10, 10);
 		
 		shell.open();
 		
@@ -42,39 +42,41 @@ public class FormCha {
 	private void createUI() {
 		// TODO Auto-generated method stub
 		GridLayout gl = new GridLayout(4,true);
-		gl.horizontalSpacing = 4; 
-		gl.marginLeft = 5;
-		gl.marginTop = 10;
+		gl.horizontalSpacing = 4;
+		gl.verticalSpacing = 10;
+		gl.marginLeft = 10;
+		gl.marginRight = 10;
+		gl.marginTop = 5;
+		shell.setLayout(gl);
 		
 		Button btn = new Button(shell, SWT.PUSH);
         btn.setText("1");
         GridData gd = new GridData(SWT.FILL, SWT.FILL, false, false);
-        gd.heightHint = 50;
-        gd.widthHint = 30;
         btn.setLayoutData(gd);
         
         Button btn2 = new Button(shell, SWT.PUSH);
         btn2.setText("2");
-        GridData gd2 = new GridData(SWT.FILL, SWT.FILL, false, false);
-        gd2.heightHint = 50;
-        gd2.widthHint = 30;
-        btn.setLayoutData(gd);
+        btn2.setLayoutData(gd);
         
         Button btn3 = new Button(shell, SWT.PUSH);
         btn3.setText("3");
-        GridData gd3 = new GridData(SWT.FILL, SWT.FILL, false, false);
-        gd3.heightHint = 40;
-        gd3.widthHint = 30;
         btn3.setLayoutData(gd);
         
         Label lb = new Label(shell, SWT.CENTER);
-        GridData gd4 = new GridData(SWT.FILL, SWT.FILL, false, false);
-        lb.setLayoutData(gd4);
+        lb.setLayoutData(gd);
+        lb.setText("Why button 2 is too small?\n Nut 2 sao nho vay! Sua ko dc");
         
         Text text = new Text(shell, SWT.BORDER);
-        GridData gd5 = new GridData(SWT.FILL, SWT.FILL, false, false);
-        gd5.horizontalSpan = 4;
-        text.setLayoutData(gd5);
+        GridData gd2 = new GridData(SWT.FILL, SWT.FILL, false, false);
+        gd2.horizontalSpan = 4;
+        text.setLayoutData(gd2);
+        text.setText("Cai nay no chiem het hang do  g5.horizontalSpan = 4");
+        
+        Text text2 = new Text(shell, SWT.BORDER);
+        GridData gd3 = new GridData(SWT.FILL, SWT.FILL, false, false);
+        gd3.horizontalSpan = 2;
+        text2.setLayoutData(gd3);
+        text2.setText("Cai nay no chiem nua hang do  g6.horizontalSpan = 2");
         		
 	}
 
