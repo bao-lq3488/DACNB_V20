@@ -13,7 +13,8 @@ public class main {
 			ConnectionJDBC con = new ConnectionJDBC("oracle.jdbc.driver.OracleDriver","localhost","1521","XE","QLSV","12345",null);
 			System.out.println("Connection : " + con.doConnection());
 			SinhVien sv;
-			SinhVien.selectSinhVien();
+			//SinhVien.selectSinhVien();
+			SinhVien.setAllSinhvien();
 		}catch (SQLException ex) {
 			System.out.println(ex);
 		}

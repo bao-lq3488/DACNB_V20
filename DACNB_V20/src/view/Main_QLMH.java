@@ -109,23 +109,11 @@ public class Main_QLMH {
 			}
 
 			public void lietke_SV() {
-				Shell s2 = new Shell(s);
-				GridLayout gridlayout = new GridLayout();
-				gridlayout.numColumns = 3;
-				s2.setLayout(gridlayout);
+				Form_LietKe lkfrm = new Form_LietKe();
+				lkfrm.display = d;
+				lkfrm.shell = new Shell(s);
 				
-				Label lb1 = new Label(s2, SWT.NONE);
-				lb1.setText("alo");
 				
-				Button bt = new Button(s2, SWT.PUSH);
-				bt.setText("ola");
-
-				s2.open();
-				while (!s2.isDisposed()) {
-					if (!d.readAndDispatch()) {
-						d.sleep();
-					}
-				}
 			}
 		});
 		

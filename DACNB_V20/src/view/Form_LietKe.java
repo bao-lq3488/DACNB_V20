@@ -40,13 +40,7 @@ public class Form_LietKe {
 		this.label.setLocation(0, 20);
 		this.label.setSize(300, 30);
 
-		shell.open();
-
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
-				display.sleep();
-		}
-		display.dispose();
+		show_lietke();
 	}
 
 	public void setDisplay() {
@@ -84,5 +78,17 @@ public class Form_LietKe {
 	public static void main(String args[]) {
 		new Form_LietKe();
 
+	}
+	
+	public void show_lietke()
+	{
+		shell.open();
+
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch())
+				display.sleep();
+		}
+		display.dispose();
+	
 	}
 }
