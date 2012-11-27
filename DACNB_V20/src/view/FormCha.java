@@ -1,25 +1,32 @@
 package view;
 
-import java.awt.Menu;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class FormCha {
 	public Shell shell;
+	public Display display;
 
-	public FormCha(Display display){
+	public FormCha(){
 		
 		//Lam theo form dang nay cho ro rang truoc 
 		//roi button click 1,2 ngay nua Bao them vao sau
 		//chu viet kieu cu roi wa
-		
+		display = new Display();
 		shell = new Shell(display);
 		shell.setText("MainForm");
 		
@@ -53,6 +60,14 @@ public class FormCha {
         btn.setText("1");
         GridData gd = new GridData(SWT.FILL, SWT.FILL, false, false);
         btn.setLayoutData(gd);
+        btn.addListener(SWT.Selection, new Listener() {
+			
+			@Override
+			public void handleEvent(Event arg0) {
+				// TODO Auto-generated method stub
+				new FormCon(display);
+			}
+		});
         
         Button btn2 = new Button(shell, SWT.PUSH);
         btn2.setText("2");
@@ -81,10 +96,9 @@ public class FormCha {
 	}
 
 	public static void main(String args[]) {
-		Display display = new Display();
-		
-		new FormCha(display);
-		display.dispose();
+		new FormCha();
+		FormCha frmCha = new FormCha();
+		frmCha.display.dispose();
 	}
 	
 }
