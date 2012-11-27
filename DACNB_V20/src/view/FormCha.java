@@ -44,6 +44,7 @@ public class FormCha {
 					display.sleep();
 			}
 		}
+		display.dispose();
 	}
 	
 	private void createUI() {
@@ -79,7 +80,7 @@ public class FormCha {
         
         Label lb = new Label(shell, SWT.CENTER);
         lb.setLayoutData(gd);
-        lb.setText("Why button 2 is too small?\n Nut 2 sao nho vay! Sua ko dc");
+        lb.setText("Co the lam hung nay trong bang cach\n them label vao nhung khong settext\n hoac settext bang null ");
         
         Text text = new Text(shell, SWT.BORDER);
         GridData gd2 = new GridData(SWT.FILL, SWT.FILL, false, false);
@@ -97,8 +98,6 @@ public class FormCha {
 
 	public static void main(String args[]) {
 		new FormCha();
-		FormCha frmCha = new FormCha();
-		frmCha.display.dispose();
 	}
 	
 }
