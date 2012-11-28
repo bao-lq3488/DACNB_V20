@@ -5,7 +5,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
+public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
+		ActionListener {
 	/**
 	 * 
 	 */
@@ -14,47 +15,49 @@ public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
 	JPanel panel1;
 	JPanel panel2;
 	JButton btnOK;
-	JButton btnCancel;
-	JButton btnBack;
-	JTextField t1;
+	JButton btnClear;
+	JTextField tefNhapTenMH;
 	JLabel l1;
 	JLabel l2;
-
+	
+	
 	public Form_AWT_XoaSuaMonHoc() {
 		setSize(320, 230);
 		setTitle("XoaSuaMonHoc");
-		setResizable(false);
+		setResizable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setIconifiable(true);
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
 		btnOK = new JButton("Dong Y");
-		btnCancel = new JButton("Thoat");
-		btnBack = new JButton("Quay Lai");
-		t1 = new JTextField(25);
+		btnClear = new JButton("Clear");
+		tefNhapTenMH = new JTextField(25);
 		l1 = new JLabel("Xoa Mon Hoc");
-		l2 = new JLabel("Nhap Ten Mon Hoc Can Xoa Hoac Sua : ");
+		l2 = new JLabel("Nhap Ten Mon Hoc Can Xoa Hoac Sua: ");
 
 		btnOK.addActionListener(this);
-		btnBack.addActionListener(this);
-		btnCancel.addActionListener(this);
+		btnClear.addActionListener(this);
 
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
-
+		
 		panel1.add(l1);
 		panel2.add(l2);
-		panel2.add(t1);
+		panel2.add(tefNhapTenMH);
 		panel2.add(btnOK);
-		panel2.add(btnBack);
-		panel2.add(btnCancel);
+		panel2.add(btnClear);
 
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
-
-		String Ok = t1.getText();
+		
+		JFrame Menu = new Form_AWT_Menu();
+		String Ok = tefNhapTenMH.getText();
 
 		if (e.getActionCommand().equals("Dong Y")) {
 			if (e.getSource() == btnOK) {
@@ -62,21 +65,15 @@ public class Form_AWT_XoaSuaMonHoc extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(null, "Dien Ten Mon Hoc",
 							"Error", JOptionPane.ERROR_MESSAGE);
 				} else {
-					JFrame f = new Form_AWT_XoaSuaMonHoc2();
-					f.setVisible(true);
-					this.setVisible(false);
+					JInternalFrame XoaSuaMonHoc2 = new Form_AWT_XoaSuaMonHoc2();
+					XoaSuaMonHoc2.setVisible(true);
+					Menu.add(XoaSuaMonHoc2);
 				}
 			}
 		}
-		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Menu();
-			f.setVisible(true);
-			this.setVisible(false);
+		
+		if (e.getActionCommand().equals("Clear")) {
+			tefNhapTenMH.setText("");
 		}
-		if (e.getActionCommand().equals("Thoat")) {
-			System.exit(0);
-		}
-
 	}
-
 }

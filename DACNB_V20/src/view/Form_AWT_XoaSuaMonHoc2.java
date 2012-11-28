@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Form_AWT_XoaSuaMonHoc2 extends JFrame implements ActionListener {
+public class Form_AWT_XoaSuaMonHoc2 extends JInternalFrame implements ActionListener {
 	/**
 	 * 
 	 */
@@ -15,14 +15,17 @@ public class Form_AWT_XoaSuaMonHoc2 extends JFrame implements ActionListener {
 	JButton btnDel;
 	JButton btnEdit;
 	JButton btnBack;
-	JButton btnCancel;
 	JTextField t1;
 	JLabel l1;
 
 	public Form_AWT_XoaSuaMonHoc2() {
 		setSize(320, 230);
 		setTitle("XoaSuaMonHoc");
-		setResizable(false);
+		setResizable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setIconifiable(true);
+
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
@@ -30,7 +33,6 @@ public class Form_AWT_XoaSuaMonHoc2 extends JFrame implements ActionListener {
 
 		btnDel = new JButton("Xoa");
 		btnEdit = new JButton("Sua");
-		btnCancel = new JButton("Thoat");
 		btnBack = new JButton("Quay Lai");
 		t1 = new JTextField(25);
 		t1.setText("InThongTinMonHoc");
@@ -39,8 +41,6 @@ public class Form_AWT_XoaSuaMonHoc2 extends JFrame implements ActionListener {
 		btnDel.addActionListener(this);
 		btnEdit.addActionListener(this);
 		btnBack.addActionListener(this);
-		btnCancel.addActionListener(this);
-
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
 
@@ -49,7 +49,6 @@ public class Form_AWT_XoaSuaMonHoc2 extends JFrame implements ActionListener {
 		panel2.add(btnDel);
 		panel2.add(btnEdit);
 		panel2.add(btnBack);
-		panel2.add(btnCancel);
 
 	}
 
@@ -79,14 +78,11 @@ public class Form_AWT_XoaSuaMonHoc2 extends JFrame implements ActionListener {
 			}
 		}
 
-		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Menu();
-			f.setVisible(true);
-			this.setVisible(false);
-		}
-		if (e.getActionCommand().equals("Thoat")) {
-			System.exit(0);
-		}
+//		if (e.getActionCommand().equals("Quay Lai")) {
+//			JInternalFrame XoaSuaMonHoc = new Form_AWT_XoaSuaMonHoc();
+//			XoaSuaMonHoc.setVisible(true);
+//			this.setVisible(false);
+//		}
 
 	}
 

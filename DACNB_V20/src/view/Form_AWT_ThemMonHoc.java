@@ -41,7 +41,7 @@ public class Form_AWT_ThemMonHoc extends JInternalFrame implements
 		panel1 = new JPanel();
 
 		btnAdd = new JButton("Them");
-		btnClear = new JButton("Lam Moi");
+		btnClear = new JButton("Clear");
 
 		tefTenMH = new JTextField(20);
 		tefKyHieuMH = new JTextField(20);
@@ -103,7 +103,7 @@ public class Form_AWT_ThemMonHoc extends JInternalFrame implements
 			}
 		}
 
-		if (e.getActionCommand().equals("Lam Moi")) {
+		if (e.getActionCommand().equals("Clear")) {
 			tefTenMH.setText("");
 			tefKyHieuMH.setText("");
 			tefSoTinChi.setText("");

@@ -13,19 +13,20 @@ public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
 	private static final long serialVersionUID = 1L;
 	Container contentPane;
 	JPanel panel1;
-	JPanel panel2;
-	JLabel l2;
-	JLabel l3;
-	JLabel l4;
-	JLabel l5;
-	JLabel l6;
-	JLabel l7;
-	JLabel l8;
-	JLabel l9;
-	JLabel l10;
-	JLabel l11;
-	JLabel l12;
-	JLabel l13;
+
+	JLabel lbTenMH;
+	JLabel lbKyHieuMH;
+	JLabel lbSoTinChi;
+	JLabel lbSoTiet;
+	JLabel lbNganh;
+	JLabel lbKhoaHoc;
+
+	JLabel lb2TenMH;
+	JLabel lb2KyHieuMH;
+	JLabel lb2SoTinChi;
+	JLabel lb2SoTiet;
+	JLabel lb2Nganh;
+	JLabel lb2KhoaHoc;
 
 	public Form_AWT_LietKeMonHoc() {
 
@@ -38,36 +39,36 @@ public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
-		panel2 = new JPanel();
-		l8 = new JLabel();
-		l9 = new JLabel();
-		l10 = new JLabel();
-		l11 = new JLabel();
-		l12 = new JLabel();
-		l13 = new JLabel();
-		l2 = new JLabel("Ten Mon Hoc");
-		l3 = new JLabel("Ky Hieu Mon Hoc");
-		l4 = new JLabel("So Tin Chi");
-		l5 = new JLabel("Tong So Tiet");
-		l6 = new JLabel("Nganh");
-		l7 = new JLabel("Khoa Hoc");
 
-		contentPane.add(panel2);
+		lb2TenMH = new JLabel();
+		lb2KyHieuMH = new JLabel();
+		lb2SoTinChi = new JLabel();
+		lb2SoTiet = new JLabel();
+		lb2Nganh = new JLabel();
+		lb2KhoaHoc = new JLabel();
 
-		panel2.setLayout(new GridLayout(2, 5));
+		lbTenMH = new JLabel("Ten Mon Hoc");
+		lbKyHieuMH = new JLabel("Ky Hieu Mon Hoc");
+		lbSoTinChi = new JLabel("So Tin Chi");
+		lbSoTiet = new JLabel("Tong So Tiet");
+		lbNganh = new JLabel("Nganh");
+		lbKhoaHoc = new JLabel("Khoa Hoc");
 
-		panel2.add(l2);
-		panel2.add(l3);
-		panel2.add(l4);
-		panel2.add(l5);
-		panel2.add(l6);
-		panel2.add(l7);
-		panel2.add(l8);
-		panel2.add(l9);
-		panel2.add(l10);
-		panel2.add(l11);
-		panel2.add(l12);
-		panel2.add(l13);
+		contentPane.add(panel1);
+
+		panel1.setLayout(new GridLayout(2, 5));
+
+		panel1.add(lbTenMH);
+		panel1.add(lbKyHieuMH);
+		panel1.add(lbSoTinChi);
+		panel1.add(lbSoTiet);
+		panel1.add(lbNganh);
+		panel1.add(lbKhoaHoc);
+		panel1.add(lb2TenMH);
+		panel1.add(lb2KyHieuMH);
+		panel1.add(lb2SoTinChi);
+		panel1.add(lb2SoTiet);
+		panel1.add(lb2KhoaHoc);
 
 	}
 
