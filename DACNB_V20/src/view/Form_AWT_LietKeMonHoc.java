@@ -5,7 +5,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
+public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
+		ActionListener {
 	/**
 	 * 
 	 */
@@ -13,8 +14,6 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 	Container contentPane;
 	JPanel panel1;
 	JPanel panel2;
-	JButton btnExit;
-	JButton btnBack;
 	JLabel l2;
 	JLabel l3;
 	JLabel l4;
@@ -29,15 +28,17 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 	JLabel l13;
 
 	public Form_AWT_LietKeMonHoc() {
+
 		setSize(800, 420);
 		setTitle("LietKeMonHoc");
-		setResizable(false);
+		setResizable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setIconifiable(true);
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
-		btnExit = new JButton("Thoat");
-		btnBack = new JButton("Quay Lai");
 		l8 = new JLabel();
 		l9 = new JLabel();
 		l10 = new JLabel();
@@ -51,9 +52,6 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 		l6 = new JLabel("Nganh");
 		l7 = new JLabel("Khoa Hoc");
 
-		btnBack.addActionListener(this);
-		btnExit.addActionListener(this);
-
 		contentPane.add(panel2);
 
 		panel2.setLayout(new GridLayout(2, 5));
@@ -64,26 +62,16 @@ public class Form_AWT_LietKeMonHoc extends JFrame implements ActionListener {
 		panel2.add(l5);
 		panel2.add(l6);
 		panel2.add(l7);
-		panel2.add(btnExit);
 		panel2.add(l8);
 		panel2.add(l9);
 		panel2.add(l10);
 		panel2.add(l11);
 		panel2.add(l12);
 		panel2.add(l13);
-		panel2.add(btnBack);
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Menu();
-			f.setVisible(true);
-			this.setVisible(false);
-		}
-		if (e.getActionCommand().equals("Thoat")) {
-			System.exit(0);
-		}
 	}
 }
