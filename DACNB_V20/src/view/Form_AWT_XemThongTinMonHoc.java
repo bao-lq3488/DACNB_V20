@@ -23,7 +23,8 @@ public class Form_AWT_XemThongTinMonHoc extends JFrame implements
 	public Form_AWT_XemThongTinMonHoc() {
 		setSize(320, 230);
 		setTitle("XemThongTinMonHoc");
-		setResizable(false);
+		setResizable(true);
+
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();

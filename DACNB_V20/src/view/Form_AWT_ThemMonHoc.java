@@ -5,106 +5,111 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_ThemMonHoc extends JFrame implements ActionListener {
+public class Form_AWT_ThemMonHoc extends JInternalFrame implements
+		ActionListener {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8054095306133526836L;
 	Container contentPane;
 	JPanel panel1;
-	JPanel panel2;
 	JButton btnAdd;
-	JButton btnBack;
-	JTextField t1;
-	JTextField t2;
-	JTextField t3;
-	JTextField t4;
-	JTextField t5;
-	JTextField t6;
-	JTextField t7;
-	JLabel l2;
-	JLabel l3;
-	JLabel l4;
-	JLabel l5;
-	JLabel l6;
-	JLabel l7;
+	JButton btnClear;
+	JTextField tefTenMH;
+	JTextField tefKyHieuMH;
+	JTextField tefSoTinChi;
+	JTextField tefSoTiet;
+	JTextField tefNganh;
+	JTextField tefKhoaHoc;
+	JLabel lbTenMH;
+	JLabel lbKyHieuMH;
+	JLabel lbSoTinChi;
+	JLabel lbSoTiet;
+	JLabel lbNganh;
+	JLabel lbKhoaHoc;
 
 	public Form_AWT_ThemMonHoc() {
 		setSize(400, 420);
 		setTitle("ThemMonHoc");
-		setResizable(false);
+		setResizable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setIconifiable(true);
 
 		contentPane = getContentPane();
+
 		panel1 = new JPanel();
-		panel2 = new JPanel();
+
 		btnAdd = new JButton("Them");
-		btnBack = new JButton("Quay Lai");
-		t1 = new JTextField(20);
-		t2 = new JTextField(20);
-		t3 = new JTextField(20);
-		t4 = new JTextField(20);
-		t5 = new JTextField(20);
-		t6 = new JTextField(20);
-		t7 = new JTextField(20);
-		l2 = new JLabel("Ten Mon Hoc");
-		l3 = new JLabel("Ky Hieu Mon Hoc");
-		l4 = new JLabel("So Tin Chi");
-		l5 = new JLabel("Tong So Tiet");
-		l6 = new JLabel("Nganh");
-		l7 = new JLabel("Khoa Hoc");
+		btnClear = new JButton("Clear");
+
+		tefTenMH = new JTextField(20);
+		tefKyHieuMH = new JTextField(20);
+		tefSoTinChi = new JTextField(20);
+		tefSoTiet = new JTextField(20);
+		tefNganh = new JTextField(20);
+		tefKhoaHoc = new JTextField(20);
+
+		lbTenMH = new JLabel("Ten Mon Hoc");
+		lbKyHieuMH = new JLabel("Ky Hieu Mon Hoc");
+		lbSoTinChi = new JLabel("So Tin Chi");
+		lbSoTiet = new JLabel("Tong So Tiet");
+		lbNganh = new JLabel("Nganh");
+		lbKhoaHoc = new JLabel("Khoa Hoc");
 
 		btnAdd.addActionListener(this);
-		btnBack.addActionListener(this);
+		btnClear.addActionListener(this);
 
-		contentPane.add(panel2);
+		contentPane.add(panel1);
 
-		panel2.setLayout(new GridLayout(7, 2));
+		panel1.setLayout(new GridLayout(7, 2));
 
-		panel2.add(l2);
-		panel2.add(t1);
-		panel2.add(l3);
-		panel2.add(t3);
-		panel2.add(l4);
-		panel2.add(t4);
-		panel2.add(l5);
-		panel2.add(t5);
-		panel2.add(l6);
-		panel2.add(t6);
-		panel2.add(l7);
-		panel2.add(t7);
-		panel2.add(btnAdd);
-		panel2.add(btnBack);
+		panel1.add(lbTenMH);
+		panel1.add(tefTenMH);
+		panel1.add(lbKyHieuMH);
+		panel1.add(tefKyHieuMH);
+		panel1.add(lbSoTinChi);
+		panel1.add(tefSoTinChi);
+		panel1.add(lbSoTiet);
+		panel1.add(tefSoTiet);
+		panel1.add(lbNganh);
+		panel1.add(tefNganh);
+		panel1.add(lbKhoaHoc);
+		panel1.add(tefKhoaHoc);
+		panel1.add(btnAdd);
+		panel1.add(btnClear);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		String add1 = t1.getText();
-		String add2 = t2.getText();
-		String add3 = t3.getText();
-		String add4 = t4.getText();
-		String add5 = t5.getText();
-		String add6 = t6.getText();
-		String add7 = t7.getText();
+		String add1 = tefTenMH.getText();
+		String add2 = tefKyHieuMH.getText();
+		String add3 = tefSoTinChi.getText();
+		String add4 = tefSoTiet.getText();
+		String add5 = tefNganh.getText();
+		String add6 = tefKhoaHoc.getText();
 
 		if (e.getActionCommand().equals("Them")) {
 			if (e.getSource() == btnAdd) {
 				if (add1.equals("") || add2.equals("") || add3.equals("")
 						|| add4.equals("") || add5.equals("")
-						|| add6.equals("") || add7.equals("")) {
+						|| add6.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Dien Day Du Thong Tin Mon Hoc", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
-					JFrame f = new Form_AWT_LietKeMonHoc();
-					f.setVisible(true);
-					this.setVisible(false);
+					JOptionPane.showMessageDialog(null,
+							"Da Them Sinh Vien Thanh Cong");
 				}
 			}
 		}
 
-		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Menu();
-			f.setVisible(true);
-			this.setVisible(false);
+		if (e.getActionCommand().equals("Clear")) {
+			tefTenMH.setText("");
+			tefKyHieuMH.setText("");
+			tefSoTinChi.setText("");
+			tefSoTiet.setText("");
+			tefNganh.setText("");
+			tefKhoaHoc.setText("");
 		}
 	}
 }
