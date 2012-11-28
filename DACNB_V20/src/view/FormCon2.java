@@ -8,11 +8,11 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 
-public class FormCon {
+public class FormCon2 {
 
 	public Shell shell;
 
-	public FormCon(Display display){
+	public FormCon2(Display display){
 		
 		shell = new Shell(display);
 		shell.setText("FormCon");
@@ -49,17 +49,6 @@ public class FormCon {
 		
 		MenuItem newItem = new MenuItem(fileMenu, SWT.PUSH);
 		newItem.setText("&New");
-		newItem.addListener(SWT.Selection, new Listener() {
-			
-			@Override
-			public void handleEvent(Event arg0) {
-				// TODO Auto-generated method stub
-				//FormCha frmCha = new FormCha();
-				//FormCon2 frmCon = new FormCon2(frmCha.display);
-				new FormCon2(shell.getDisplay());
-				
-			}
-		});
 		
 		MenuItem openItem = new MenuItem(fileMenu, SWT.PUSH);
 		openItem.setText("&Open");
