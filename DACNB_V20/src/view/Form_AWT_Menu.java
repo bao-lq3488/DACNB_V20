@@ -98,7 +98,8 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getActionCommand().equals("Liet Ke Mon Hoc")) {
-			JInternalFrame LietKeMonHoc = new Form_AWT_LietKeMonHoc();
+//			JInternalFrame LietKeMonHoc = new Form_AWT_LietKeMonHoc();
+			JInternalFrame LietKeMonHoc = Form_AWT_LietKeMonHoc.getInstance();
 			LietKeMonHoc.setVisible(true);
 			DesktopPane.add(LietKeMonHoc);
 		}
