@@ -66,16 +66,18 @@ create table Mon of Mon(
   primary key (IDMon),
 );
 
-create type Diem as object(
+create type BangDiem_O as object(
   IDMon varchar(10),
+  IDSinhVien varchar(10),
   DiemQT float,
   DiemHK float,
   DiemTB float
 );
 --create type Diem1 as table of Diem;
-create table Diem2 of Diem(
-  IDMon not null,
-  primary key (IDMon),
+create table BangDiem of BangDiem_O(
+  IDMon not null
+  IDSinhVien not null,
+  primary key (IDMon,IDSinhVien),
 );
 
 create type ThoiGianHoc_O as object(
@@ -99,9 +101,9 @@ create table SinhVien_Mon(
   sinhvienM ref SinhVien,
   monM ref Mon
 );
-create table SinhVien_Lop(
+create table SinhVien_LopMonHoc(
   SinhVienL ref SinhVien,
-  LopL ref Lop
+  LopL ref LopMonHoc
 );
 -----------------------------
 commit;
