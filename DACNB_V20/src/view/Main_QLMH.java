@@ -13,20 +13,31 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 
 public class Main_QLMH {
-	Display d;
-	Shell s;
+	
+	Display display;
+	Shell shell;
 	Menu MenuBar, MenuQLMH, MenuQLSV, MenuInAn;
 	MenuItem QLMH, QLSV, InAn, LietKe_MH, Them_MH, Xoa_MH, Sua_MH, Xem_MH,
 			CapNhat_MH, LietKe_SV, Them_SV, Xoa_SV, Sua_SV, Xem_SV, CapNhat_SV,
 			DSSV, DiemMH, DiemSV;
 
 	public Main_QLMH() {
-		d = new Display();
-		s = new Shell(d, SWT.CLOSE);
-		s.setText("Quan Ly Sinh Vien");
-		s.setSize(400, 300);
+		display = new Display();
+		shell = new Shell(display);
+		shell.setText("Quan Ly Sinh Vien");
+		shell.setSize(400, 300);
 
-		MenuBar = new Menu(s, SWT.BAR);
+		createUI();
+		shell.open();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	public void createUI() {
+		MenuBar = new Menu(shell, SWT.BAR);
 
 		MenuQLMH = new Menu(MenuBar);
 
@@ -34,18 +45,47 @@ public class Main_QLMH {
 		QLMH.setText("Quan Ly Mon Hoc");
 		QLMH.setMenu(MenuQLMH);
 
-		LietKe_MH = new MenuItem(MenuQLMH, SWT.NONE);
+		LietKe_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		LietKe_MH.setText("Liet Ke");
-		Them_MH = new MenuItem(MenuQLMH, SWT.NONE);
+		LietKe_MH.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event arg0) {
+				new Form_LietKe(display);
+			}
+		});
+		Them_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		Them_MH.setText("Them");
-		Xoa_MH = new MenuItem(MenuQLMH, SWT.NONE);
+		
+		Xoa_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		Xoa_MH.setText("Xoa");
-		Sua_MH = new MenuItem(MenuQLMH, SWT.NONE);
+		Xoa_MH.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event arg0) {
+				new Form_XoaSua(display);
+			}
+		});
+		
+		Sua_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		Sua_MH.setText("Sua");
-		Xem_MH = new MenuItem(MenuQLMH, SWT.NONE);
+		Sua_MH.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event arg0) {
+				new Form_XoaSua(display);
+			}
+		});
+		
+		Xem_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		Xem_MH.setText("Xem");
-		CapNhat_MH = new MenuItem(MenuQLMH, SWT.NONE);
+		Xem_MH.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event arg0) {
+				new Form_ThongTinMH(display);
+			}
+		});
+		
+		CapNhat_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		CapNhat_MH.setText("Cap Nhat Diem");
+		CapNhat_MH.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event arg0) {
+				new Form_Update(display);
+			}
+		});
 
 		MenuQLSV = new Menu(MenuBar);
 
@@ -53,18 +93,33 @@ public class Main_QLMH {
 		QLSV.setText("Quan Ly Sinh Vien");
 		QLSV.setMenu(MenuQLSV);
 
-		LietKe_SV = new MenuItem(MenuQLSV, SWT.NONE);
+		LietKe_SV = new MenuItem(MenuQLSV, SWT.PUSH);
 		LietKe_SV.setText("Liet Ke");
-		Them_SV = new MenuItem(MenuQLSV, SWT.NONE);
+		
+		Them_SV = new MenuItem(MenuQLSV, SWT.PUSH);
 		Them_SV.setText("Them");
-		Xoa_SV = new MenuItem(MenuQLSV, SWT.NONE);
+		Them_SV.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event arg0) {
+				new Form_ThemSV(display);
+			}
+		});
+
+		Xoa_SV = new MenuItem(MenuQLSV, SWT.PUSH);
 		Xoa_SV.setText("Xoa");
-		Sua_SV = new MenuItem(MenuQLSV, SWT.NONE);
+		
+		Sua_SV = new MenuItem(MenuQLSV, SWT.PUSH);
 		Sua_SV.setText("Sua");
-		Xem_SV = new MenuItem(MenuQLSV, SWT.NONE);
+		
+		Xem_SV = new MenuItem(MenuQLSV, SWT.PUSH);
 		Xem_SV.setText("Xem");
-		CapNhat_SV = new MenuItem(MenuQLSV, SWT.NONE);
+		
+		CapNhat_SV = new MenuItem(MenuQLSV, SWT.PUSH);
 		CapNhat_SV.setText("Cap Nhat Diem");
+		CapNhat_SV.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event arg0) {
+				new Form_Update(display);
+			}
+		});
 
 		MenuInAn = new Menu(MenuBar);
 
@@ -72,59 +127,14 @@ public class Main_QLMH {
 		InAn.setText("In An");
 		InAn.setMenu(MenuInAn);
 
-		DSSV = new MenuItem(MenuInAn, SWT.NONE);
+		DSSV = new MenuItem(MenuInAn, SWT.PUSH);
 		DSSV.setText("Danh Sach Sinh Vien");
-		DiemMH = new MenuItem(MenuInAn, SWT.NONE);
+		DiemMH = new MenuItem(MenuInAn, SWT.PUSH);
 		DiemMH.setText("Diem Mon Hoc");
-		DiemSV = new MenuItem(MenuInAn, SWT.NONE);
+		DiemSV = new MenuItem(MenuInAn, SWT.PUSH);
 		DiemSV.setText("Diem Sinh Vien");
 
-		// LietKe_MH.addSelectionListener(new a());
-		// class a implements SelectionListener {
-		//
-		// public void widgetDefaultSelected(SelectionEvent arg0) {
-		// FileDialog fd = new FileDialog(s, SWT.OPEN);
-		// fd.setText("Open");
-		// fd.setFilterPath("C:/");
-		// String[] filterExt = { "*.txt", "*.doc", ".rtf", "*.*" };
-		// fd.setFilterExtensions(filterExt);
-		// String selected = fd.open();
-		// System.out.println(selected);
-		// }
-		//
-		// public void widgetSelected(SelectionEvent arg0) {
-		//
-		// }
-		// }
-
-		LietKe_MH.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				//if (event.widget == LietKe_MH) {
-					//MessageBox mb = new MessageBox(s);
-					//mb.setMessage("hello");
-					//mb.open();
-					lietke_SV();
-					
-				//}
-			}
-
-			public void lietke_SV() {
-				Form_LietKe lkfrm = new Form_LietKe();
-				lkfrm.display = d;
-				lkfrm.shell = new Shell(s);
-				
-				
-			}
-		});
-		
-
-		s.setMenuBar(MenuBar);
-		s.open();
-		while (!s.isDisposed()) {
-			if (!d.readAndDispatch()) {
-				d.sleep();
-			}
-		}
+		shell.setMenuBar(MenuBar);
 	}
 
 	public static void main(String args[]) {

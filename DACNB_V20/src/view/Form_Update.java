@@ -10,82 +10,63 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_Update {
-	Display display;
+
 	Shell shell;
 	Label label;
 	Text text;
 	Button button;
 
-	public Form_Update() {
-		setDisplay();
+	public Form_Update(Display display) {
+		
+		shell = new Shell(display, SWT.CLOSE);
+		shell.setText("Update");
 
-		setLabelThongTin();
-		this.label.setText("Nhap Ten Mon Hoc");
-		this.label.setSize(120, 20);
-		this.label.setLocation(90, 20);
+		createUI();
 
-		setTextbox();
-		this.text.setSize(150, 20);
-		this.text.setLocation(75, 50);
+		shell.setLocation(10, 10);
 
-		setButtonOk();
-		this.button.setSize(50, 25);
-		this.button.setLocation(140, 90);
-		this.button.setText("Ok");
+		shell.open();
 
-		setButtonCancel();
-		this.button.setSize(50, 25);
-		this.button.setLocation(200, 90);
-		this.button.setText("Cancel");
-		this.button.addListener(SWT.Selection, new Listener() {
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();
+	}
+
+	private void createUI() {
+		
+		shell.setSize(300, 180);
+		
+		Label lbThongTIn = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lbThongTIn.setText("Nhap Ten Mon Hoc");
+		lbThongTIn.setSize(120, 20);
+		lbThongTIn.setLocation(90, 20);
+
+		Text txBox = new Text(shell, SWT.LEFT);
+		txBox.setSize(150, 20);
+		txBox.setLocation(75, 50);
+
+		Button btOk = new Button(shell, SWT.CENTER);
+		btOk.setSize(50, 25);
+		btOk.setLocation(140, 90);
+		btOk.setText("Ok");
+
+		Button btCancel = new Button(shell, SWT.CENTER);
+		btCancel.setSize(50, 25);
+		btCancel.setLocation(200, 90);
+		btCancel.setText("Cancel");
+		btCancel.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
 				System.exit(0);
 			}
 		});
 
-		setLabelLietKe();
-		this.label.setText("Danh Sach Mon Hoc");
-		this.label.setLocation(15, 95);
-		this.label.setSize(110, 20);
-		this.label.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
-
-		shell.open();
-
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
-				display.sleep();
-		}
-		display.dispose();
-	}
-
-	public void setDisplay() {
-		this.display = new Display();
-		this.shell = new Shell(display, SWT.CLOSE);
-		this.shell.setText("Cap Nhat Diem");
-		this.shell.setSize(300, 180);
-	}
-
-	public void setLabelThongTin() {
-		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
-	}
-
-	public void setTextbox() {
-		this.text = new Text(shell, SWT.LEFT);
-	}
-
-	public void setButtonOk() {
-		this.button = new Button(shell, SWT.CENTER);
-	}
-
-	public void setButtonCancel() {
-		this.button = new Button(shell, SWT.CENTER);
-	}
-
-	public void setLabelLietKe() {
-		this.label = new Label(shell, SWT.LEFT);
-	}
-
-	public static void main(String args[]) {
-		new Form_Update();
+		Label lbLietKe = new Label(shell, SWT.LEFT);
+		lbLietKe.setText("Danh Sach Mon Hoc");
+		lbLietKe.setLocation(15, 95);
+		lbLietKe.setSize(110, 20);
+		// lbLietKe.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
 	}
 }
