@@ -79,7 +79,7 @@ public class FormCon {
 
 			@Override
 			public void handleEvent(Event arg0) {
-				new FormCon2(shell.getDisplay());
+				new FormCon2(display);
 			}
 		});
 
