@@ -10,83 +10,109 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_XoaSua2 {
-	Display display;
+
 	Shell shell;
 	Label Label;
 	Text Text;
 	Button button;
 
-	public Form_XoaSua2() {
-		setDisplay();
+	public Form_XoaSua2(Display display) {
 
-		setLabelThongTin();
-		this.Label.setText("Thong Tin Mon Hoc");
-		this.Label.setSize(120, 20);
-		this.Label.setLocation(80, 20);
+		shell = new Shell(display, SWT.CLOSE);
+		shell.setText("Update");
 
-		setTextbox();
-		this.Text.setSize(170, 40);
-		this.Text.setLocation(60, 50);
+		createUI();
 
-		setButtonSua();
-		this.button.setSize(50, 25);
-		this.button.setLocation(60, 110);
-		this.button.setText("Sua");
+		shell.setLocation(10, 10);
 
-		setButtonXoa();
-		this.button.setSize(50, 25);
-		this.button.setLocation(120, 110);
-		this.button.setText("Xoa");
-
-		setButtonCancel();
-		this.button.setSize(50, 25);
-		this.button.setLocation(180, 110);
-		this.button.setText("Cancel");
-		this.button.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				System.exit(0);
-			}
-		});
-		
 		shell.open();
 
 		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
+			if (!display.readAndDispatch()) {
 				display.sleep();
+			}
 		}
 		display.dispose();
 	}
 
-	public void setDisplay() {
-		this.display = new Display();
-		this.shell = new Shell(display, SWT.CLOSE);
-		this.shell.setText("Xoa");
-		this.shell.setSize(300, 180);
+	private void createUI() {
 
-	}
+		shell.setSize(300, 180);
 
-	public void setLabelThongTin() {
-		this.Label = new Label(shell, SWT.CENTER | SWT.BORDER);
-	}
+		Label lbThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lbThongTin.setText("Thong Tin Mon Hoc");
+		lbThongTin.setSize(120, 20);
+		lbThongTin.setLocation(80, 20);
 
-	public void setTextbox() {
-		this.Text = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.V_SCROLL
+		Text txBox = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.V_SCROLL
 				| SWT.BORDER);
-	}
+		txBox.setSize(170, 40);
+		txBox.setLocation(60, 50);
 
-	public void setButtonSua() {
-		this.button = new Button(shell, SWT.CENTER);
-	}
+		Button btSua = new Button(shell, SWT.CENTER);
+		btSua.setSize(50, 25);
+		btSua.setLocation(60, 110);
+		btSua.setText("Sua");
 
-	public void setButtonXoa() {
-		this.button = new Button(shell, SWT.CENTER);
-	}
+		Button btXoa = new Button(shell, SWT.CENTER);
+		btXoa.setSize(50, 25);
+		btXoa.setLocation(120, 110);
+		btXoa.setText("Xoa");
 
-	public void setButtonCancel() {
-		this.button = new Button(shell, SWT.CENTER);
-	}
-
-	public static void main(String args[]) {
-		new Form_XoaSua2();
+		Button btCancel = new Button(shell, SWT.CENTER);
+		btCancel.setSize(50, 25);
+		btCancel.setLocation(180, 110);
+		btCancel.setText("Cancel");
+		btCancel.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event event) {
+				System.exit(0);
+			}
+		});
+		// setButtonCancel();
+		// this.button.setSize(50, 25);
+		// this.button.setLocation(180, 110);
+		// this.button.setText("Cancel");
+		// this.button.addListener(SWT.Selection, new Listener() {
+		// public void handleEvent(Event event) {
+		// System.exit(0);
+		// }
+		// });
+		//
+		// shell.open();
+		//
+		// while (!shell.isDisposed()) {
+		// if (!display.readAndDispatch())
+		// display.sleep();
+		// }
+		// display.dispose();
+		// }
+		//
+		// public void setDisplay() {
+		// this.display = new Display();
+		// this.shell = new Shell(display, SWT.CLOSE);
+		// this.shell.setText("Xoa");
+		// this.
+		//
+		// }
+		//
+		// public void setTextbox() {
+		// this.Text = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.V_SCROLL
+		// | SWT.BORDER);
+		// }
+		//
+		// public void setButtonSua() {
+		// this.button = new Button(shell, SWT.CENTER);
+		// }
+		//
+		// public void setButtonXoa() {
+		// this.button = new Button(shell, SWT.CENTER);
+		// }
+		//
+		// public void setButtonCancel() {
+		// this.button = new Button(shell, SWT.CENTER);
+		// }
+		//
+		// public static void main(String args[]) {
+		// new Form_XoaSua2();
 	}
 }

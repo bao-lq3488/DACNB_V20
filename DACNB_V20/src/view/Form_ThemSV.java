@@ -10,72 +10,56 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class Form_ThemSV {
-	Display display;
+	
 	Shell shell;
 	Label label;
 	Text text;
 	Button button;
 
-	public Form_ThemSV() {
-		setDisplay();
+	public Form_ThemSV(Display display) {
 
-		setLabelThongTin();
-		this.label.setText("Nhap Thong Tin Can Them");
-		this.label.setLocation(60, 20);
-		this.label.setSize(160, 20);
+		shell = new Shell(display, SWT.CLOSE);
+		shell.setText("In An");
+		
+		createUI();
+	
+		shell.setLocation(10, 10);
 
-		setTextbox();
-		this.text.setLocation(45, 50);
-		this.text.setSize(200, 70);
+		shell.open();
 
-		setButtonOk();
-		this.button.setSize(50, 25);
-		this.button.setLocation(140, 130);
-		this.button.setText("Ok");
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();
+	}
+	private void createUI() {
+	
+		shell.setSize(300, 200);
+	
+		Label lbThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lbThongTin.setText("Nhap Sinh Vien Can Them");
+		lbThongTin.setLocation(60, 20);
+		lbThongTin.setSize(160, 20);
+		
+		Text txbox = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
+		txbox.setLocation(45, 50);
+		txbox.setSize(200, 70);
 
-		setButtonCancel();
-		this.button.setSize(50, 25);
-		this.button.setLocation(200, 130);
-		this.button.setText("Cancel");
-		this.button.addListener(SWT.Selection, new Listener() {
+		Button btOk = new Button(shell, SWT.CENTER);
+		btOk.setSize(50, 25);
+		btOk.setLocation(140, 130);
+		btOk.setText("Ok");
+		
+		Button btCancel = new Button(shell, SWT.CENTER);
+		btCancel.setSize(50, 25);
+		btCancel.setLocation(200, 130);
+		btCancel.setText("Cancel");
+		btCancel.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
 				System.exit(0);
 			}
 		});
-		shell.open();
-
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
-				display.sleep();
-		}
-		display.dispose();
-	}
-
-	public void setDisplay() {
-		this.display = new Display();
-		this.shell = new Shell(display, SWT.CLOSE);
-		this.shell.setText("Them Sinh Vien");
-		this.shell.setSize(300, 200);
-	}
-
-	public void setLabelThongTin() {
-		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
-	}
-
-	public void setTextbox() {
-		this.text = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
-	}
-
-	public void setButtonOk() {
-		this.button = new Button(shell, SWT.CENTER);
-	}
-
-	public void setButtonCancel() {
-		this.button = new Button(shell, SWT.CENTER);
-	}
-
-	public static void main(String args[]) {
-		new Form_ThemSV();
-
 	}
 }
