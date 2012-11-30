@@ -6,89 +6,61 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 public class Form_LietKe {
-	Display display;
+
 	Shell shell;
 	Label label;
 
-	public Form_LietKe() {
-		setDisplay();
+	public Form_LietKe(Display display) {
 
-		setLabelTenMH();
-		this.label.setText("Ten Mon Hoc");
-		this.label.setSize(85, 20);
-		this.label.setLocation(5, 10);
+		shell = new Shell(display);
+		shell.setText("Liet Ke");
 
-		setLabelKedoc1();
-		this.label.setLocation(90, 0);
-		this.label.setSize(30, 200);
+		createUI();
 
-		setLabelKiHieu();
-		this.label.setText("Ki Hieu");
-		this.label.setSize(45, 20);
-		this.label.setLocation(120, 10);
+		shell.setLocation(10, 10);
 
-		setLabelKedoc2();
-		this.label.setLocation(160, 0);
-		this.label.setSize(30, 200);
-
-		setLabelTC();
-		this.label.setText("So Tin Chi");
-		this.label.setSize(70, 20);
-		this.label.setLocation(190, 10);
-
-		setLabelKengang();
-		this.label.setLocation(0, 20);
-		this.label.setSize(300, 30);
-
-		show_lietke();
-	}
-
-	public void setDisplay() {
-		this.display = new Display();
-		this.shell = new Shell(display, SWT.CLOSE);
-		this.shell.setText("Liet Ke");
-		this.shell.setSize(300, 180);
-	}
-
-	public void setLabelTenMH() {
-		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
-	}
-
-	public void setLabelKedoc1() {
-		this.label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-	}
-
-	public void setLabelKiHieu() {
-		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
-	}
-
-	public void setLabelKedoc2() {
-		this.label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-	}
-
-	public void setLabelTC() {
-		this.label = new Label(shell, SWT.CENTER | SWT.BORDER);
-	}
-
-	public void setLabelKengang() {
-		this.label = new Label(shell, SWT.SEPARATOR | SWT.HORIZONTAL
-				| SWT.SHADOW_OUT);
-	}
-
-	public static void main(String args[]) {
-		new Form_LietKe();
-
-	}
-	
-	public void show_lietke()
-	{
 		shell.open();
 
 		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
+			if (!display.readAndDispatch()) {
 				display.sleep();
+			}
 		}
 		display.dispose();
-	
 	}
+
+	private void createUI() {
+		
+		shell.setSize(300, 180);
+		
+		Label lbTenMH = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lbTenMH.setText("Ten Mon Hoc");
+		lbTenMH.setSize(85, 20);
+		lbTenMH.setLocation(5, 10);
+		
+		Label lbKeDoc1 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		lbKeDoc1.setLocation(90, 0);
+		lbKeDoc1.setSize(30, 200);
+		
+		Label lbKiHieu = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lbKiHieu.setText("Ki Hieu");
+		lbKiHieu.setSize(45, 20);
+		lbKiHieu.setLocation(120, 10);
+		
+		Label lbKeDoc2 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		lbKeDoc2.setLocation(160, 0);
+		lbKeDoc2.setSize(30, 200);
+		
+		Label lbTC = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lbTC.setText("So Tin Chi");
+		lbTC.setSize(70, 20);
+		lbTC.setLocation(190, 10);
+		
+		Label lbKeNgang = new Label(shell, SWT.SEPARATOR | SWT.HORIZONTAL
+		| SWT.SHADOW_OUT);
+		lbKeNgang.setLocation(0, 20);
+		lbKeNgang.setSize(300, 30);
+	}
+
+
 }

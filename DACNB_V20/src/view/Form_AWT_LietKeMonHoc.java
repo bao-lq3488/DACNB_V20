@@ -21,14 +21,23 @@ public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
 	JLabel lbNganh;
 	JLabel lbKhoaHoc;
 
-	JLabel lb2TenMH;
+	JTextField lb2TenMH;
 	JLabel lb2KyHieuMH;
 	JLabel lb2SoTinChi;
 	JLabel lb2SoTiet;
 	JLabel lb2Nganh;
 	JLabel lb2KhoaHoc;
 
-	public Form_AWT_LietKeMonHoc() {
+	private static Form_AWT_LietKeMonHoc instance = null;
+
+	public static Form_AWT_LietKeMonHoc getInstance() {
+		if (instance == null) {
+			instance = new Form_AWT_LietKeMonHoc();
+		}
+		return instance;
+	}
+
+	private Form_AWT_LietKeMonHoc() {
 
 		setSize(800, 420);
 		setTitle("LietKeMonHoc");
@@ -40,7 +49,7 @@ public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 
-		lb2TenMH = new JLabel();
+		lb2TenMH = new JTextField();
 		lb2KyHieuMH = new JLabel();
 		lb2SoTinChi = new JLabel();
 		lb2SoTiet = new JLabel();
