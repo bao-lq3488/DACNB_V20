@@ -18,7 +18,7 @@ public class Form_XoaSua2 {
 
 	public Form_XoaSua2(Display display) {
 
-		shell = new Shell(display, SWT.CLOSE);
+		shell = new Shell(display, SWT.APPLICATION_MODAL | SWT.CLOSE);
 		shell.setText("Update");
 
 		createUI();

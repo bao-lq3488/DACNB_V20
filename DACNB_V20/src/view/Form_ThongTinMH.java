@@ -2,7 +2,6 @@ package view;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
@@ -16,8 +15,8 @@ public class Form_ThongTinMH {
 	Text Text;
 	Button button;
 
-	public Form_ThongTinMH(Display display) {
-		shell = new Shell(display, SWT.CLOSE);
+	public Form_ThongTinMH(Shell mainShell) {
+		shell = new Shell(mainShell, SWT.APPLICATION_MODAL | SWT.CLOSE);
 		shell.setText("Thong Tin Mon Hoc");
 
 		createUI();
@@ -26,12 +25,12 @@ public class Form_ThongTinMH {
 
 		shell.open();
 
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-		display.dispose();
+//		while (!shell.isDisposed()) {
+//			if (!display.readAndDispatch()) {
+//				display.sleep();
+//			}
+//		}
+//		display.dispose();
 	}
 
 	private void createUI() {

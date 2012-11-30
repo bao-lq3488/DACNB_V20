@@ -14,15 +14,13 @@ import org.eclipse.swt.widgets.Shell;
 
 public class Main_QLMH {
 	
-	Display display;
 	Shell shell;
 	Menu MenuBar, MenuQLMH, MenuQLSV, MenuInAn;
 	MenuItem QLMH, QLSV, InAn, LietKe_MH, Them_MH, Xoa_MH, Sua_MH, Xem_MH,
 			CapNhat_MH, LietKe_SV, Them_SV, Xoa_SV, Sua_SV, Xem_SV, CapNhat_SV,
 			DSSV, DiemMH, DiemSV;
 
-	public Main_QLMH() {
-		display = new Display();
+	public Main_QLMH(Display display) {
 		shell = new Shell(display);
 		shell.setText("Quan Ly Sinh Vien");
 		shell.setSize(400, 300);
@@ -47,11 +45,13 @@ public class Main_QLMH {
 
 		LietKe_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		LietKe_MH.setText("Liet Ke");
+		
 		LietKe_MH.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_LietKe(display);
+				new Form_LietKe(shell);
 			}
 		});
+		
 		Them_MH = new MenuItem(MenuQLMH, SWT.PUSH);
 		Them_MH.setText("Them");
 		
@@ -59,7 +59,7 @@ public class Main_QLMH {
 		Xoa_MH.setText("Xoa");
 		Xoa_MH.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_XoaSua(display);
+				new Form_XoaSua(shell);
 			}
 		});
 		
@@ -67,7 +67,7 @@ public class Main_QLMH {
 		Sua_MH.setText("Sua");
 		Sua_MH.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_XoaSua(display);
+				new Form_XoaSua(shell);
 			}
 		});
 		
@@ -75,7 +75,7 @@ public class Main_QLMH {
 		Xem_MH.setText("Xem");
 		Xem_MH.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_ThongTinMH(display);
+				new Form_ThongTinMH(shell);
 			}
 		});
 		
@@ -83,7 +83,7 @@ public class Main_QLMH {
 		CapNhat_MH.setText("Cap Nhat Diem");
 		CapNhat_MH.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_Update(display);
+				new Form_Update(shell);
 			}
 		});
 
@@ -100,7 +100,7 @@ public class Main_QLMH {
 		Them_SV.setText("Them");
 		Them_SV.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_ThemSV(display);
+				new Form_ThemSV(shell);
 			}
 		});
 
@@ -117,7 +117,7 @@ public class Main_QLMH {
 		CapNhat_SV.setText("Cap Nhat Diem");
 		CapNhat_SV.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_Update(display);
+				new Form_Update(shell);
 			}
 		});
 
@@ -137,7 +137,7 @@ public class Main_QLMH {
 		shell.setMenuBar(MenuBar);
 	}
 
-	public static void main(String args[]) {
-		new Main_QLMH();
-	}
+//	public static void main(String args[]) {
+//		new Main_QLMH();
+//	}
 }

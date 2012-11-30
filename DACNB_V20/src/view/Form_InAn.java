@@ -20,7 +20,7 @@ public class Form_InAn {
 
 	public Form_InAn(Display display) {
 
-		shell = new Shell(display, SWT.CLOSE);
+		shell = new Shell(display, SWT.APPLICATION_MODAL | SWT.CLOSE);
 		shell.setText("In An");
 		
 		createUI();

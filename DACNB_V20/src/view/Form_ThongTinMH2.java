@@ -17,7 +17,7 @@ public class Form_ThongTinMH2 {
 	Text text;
 
 	public Form_ThongTinMH2(Display display) {
-		shell = new Shell(display, SWT.CLOSE);
+		shell = new Shell(display, SWT.APPLICATION_MODAL | SWT.CLOSE);
 		shell.setText("Thong Tin Mon Hoc");
 
 		createUI();

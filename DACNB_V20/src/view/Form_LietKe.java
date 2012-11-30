@@ -1,7 +1,6 @@
 package view;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
@@ -10,9 +9,9 @@ public class Form_LietKe {
 	Shell shell;
 	Label label;
 
-	public Form_LietKe(Display display) {
+	public Form_LietKe(Shell mainShell) {
 
-		shell = new Shell(display);
+		shell = new Shell(mainShell, SWT.APPLICATION_MODAL | SWT.CLOSE);
 		shell.setText("Liet Ke");
 
 		createUI();
@@ -21,12 +20,12 @@ public class Form_LietKe {
 
 		shell.open();
 
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-		display.dispose();
+//		while (!shell.isDisposed()) {
+//			if (!display.readAndDispatch()) {
+//				display.sleep();
+//			}
+//		}
+//		display.dispose();
 	}
 
 	private void createUI() {

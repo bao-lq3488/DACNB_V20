@@ -2,7 +2,6 @@ package view;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
@@ -16,9 +15,9 @@ public class Form_XoaSua {
 	Text lext;
 	Button button;
 
-	public Form_XoaSua(Display display) {
+	public Form_XoaSua(Shell mainShell) {
 
-		shell = new Shell(display, SWT.CLOSE);
+		shell = new Shell(mainShell, SWT.APPLICATION_MODAL | SWT.CLOSE);
 		shell.setText("Update");
 
 		createUI();
@@ -27,12 +26,12 @@ public class Form_XoaSua {
 
 		shell.open();
 
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-		display.dispose();
+//		while (!shell.isDisposed()) {
+//			if (!mainShell.readAndDispatch()) {
+//				mainShell.sleep();
+//			}
+//		}
+//		mainShell.dispose();
 	}
 
 	private void createUI() {
