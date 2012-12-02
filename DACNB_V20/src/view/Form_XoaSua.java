@@ -18,60 +18,60 @@ public class Form_XoaSua {
 	public Form_XoaSua(Shell mainShell) {
 
 		shell = new Shell(mainShell, SWT.APPLICATION_MODAL | SWT.CLOSE);
-		shell.setText("Update");
 
 		createUI();
 
-		shell.setLocation(10, 10);
-
 		shell.open();
-
-//		while (!shell.isDisposed()) {
-//			if (!mainShell.readAndDispatch()) {
-//				mainShell.sleep();
-//			}
-//		}
-//		mainShell.dispose();
 	}
 
 	private void createUI() {
 
 		shell.setSize(300, 180);
+		shell.setLocation(10, 10);
+		shell.setText("Xoa & Sua");
 
-		Label lbThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
-		lbThongTin.setText("Nhap Ten Mon Can Xoa - Sua");
-		lbThongTin.setSize(170, 20);
-		lbThongTin.setLocation(70, 20);
+		Label lblThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lblThongTin.setText("Nhap Ten Mon Can Xoa - Sua");
+		lblThongTin.setSize(170, 20);
+		lblThongTin.setLocation(70, 20);
 
-		Text txBox = new Text(shell, SWT.LEFT);
-		txBox.setSize(150, 20);
-		txBox.setLocation(80, 50);
+		Text txtBox = new Text(shell, SWT.LEFT);
+		txtBox.setSize(150, 20);
+		txtBox.setLocation(80, 50);
 
-		Button btSearch = new Button(shell, SWT.CENTER);
-		btSearch.setSize(50, 25);
-		btSearch.setLocation(140, 90);
-		btSearch.setText("Search");
-		btSearch.addListener(SWT.Selection, new Listener() {
+		Button btnSearch = new Button(shell, SWT.CENTER);
+		btnSearch.setSize(50, 25);
+		btnSearch.setLocation(140, 90);
+		btnSearch.setText("Search");
+		btnSearch.addListener(SWT.Selection, btn_Search_Clicked());
+
+		Button btnCancel = new Button(shell, SWT.CENTER);
+		btnCancel.setSize(50, 25);
+		btnCancel.setLocation(200, 90);
+		btnCancel.setText("Cancel");
+		btnCancel.addListener(SWT.Selection, btn_Cancle_Clicked());
+
+		Label lietKeMH = new Label(shell, SWT.LEFT);
+		lietKeMH.setText("Liet Ke Mon Hoc");
+		lietKeMH.setLocation(30, 95);
+		lietKeMH.setSize(90, 20);
+		// LietKeMH.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
+	}
+
+	public Listener btn_Search_Clicked() {
+		return new Listener() {
 			public void handleEvent(Event event) {
 				new Form_XoaSua2(shell.getDisplay());
 			}
-		});
+		};
+	}
 
-		Button btCancel = new Button(shell, SWT.CENTER);
-		btCancel.setSize(50, 25);
-		btCancel.setLocation(200, 90);
-		btCancel.setText("Cancel");
-		btCancel.addListener(SWT.Selection, new Listener() {
+	public Listener btn_Cancle_Clicked() {
+		return new Listener() {
 			public void handleEvent(Event event) {
-				System.exit(0);
+				shell.close();
 			}
-		});
-
-		Label LietKeMH = new Label(shell, SWT.LEFT);
-		LietKeMH.setText("Liet Ke Mon Hoc");
-		LietKeMH.setLocation(30, 95);
-		LietKeMH.setSize(90, 20);
-		// LietKeMH.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
+		};
 	}
 
 	//
