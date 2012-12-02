@@ -17,9 +17,9 @@ import org.eclipse.swt.widgets.Text;
 public class Login {
 	
 	Shell shell;
-	Label LabelAcc, LabelPass, Chao;
-	Text TextAcc, TextPass;
-	Button ButtonOk, ButtonCancel, ButtonGhiNho;
+	Label labelAcc, labelPass, thongBaoChao;
+	Text textAcc, textPass;
+	Button buttonOk, buttonCancel, buttonGhiNho;
 	Combo combo;
 	
 	public Login(Display display) {
@@ -41,57 +41,57 @@ public class Login {
 		shell.setText("Quan Ly Sinh Vien");
 		shell.setSize(300, 200);
 
-		Chao = new Label(shell, SWT.LEFT | SWT.BORDER);
-		Chao.setText("Xin Chao, Moi Dang Nhap");
-		Chao.setSize(145, 18);
-		Chao.setLocation(80, 15);
+		thongBaoChao = new Label(shell, SWT.LEFT | SWT.BORDER);
+		thongBaoChao.setText("Xin Chao, Moi Dang Nhap");
+		thongBaoChao.setSize(145, 18);
+		thongBaoChao.setLocation(80, 15);
 
-		LabelAcc = new Label(shell, SWT.LEFT);
-		LabelAcc.setLocation(10, 50);
-		LabelAcc.setSize(50, 20);
-		LabelAcc.setText("Account");
+		labelAcc = new Label(shell, SWT.LEFT);
+		labelAcc.setLocation(10, 50);
+		labelAcc.setSize(50, 20);
+		labelAcc.setText("Account");
 
-		TextAcc = new Text(shell, SWT.LEFT | SWT.BORDER);
-		TextAcc.setLocation(90, 45);
-		TextAcc.setSize(500, 100);
-		TextAcc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_WHITE));
-		TextAcc.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-		TextAcc.pack();
+		textAcc = new Text(shell, SWT.LEFT | SWT.BORDER);
+		textAcc.setLocation(90, 45);
+		textAcc.setSize(500, 100);
+		textAcc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_WHITE));
+		textAcc.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
+		textAcc.pack();
 
-		LabelPass = new Label(shell, SWT.LEFT);
-		LabelPass.setLocation(10, 80);
-		LabelPass.setSize(50, 20);
-		LabelPass.setText("Password");
+		labelPass = new Label(shell, SWT.LEFT);
+		labelPass.setLocation(10, 80);
+		labelPass.setSize(50, 20);
+		labelPass.setText("Password");
 
-		TextPass = new Text(shell, SWT.LEFT | SWT.BORDER);
-		TextPass.setText("");
-		TextPass.setLocation(90, 75);
-		TextPass.setSize(50, 50);
-		TextPass.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_WHITE));
-		TextPass.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-		TextPass.setEchoChar('*');
-		TextPass.pack();
+		textPass = new Text(shell, SWT.LEFT | SWT.BORDER);
+		textPass.setText("");
+		textPass.setLocation(90, 75);
+		textPass.setSize(50, 50);
+		textPass.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_WHITE));
+		textPass.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
+		textPass.setEchoChar('*');
+		textPass.pack();
 
 		
-		ButtonOk = new Button(shell, SWT.CENTER);
-		ButtonOk.setSize(50, 25);
-		ButtonOk.setText("Login");
-		ButtonOk.setLocation(150, 130);
-		ButtonOk.addListener(SWT.Selection, btn_Ok_Clicked());
+		buttonOk = new Button(shell, SWT.CENTER);
+		buttonOk.setSize(50, 25);
+		buttonOk.setText("Login");
+		buttonOk.setLocation(150, 130);
+		buttonOk.addListener(SWT.Selection, btn_Ok_Clicked());
 		
-		TextAcc.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		TextPass.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		textAcc.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		textPass.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-		ButtonCancel = new Button(shell, SWT.CENTER);
-		ButtonCancel.setSize(50, 25);
-		ButtonCancel.setText("Cancel");
-		ButtonCancel.setLocation(225, 130);
-		ButtonCancel.addListener(SWT.Selection, btn_Cancle_Clicked());
+		buttonCancel = new Button(shell, SWT.CENTER);
+		buttonCancel.setSize(50, 25);
+		buttonCancel.setText("Cancel");
+		buttonCancel.setLocation(225, 130);
+		buttonCancel.addListener(SWT.Selection, btn_Cancle_Clicked());
 
-		ButtonGhiNho = new Button(shell, SWT.RADIO);
-		ButtonGhiNho.setLocation(220, 104);
-		ButtonGhiNho.setText("Ghi Nho");
-		ButtonGhiNho.setSize(90, 20);
+		buttonGhiNho = new Button(shell, SWT.RADIO);
+		buttonGhiNho.setLocation(220, 104);
+		buttonGhiNho.setText("Ghi Nho");
+		buttonGhiNho.setSize(90, 20);
 
 		combo = new Combo(shell, SWT.DROP_DOWN);
 		String[] data = { "Sinh Vien", "Phong Dao Tao" };
@@ -107,9 +107,9 @@ public class Login {
 	public Listener btn_Cancle_Clicked() {
 		return new Listener() {
 			public void handleEvent(Event event) {
-				TextAcc.setText("");
-				TextPass.setText("");
-				TextAcc.setFocus();
+				textAcc.setText("");
+				textPass.setText("");
+				textAcc.setFocus();
 			}
 		};
 	}
@@ -117,8 +117,8 @@ public class Login {
 	public Listener btn_Ok_Clicked() {
 		return new Listener() {
 			public void handleEvent(Event event) {
-				String Username = TextAcc.getText();
-				String Password = TextPass.getText();
+				String Username = textAcc.getText();
+				String Password = textPass.getText();
 
 				if ("".equals(Username) || ("".equals(Password))) {
 					MessageBox messageBox = new MessageBox(shell, SWT.ICON_ERROR);
@@ -127,7 +127,7 @@ public class Login {
 				} else {
 					MessageBox messageBox = new MessageBox(shell, SWT.OK);
 					messageBox.setText("Login Form");
-					messageBox.setMessage("Welcome " + TextAcc.getText());
+					messageBox.setMessage("Welcome " + textAcc.getText());
 					messageBox.open();
 					
 					shell.getDisplay().dispose();
