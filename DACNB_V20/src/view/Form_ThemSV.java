@@ -11,54 +11,48 @@ import org.eclipse.swt.widgets.Text;
 public class Form_ThemSV {
 	
 	Shell shell;
-	Label label;
-	Text text;
-	Button button;
 
 	public Form_ThemSV(Shell mainShell) {
 
 		shell = new Shell(mainShell, SWT.APPLICATION_MODAL | SWT.CLOSE);
-		shell.setText("In An");
 		
 		createUI();
 	
-		shell.setLocation(10, 10);
-
 		shell.open();
-
-//		while (!shell.isDisposed()) {
-//			if (!mainShell.readAndDispatch()) {
-//				mainShell.sleep();
-//			}
-//		}
-//		mainShell.dispose();
 	}
+	
 	private void createUI() {
 	
 		shell.setSize(300, 200);
+		shell.setText("In An");
+		shell.setLocation(10, 10);
 	
-		Label lbThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
-		lbThongTin.setText("Nhap Sinh Vien Can Them");
-		lbThongTin.setLocation(60, 20);
-		lbThongTin.setSize(160, 20);
+		Label lblThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
+		lblThongTin.setText("Nhap Sinh Vien Can Them");
+		lblThongTin.setLocation(60, 20);
+		lblThongTin.setSize(160, 20);
 		
-		Text txbox = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
-		txbox.setLocation(45, 50);
-		txbox.setSize(200, 70);
+		Text txtBox = new Text(shell, SWT.LEFT | SWT.V_SCROLL | SWT.WRAP);
+		txtBox.setLocation(45, 50);
+		txtBox.setSize(200, 70);
 
-		Button btOk = new Button(shell, SWT.CENTER);
-		btOk.setSize(50, 25);
-		btOk.setLocation(140, 130);
-		btOk.setText("Ok");
+		Button btnOk = new Button(shell, SWT.CENTER);
+		btnOk.setSize(50, 25);
+		btnOk.setLocation(140, 130);
+		btnOk.setText("Ok");
 		
-		Button btCancel = new Button(shell, SWT.CENTER);
-		btCancel.setSize(50, 25);
-		btCancel.setLocation(200, 130);
-		btCancel.setText("Cancel");
-		btCancel.addListener(SWT.Selection, new Listener() {
+		Button btnCancel = new Button(shell, SWT.CENTER);
+		btnCancel.setSize(50, 25);
+		btnCancel.setLocation(200, 130);
+		btnCancel.setText("Cancel");
+		btnCancel.addListener(SWT.Selection, btn_Cancle_Clicked());
+	}
+
+	public Listener btn_Cancle_Clicked() {
+		return new Listener() {
 			public void handleEvent(Event event) {
-				System.exit(0);
+				shell.close();
 			}
-		});
+		};
 	}
 }
