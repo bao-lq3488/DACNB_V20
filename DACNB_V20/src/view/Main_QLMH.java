@@ -44,6 +44,7 @@ public class Main_QLMH {
 		
 		// Tao menu quan ly mon hoc
 		menuBar = new Menu(shell, SWT.BAR);
+		
 		menuQLMH = new Menu(menuBar);
 		
 		quanLy_MH = new MenuItem(menuBar, SWT.CASCADE);
