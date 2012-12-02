@@ -125,7 +125,7 @@ public class Main_QLMH {
 	public Listener btn_CapNhatDiem_SV_Clicked() {
 		return new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_Update(shell);
+				new Form_CapNhatDiem_MH(shell);
 			}
 		};
 	}
@@ -141,7 +141,7 @@ public class Main_QLMH {
 	public Listener btn_CapNhatDiem_MH_Clicked() {
 		return new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_Update(shell);
+				new Form_CapNhatDiem_MH(shell);
 			}
 		};
 	}
