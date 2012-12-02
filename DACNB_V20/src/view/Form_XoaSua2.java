@@ -12,32 +12,21 @@ import org.eclipse.swt.widgets.Text;
 public class Form_XoaSua2 {
 
 	Shell shell;
-	Label Label;
-	Text Text;
-	Button button;
 
 	public Form_XoaSua2(Display display) {
 
 		shell = new Shell(display, SWT.APPLICATION_MODAL | SWT.CLOSE);
-		shell.setText("Update");
 
 		createUI();
 
-		shell.setLocation(10, 10);
-
 		shell.open();
-
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-		display.dispose();
 	}
-
+	
 	private void createUI() {
 
 		shell.setSize(300, 180);
+		shell.setText("Update");
+		shell.setLocation(10, 10);
 
 		Label lbThongTin = new Label(shell, SWT.CENTER | SWT.BORDER);
 		lbThongTin.setText("Thong Tin Mon Hoc");
@@ -63,11 +52,7 @@ public class Form_XoaSua2 {
 		btCancel.setSize(50, 25);
 		btCancel.setLocation(180, 110);
 		btCancel.setText("Cancel");
-		btCancel.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				System.exit(0);
-			}
-		});
+		btCancel.addListener(SWT.Selection, btn_Cancle_Clicked());
 		// setButtonCancel();
 		// this.button.setSize(50, 25);
 		// this.button.setLocation(180, 110);
@@ -114,5 +99,13 @@ public class Form_XoaSua2 {
 		//
 		// public static void main(String args[]) {
 		// new Form_XoaSua2();
+	}
+
+	public Listener btn_Cancle_Clicked() {
+		return new Listener() {
+			public void handleEvent(Event event) {
+				shell.close();
+			}
+		};
 	}
 }
