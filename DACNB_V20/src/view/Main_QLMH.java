@@ -35,6 +35,7 @@ public class Main_QLMH {
 				display.sleep();
 			}
 		}
+		display.dispose();
 	}
 
 	public void createUI() {
