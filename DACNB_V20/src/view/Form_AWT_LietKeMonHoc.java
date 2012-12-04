@@ -33,6 +33,8 @@ public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
 	public static Form_AWT_LietKeMonHoc getInstance() {
 		if (instance == null) {
 			instance = new Form_AWT_LietKeMonHoc();
+		} else {
+			JOptionPane.showMessageDialog(null, "Form Da Duoc Mo");
 		}
 		return instance;
 	}

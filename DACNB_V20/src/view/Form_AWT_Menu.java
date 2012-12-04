@@ -10,15 +10,25 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	JMenuBar mnBar;
-	JMenu mnQLMH;
-	JMenu mnQLSV;
-	JMenu mnInAn;
-	JMenu Exit;
-	JDesktopPane DesktopPane = new JDesktopPane();
+
+	private static JDesktopPane DesktopPane;
+	private JMenuBar mnBar;
+	private JMenu mnQLMH, mnQLSV, mnInAn, Exit;
 
 	public Form_AWT_Menu() {
 
+		setTitle("Menu");
+		setSize(400, 400);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setExtendedState(MAXIMIZED_BOTH);
+		DesktopPane = new JDesktopPane();
+		DesktopPane.setAutoscrolls(true);
+		this.setContentPane(DesktopPane);
+		CreateMENU();
+	}
+
+	private void CreateMENU() {
 		mnBar = new JMenuBar();
 		setJMenuBar(mnBar);
 
@@ -78,13 +88,18 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 		mnuInDSSV.addActionListener(this);
 
 		mnuExit.addActionListener(this);
+	}
+	
+	private static Form_AWT_Menu AddForm = null;
 
-		setTitle("Menu");
-		setSize(400, 400);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setExtendedState(MAXIMIZED_BOTH);
-		setContentPane(DesktopPane);
+	public static Form_AWT_Menu getAddForm() {
+		if (AddForm == null) {
+			JInternalFrame XoaSuaMonHoc2 = new Form_AWT_XoaSuaMonHoc2();
+			XoaSuaMonHoc2.setVisible(true);
+			DesktopPane.add(XoaSuaMonHoc2);
+		} 
+		
+		return AddForm;
 	}
 
 	// public void createMenuItem(String menuItemName, JMenu parentMenu){
@@ -98,9 +113,10 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getActionCommand().equals("Liet Ke Mon Hoc")) {
-//			JInternalFrame LietKeMonHoc = new Form_AWT_LietKeMonHoc();
+			// JInternalFrame LietKeMonHoc = new Form_AWT_LietKeMonHoc();
 			JInternalFrame LietKeMonHoc = Form_AWT_LietKeMonHoc.getInstance();
 			LietKeMonHoc.setVisible(true);
+			DesktopPane.remove(LietKeMonHoc);
 			DesktopPane.add(LietKeMonHoc);
 		}
 

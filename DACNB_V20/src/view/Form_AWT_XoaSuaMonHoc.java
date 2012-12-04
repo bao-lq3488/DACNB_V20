@@ -20,7 +20,6 @@ public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
 	JLabel l1;
 	JLabel l2;
 	
-	
 	public Form_AWT_XoaSuaMonHoc() {
 		setSize(320, 230);
 		setTitle("XoaSuaMonHoc");
@@ -44,19 +43,17 @@ public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
 
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
-		
+
 		panel1.add(l1);
 		panel2.add(l2);
 		panel2.add(tefNhapTenMH);
 		panel2.add(btnOK);
 		panel2.add(btnClear);
 
-		
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		
-		JFrame Menu = new Form_AWT_Menu();
+
 		String Ok = tefNhapTenMH.getText();
 
 		if (e.getActionCommand().equals("Dong Y")) {
@@ -65,13 +62,12 @@ public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
 					JOptionPane.showMessageDialog(null, "Dien Ten Mon Hoc",
 							"Error", JOptionPane.ERROR_MESSAGE);
 				} else {
-					JInternalFrame XoaSuaMonHoc2 = new Form_AWT_XoaSuaMonHoc2();
-					XoaSuaMonHoc2.setVisible(true);
-					Menu.add(XoaSuaMonHoc2);
+					Form_AWT_Menu.getAddForm();
+					this.setVisible(false);
 				}
 			}
 		}
-		
+
 		if (e.getActionCommand().equals("Clear")) {
 			tefNhapTenMH.setText("");
 		}
