@@ -4,7 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Form_AWT_InDSSV extends JFrame implements ActionListener {
+public class DKF_CapNhatDiemMonHoc extends JInternalFrame implements
+		ActionListener {
 	/**
 	 * 
 	 */
@@ -13,47 +14,55 @@ public class Form_AWT_InDSSV extends JFrame implements ActionListener {
 	JPanel panel1;
 	JPanel panel2;
 	JButton btnOK;
-	JButton btnBack;
-	JButton btnCancel;
-	JTextField t1;
+	JButton btnClear;
+	JTextField tefNhapTenMH;
 	JLabel l1;
 	JLabel l2;
 
-	public Form_AWT_InDSSV() {
+	private static DKF_CapNhatDiemMonHoc instance = null;
+
+	public static DKF_CapNhatDiemMonHoc getInstance() {
+		if (instance == null) {
+			instance = new DKF_CapNhatDiemMonHoc();
+		}
+		return instance;
+	}
+	
+	public DKF_CapNhatDiemMonHoc() {
 		setSize(320, 230);
-		setTitle("InDanhSachSinhVien");
-		setResizable(false);
+		setTitle("CapNhatDiemMonHoc");
+		setResizable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setIconifiable(true);
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
 		btnOK = new JButton("Dong Y");
-		btnCancel = new JButton("Thoat");
-		btnBack = new JButton("Quay Lai");
-		t1 = new JTextField(25);
-		l1 = new JLabel("In Danh Sach Sinh Vien");
-		l2 = new JLabel("Nhap Ten Mon Hoc: ");
+		btnClear = new JButton("Clear");
+		
+		tefNhapTenMH = new JTextField(25);
+		l1 = new JLabel("Cap Nhat Diem Mon Hoc");
+		l2 = new JLabel("Nhap Ten Mon Hoc Can Nhap Diem: ");
 
 		btnOK.addActionListener(this);
-		btnCancel.addActionListener(this);
-		btnBack.addActionListener(this);
+		btnClear.addActionListener(this);
 
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
 
 		panel1.add(l1);
 		panel2.add(l2);
-		panel2.add(t1);
+		panel2.add(tefNhapTenMH);
 		panel2.add(btnOK);
-		panel2.add(btnBack);
-		panel2.add(btnCancel);
-
+		panel2.add(btnClear);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		String Ok = t1.getText();
+		String Ok = tefNhapTenMH.getText();
 
 		if (e.getActionCommand().equals("Dong Y")) {
 			if (e.getSource() == btnOK) {
@@ -62,21 +71,14 @@ public class Form_AWT_InDSSV extends JFrame implements ActionListener {
 							"Chua Nhap Ten Mon Hoc", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
-					JFrame f = new Form_AWT_InDSSV2();
-					f.setVisible(true);
+					DKF_Menu.getAddFormCapNhatDiemMH();
 					this.setVisible(false);
 				}
 			}
 		}
-		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Menu();
-			f.setVisible(true);
-			this.setVisible(false);
+		if (e.getActionCommand().equals("Clear")) {
+			tefNhapTenMH.setText("");
 		}
-		if (e.getActionCommand().equals("Thoat")) {
-			System.exit(0);
-		}
-
 	}
 
 }

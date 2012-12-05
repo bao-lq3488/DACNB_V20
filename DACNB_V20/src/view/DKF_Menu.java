@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_Menu extends JFrame implements ActionListener {
+public class DKF_Menu extends JFrame implements ActionListener {
 
 	/**
 	 * 
@@ -15,7 +15,7 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 	private JMenuBar mnBar;
 	private JMenu mnQLMH, mnQLSV, mnInAn, Exit;
 
-	public Form_AWT_Menu() {
+	public DKF_Menu() {
 
 		setTitle("Menu");
 		setSize(400, 400);
@@ -89,17 +89,47 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 
 		mnuExit.addActionListener(this);
 	}
-	
-	private static Form_AWT_Menu AddForm = null;
 
-	public static Form_AWT_Menu getAddForm() {
-		if (AddForm == null) {
-			JInternalFrame XoaSuaMonHoc2 = new Form_AWT_XoaSuaMonHoc2();
-			XoaSuaMonHoc2.setVisible(true);
-			DesktopPane.add(XoaSuaMonHoc2);
-		} 
-		
-		return AddForm;
+	public static DKF_Menu getAddFormXoaSuaMH() {
+		DKF_XoaSuaMonHoc2 XoaSuaMonHoc2 = new DKF_XoaSuaMonHoc2();
+		XoaSuaMonHoc2.setVisible(true);
+		DesktopPane.add(XoaSuaMonHoc2);
+		return null;
+	}
+
+	public static DKF_Menu getAddFormXemTTMH() {
+		DKF_XemThongTinMonHoc2 XemThongTinMonHoc2 = new DKF_XemThongTinMonHoc2();
+		XemThongTinMonHoc2.setVisible(true);
+		DesktopPane.add(XemThongTinMonHoc2);
+		return null;
+	}
+
+	public static DKF_Menu getAddFormCapNhatDiemMH() {
+		DKF_CapNhatDiemMonHoc2 CapNhatDiemMHc2 = new DKF_CapNhatDiemMonHoc2();
+		CapNhatDiemMHc2.setVisible(true);
+		DesktopPane.add(CapNhatDiemMHc2);
+		return null;
+	}
+
+	public static DKF_Menu getAddFormXoaSuaSV() {
+		DKF_XoaSuaSinhVien2 XoaSuaSinhVien2 = new DKF_XoaSuaSinhVien2();
+		XoaSuaSinhVien2.setVisible(true);
+		DesktopPane.add(XoaSuaSinhVien2);
+		return null;
+	}
+
+	public static DKF_Menu getAddFormXemTTSV() {
+		DKF_XemThongTinSinhVien2 XemThongTinSinhVien2 = new DKF_XemThongTinSinhVien2();
+		XemThongTinSinhVien2.setVisible(true);
+		DesktopPane.add(XemThongTinSinhVien2);
+		return null;
+	}
+
+	public static DKF_Menu getAddFormInDSSV() {
+		DKF_InDSSV2 InDSSV2 = new DKF_InDSSV2();
+		InDSSV2.setVisible(true);
+		DesktopPane.add(InDSSV2);
+		return null;
 	}
 
 	// public void createMenuItem(String menuItemName, JMenu parentMenu){
@@ -113,67 +143,77 @@ public class Form_AWT_Menu extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getActionCommand().equals("Liet Ke Mon Hoc")) {
-			// JInternalFrame LietKeMonHoc = new Form_AWT_LietKeMonHoc();
-			JInternalFrame LietKeMonHoc = Form_AWT_LietKeMonHoc.getInstance();
+			JInternalFrame LietKeMonHoc = DKF_LietKeMonHoc.getInstance();
 			LietKeMonHoc.setVisible(true);
 			DesktopPane.remove(LietKeMonHoc);
 			DesktopPane.add(LietKeMonHoc);
 		}
 
 		if (e.getActionCommand().equals("Them Mon Hoc")) {
-			JInternalFrame ThemMonHoc = new Form_AWT_ThemMonHoc();
+			JInternalFrame ThemMonHoc = DKF_ThemMonHoc.getInstance();
 			ThemMonHoc.setVisible(true);
+			DesktopPane.remove(ThemMonHoc);
 			DesktopPane.add(ThemMonHoc);
 		}
 
 		if (e.getActionCommand().equals("Xoa Sua Mon Hoc")) {
-			JInternalFrame XoaSuaMonHoc = new Form_AWT_XoaSuaMonHoc();
+			JInternalFrame XoaSuaMonHoc = DKF_XoaSuaMonHoc.getInstance();
 			XoaSuaMonHoc.setVisible(true);
+			DesktopPane.remove(XoaSuaMonHoc);
 			DesktopPane.add(XoaSuaMonHoc);
 		}
 
-		//
-		// if (e.getActionCommand().equals("Xem Thong Tin Mon Hoc")) {
-		// JInternalFrame f = new Form_AWT_XemThongTinMonHoc();
-		// f.setVisible(true);
-		// DesktopPane.add(f);
-		// }
-		//
-		// if (e.getActionCommand().equals("Cap Nhat Diem")) {
-		// JInternalFrame f = new Form_AWT_CapNhatDiemMonHoc();
-		// f.setVisible(true);
-		// DesktopPane.add(f);
-		// }
-		//
-		// if (e.getActionCommand().equals("Liet Ke Sinh Vien")) {
-		// JInternalFrame f = new Form_AWT_LietKeSinhVien();
-		// f.setVisible(true);
-		// DesktopPane.add(f);
-		// }
-		//
-		// if (e.getActionCommand().equals("Them Sinh Vien")) {
-		// JInternalFrame f = new Form_AWT_ThemSinhVien();
-		// f.setVisible(true);
-		// DesktopPane.add(f);
-		// }
-		//
-		// if (e.getActionCommand().equals("Xoa Sua Sinh Vien")) {
-		// JInternalFrame f = new Form_AWT_XoaSuaSinhVien();
-		// f.setVisible(true);
-		// DesktopPane.add(f);
-		// }
-		//
-		// if (e.getActionCommand().equals("Xem Thong Tin Sinh Vien")) {
-		// JInternalFrame f = new Form_AWT_XemThongTinSinhVien();
-		// f.setVisible(true);
-		// DesktopPane.add(f);
-		// }
-		//
-		// if (e.getActionCommand().equals("In Danh Sach Sinh Vien")) {
-		// JInternalFrame f = new Form_AWT_InDSSV();
-		// f.setVisible(true);
-		// DesktopPane.add(f);
-		// }
+		if (e.getActionCommand().equals("Xem Thong Tin Mon Hoc")) {
+			JInternalFrame XemThongTinMonHoc = DKF_XemThongTinMonHoc
+					.getInstance();
+			XemThongTinMonHoc.setVisible(true);
+			DesktopPane.remove(XemThongTinMonHoc);
+			DesktopPane.add(XemThongTinMonHoc);
+		}
+
+		if (e.getActionCommand().equals("Cap Nhat Diem")) {
+			JInternalFrame CapNhatDiemMonHoc = DKF_CapNhatDiemMonHoc
+					.getInstance();
+			CapNhatDiemMonHoc.setVisible(true);
+			DesktopPane.remove(CapNhatDiemMonHoc);
+			DesktopPane.add(CapNhatDiemMonHoc);
+		}
+
+		if (e.getActionCommand().equals("Liet Ke Sinh Vien")) {
+			JInternalFrame LietKeSinhVien = DKF_LietKeSinhVien.getInstance();
+			LietKeSinhVien.setVisible(true);
+			DesktopPane.remove(LietKeSinhVien);
+			DesktopPane.add(LietKeSinhVien);
+		}
+
+		if (e.getActionCommand().equals("Them Sinh Vien")) {
+			JInternalFrame ThemSinhVien = DKF_ThemSinhVien.getInstance();
+			ThemSinhVien.setVisible(true);
+			DesktopPane.remove(ThemSinhVien);
+			DesktopPane.add(ThemSinhVien);
+		}
+
+		if (e.getActionCommand().equals("Xoa Sua Sinh Vien")) {
+			JInternalFrame XoaSuaSinhVien = DKF_XoaSuaSinhVien.getInstance();
+			XoaSuaSinhVien.setVisible(true);
+			DesktopPane.remove(XoaSuaSinhVien);
+			DesktopPane.add(XoaSuaSinhVien);
+		}
+
+		if (e.getActionCommand().equals("Xem Thong Tin Sinh Vien")) {
+			JInternalFrame XemThongTinSinhVien = DKF_XemThongTinSinhVien
+					.getInstance();
+			XemThongTinSinhVien.setVisible(true);
+			DesktopPane.remove(XemThongTinSinhVien);
+			DesktopPane.add(XemThongTinSinhVien);
+		}
+
+		if (e.getActionCommand().equals("In Danh Sach Sinh Vien")) {
+			JInternalFrame InDSSV = DKF_InDSSV.getInstance();
+			InDSSV.setVisible(true);
+			DesktopPane.remove(InDSSV);
+			DesktopPane.add(InDSSV);
+		}
 
 		if (e.getActionCommand().equals("Thoat")) {
 			System.exit(0);

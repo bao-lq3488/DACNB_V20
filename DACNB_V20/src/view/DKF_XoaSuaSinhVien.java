@@ -5,7 +5,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_XoaSuaSinhVien extends JFrame implements ActionListener {
+public class DKF_XoaSuaSinhVien extends JInternalFrame implements
+		ActionListener {
 	/**
 	 * 
 	 */
@@ -14,47 +15,55 @@ public class Form_AWT_XoaSuaSinhVien extends JFrame implements ActionListener {
 	JPanel panel1;
 	JPanel panel2;
 	JButton btnOK;
-	JButton btnCancel;
-	JButton btnBack;
-	JTextField t1;
+	JButton btnClear;
+	JTextField tefNhapTenSV;
 	JLabel l1;
 	JLabel l2;
 
-	public Form_AWT_XoaSuaSinhVien() {
+	private static DKF_XoaSuaSinhVien instance = null;
+
+	public static DKF_XoaSuaSinhVien getInstance() {
+		if (instance == null) {
+			instance = new DKF_XoaSuaSinhVien();
+		}
+		return instance;
+	}
+
+	private DKF_XoaSuaSinhVien() {
 		setSize(320, 230);
 		setTitle("XoaSuaSinhVien");
-		setResizable(false);
+		setResizable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setIconifiable(true);
 
 		contentPane = getContentPane();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 
 		btnOK = new JButton("Dong Y");
-		btnCancel = new JButton("Thoat");
-		btnBack = new JButton("Quay Lai");
-		t1 = new JTextField(25);
+		btnClear = new JButton("Clear");
+		tefNhapTenSV = new JTextField(25);
 		l1 = new JLabel("Xoa Sua Sinh Vien");
 		l2 = new JLabel("Nhap Ten Sinh Vien Can Xoa Hoac Sua: ");
 
 		btnOK.addActionListener(this);
-		btnBack.addActionListener(this);
-		btnCancel.addActionListener(this);
+		btnClear.addActionListener(this);
 
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
 
 		panel1.add(l1);
 		panel2.add(l2);
-		panel2.add(t1);
+		panel2.add(tefNhapTenSV);
 		panel2.add(btnOK);
-		panel2.add(btnBack);
-		panel2.add(btnCancel);
+		panel2.add(btnClear);
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
-		String Ok = t1.getText();
+		String Ok = tefNhapTenSV.getText();
 
 		if (e.getActionCommand().equals("Dong Y")) {
 			if (e.getSource() == btnOK) {
@@ -62,21 +71,15 @@ public class Form_AWT_XoaSuaSinhVien extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(null, "Dien Ten Sinh Vien",
 							"Error", JOptionPane.ERROR_MESSAGE);
 				} else {
-					JFrame f = new Form_AWT_XoaSuaSinhVien2();
-					f.setVisible(true);
+					DKF_Menu.getAddFormXoaSuaSV();
 					this.setVisible(false);
 				}
 			}
 		}
-		if (e.getActionCommand().equals("Quay Lai")) {
-			JFrame f = new Form_AWT_Menu();
-			f.setVisible(true);
-			this.setVisible(false);
-		}
-		if (e.getActionCommand().equals("Thoat")) {
-			System.exit(0);
-		}
 
+		if (e.getActionCommand().equals("Clear")) {
+			tefNhapTenSV.setText("");
+		}
 	}
 
 }

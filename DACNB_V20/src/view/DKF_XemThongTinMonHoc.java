@@ -2,10 +2,9 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
-public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
+public class DKF_XemThongTinMonHoc extends JInternalFrame implements
 		ActionListener {
 	/**
 	 * 
@@ -19,10 +18,19 @@ public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
 	JTextField tefNhapTenMH;
 	JLabel l1;
 	JLabel l2;
-	
-	public Form_AWT_XoaSuaMonHoc() {
+
+	private static DKF_XemThongTinMonHoc instance = null;
+
+	public static DKF_XemThongTinMonHoc getInstance() {
+		if (instance == null) {
+			instance = new DKF_XemThongTinMonHoc();
+		}
+		return instance;
+	}
+
+	private DKF_XemThongTinMonHoc() {
 		setSize(320, 230);
-		setTitle("XoaSuaMonHoc");
+		setTitle("XemThongTinMonHoc");
 		setResizable(true);
 		setMaximizable(true);
 		setClosable(true);
@@ -35,8 +43,8 @@ public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
 		btnOK = new JButton("Dong Y");
 		btnClear = new JButton("Clear");
 		tefNhapTenMH = new JTextField(25);
-		l1 = new JLabel("Xoa Mon Hoc");
-		l2 = new JLabel("Nhap Ten Mon Hoc Can Xoa Hoac Sua: ");
+		l1 = new JLabel("Xem Thong Tin Mon Hoc");
+		l2 = new JLabel("Nhap Ten Mon Hoc Can Xem: ");
 
 		btnOK.addActionListener(this);
 		btnClear.addActionListener(this);
@@ -62,12 +70,11 @@ public class Form_AWT_XoaSuaMonHoc extends JInternalFrame implements
 					JOptionPane.showMessageDialog(null, "Dien Ten Mon Hoc",
 							"Error", JOptionPane.ERROR_MESSAGE);
 				} else {
-					Form_AWT_Menu.getAddForm();
+					DKF_Menu.getAddFormXemTTMH();
 					this.setVisible(false);
 				}
 			}
 		}
-
 		if (e.getActionCommand().equals("Clear")) {
 			tefNhapTenMH.setText("");
 		}

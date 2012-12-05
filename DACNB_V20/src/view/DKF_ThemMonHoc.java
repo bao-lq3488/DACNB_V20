@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_ThemMonHoc extends JInternalFrame implements
+public class DKF_ThemMonHoc extends JInternalFrame implements
 		ActionListener {
 	/**
 	 * 
@@ -28,7 +28,16 @@ public class Form_AWT_ThemMonHoc extends JInternalFrame implements
 	JLabel lbNganh;
 	JLabel lbKhoaHoc;
 
-	public Form_AWT_ThemMonHoc() {
+	private static DKF_ThemMonHoc instance = null;
+
+	public static DKF_ThemMonHoc getInstance() {
+		if (instance == null) {
+			instance = new DKF_ThemMonHoc();
+		}
+		return instance;
+	}
+
+	private DKF_ThemMonHoc() {
 		setSize(400, 420);
 		setTitle("ThemMonHoc");
 		setResizable(true);
