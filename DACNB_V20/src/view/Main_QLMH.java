@@ -20,11 +20,7 @@ public class Main_QLMH {
 			capNhat_MH, lietKe_SV, them_SV, xoa_SV, sua_SV, xem_SV, capNhatDiem_SV,
 			danhSach_SV, diem_MH, diem_SV;
 
-<<<<<<< HEAD
-	public Main_QLMH(Display display,Shell shellCha) {
-=======
 	public Main_QLMH(Display display) {
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		shell = new Shell(display);
 
 		createUI();
@@ -43,96 +39,23 @@ public class Main_QLMH {
 	}
 
 	public void createUI() {
-<<<<<<< HEAD
-		MenuBar = new Menu(shell, SWT.BAR);
-
-		MenuQLMH = new Menu(MenuBar);
-
-		QLMH = new MenuItem(MenuBar, SWT.CASCADE);
-		QLMH.setText("Quan Ly Mon Hoc");
-		QLMH.setMenu(MenuQLMH);
-
-		LietKe_MH = new MenuItem(MenuQLMH, SWT.PUSH);
-		LietKe_MH.setText("Liet Ke");
-		LietKe_MH.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event arg0) {
-				new Form_LietKe(shell.getDisplay());
-			}
-		});
-		Them_MH = new MenuItem(MenuQLMH, SWT.PUSH);
-		Them_MH.setText("Them");
-=======
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		
-<<<<<<< HEAD
-		Xoa_MH = new MenuItem(MenuQLMH, SWT.PUSH);
-		Xoa_MH.setText("Xoa");
-		Xoa_MH.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event arg0) {
-				new Form_XoaSua(shell.getDisplay());
-			}
-		});
-=======
 		shell.setText("Quan Ly Sinh Vien");
 		shell.setSize(400, 300);
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		
-<<<<<<< HEAD
-		Sua_MH = new MenuItem(MenuQLMH, SWT.PUSH);
-		Sua_MH.setText("Sua");
-		Sua_MH.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event arg0) {
-				new Form_XoaSua(shell.getDisplay());
-			}
-		});
-=======
 		// Tao menu quan ly mon hoc
 		menuBar = new Menu(shell, SWT.BAR);
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		
-<<<<<<< HEAD
-		Xem_MH = new MenuItem(MenuQLMH, SWT.PUSH);
-		Xem_MH.setText("Xem");
-		Xem_MH.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event arg0) {
-				new Form_ThongTinMH(shell.getDisplay());
-			}
-		});
-=======
 		menuQLMH = new Menu(menuBar);
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		
-<<<<<<< HEAD
-		CapNhat_MH = new MenuItem(MenuQLMH, SWT.PUSH);
-		CapNhat_MH.setText("Cap Nhat Diem");
-		CapNhat_MH.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event arg0) {
-				new Form_Update(shell.getDisplay());
-			}
-		});
-=======
 		quanLy_MH = new MenuItem(menuBar, SWT.CASCADE);
 		quanLy_MH.setText("Quan Ly Mon Hoc");
 		quanLy_MH.setMenu(menuQLMH);
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 
 		lietKe_MH = new MenuItem(menuQLMH, SWT.PUSH);
 		lietKe_MH.setText("Liet Ke");
 		
-<<<<<<< HEAD
-		Them_SV = new MenuItem(MenuQLSV, SWT.PUSH);
-		Them_SV.setText("Them");
-		Them_SV.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event arg0) {
-				new Form_ThemSV(shell.getDisplay());
-			}
-		});
-
-		Xoa_SV = new MenuItem(MenuQLSV, SWT.PUSH);
-		Xoa_SV.setText("Xoa");
-=======
 		lietKe_MH.addListener(SWT.Selection, btn_LietKe_MH_Clicked());
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		
 		them_MH = new MenuItem(menuQLMH, SWT.PUSH);
 		them_MH.setText("Them");
@@ -141,15 +64,6 @@ public class Main_QLMH {
 		xoa_MH.setText("Xoa");
 		xoa_MH.addListener(SWT.Selection, btn_Xoa_MH_Clicked());
 		
-<<<<<<< HEAD
-		CapNhat_SV = new MenuItem(MenuQLSV, SWT.PUSH);
-		CapNhat_SV.setText("Cap Nhat Diem");
-		CapNhat_SV.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event arg0) {
-				new Form_Update(shell.getDisplay());
-			}
-		});
-=======
 		sua_MH = new MenuItem(menuQLMH, SWT.PUSH);
 		sua_MH.setText("Sua");
 		sua_MH.addListener(SWT.Selection, btn_Sua_MH_Clicked());
@@ -161,7 +75,6 @@ public class Main_QLMH {
 		capNhat_MH = new MenuItem(menuQLMH, SWT.PUSH);
 		capNhat_MH.setText("Cap Nhat Diem");
 		capNhat_MH.addListener(SWT.Selection, btn_CapNhatDiem_MH_Clicked());
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 
 		// Tao menu quan ly sinh vien
 		
@@ -207,11 +120,6 @@ public class Main_QLMH {
 		shell.setMenuBar(menuBar);
 	}
 
-<<<<<<< HEAD
-//	public static void main(String args[]) {
-//		new Main_QLMH();
-//	}
-=======
 	// Listener cho button
 	
 	public Listener btn_CapNhatDiem_SV_Clicked() {
@@ -274,5 +182,4 @@ public class Main_QLMH {
 //		new Main_QLMH();
 //	}
 	
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 }

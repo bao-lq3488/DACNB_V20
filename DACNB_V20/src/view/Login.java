@@ -73,39 +73,11 @@ public class Login {
 		textPass.pack();
 
 		
-<<<<<<< HEAD
-		ButtonOk = new Button(s, SWT.CENTER);
-		ButtonOk.setSize(50, 25);
-		ButtonOk.setText("Login");
-		ButtonOk.setLocation(150, 130);
-		ButtonOk.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				String Username = TextAcc.getText();
-				String Password = TextPass.getText();
-
-				if ("".equals(Username) || ("".equals(Password))) {
-					MessageBox messageBox = new MessageBox(s, SWT.ICON_ERROR);
-					messageBox.setMessage("Enter the your Account or Password");
-					messageBox.open();
-				} else {
-					MessageBox messageBox = new MessageBox(s, SWT.OK);
-					messageBox.setText("Login Form");
-					messageBox.setMessage("Welcome " + TextAcc.getText());
-					messageBox.open();
-					
-//					new Main_QLMH(d);
-					
-				}
-				
-			}
-		});
-=======
 		buttonOk = new Button(shell, SWT.CENTER);
 		buttonOk.setSize(50, 25);
 		buttonOk.setText("Login");
 		buttonOk.setLocation(150, 130);
 		buttonOk.addListener(SWT.Selection, btn_Ok_Clicked());
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		
 		textAcc.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		textPass.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
