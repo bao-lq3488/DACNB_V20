@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
+public class DKF_LietKeMonHoc extends JInternalFrame implements
 		ActionListener {
 	/**
 	 * 
@@ -28,7 +28,16 @@ public class Form_AWT_LietKeMonHoc extends JInternalFrame implements
 	JLabel lb2Nganh;
 	JLabel lb2KhoaHoc;
 
-	public Form_AWT_LietKeMonHoc() {
+	private static DKF_LietKeMonHoc instance = null;
+
+	public static DKF_LietKeMonHoc getInstance() {
+		if (instance == null) {
+			instance = new DKF_LietKeMonHoc();
+		}
+		return instance;
+	}
+
+	private DKF_LietKeMonHoc() {
 
 		setSize(800, 420);
 		setTitle("LietKeMonHoc");

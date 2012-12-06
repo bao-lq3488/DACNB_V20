@@ -14,32 +14,20 @@ import org.eclipse.swt.widgets.Text;
 public class Form_InAn {
 	
 	Shell shell;
-	Label label;
-	Text text;
-	Button button;
 
 	public Form_InAn(Display display) {
+		shell = new Shell(display, SWT.APPLICATION_MODAL | SWT.CLOSE);
 
-		shell = new Shell(display, SWT.CLOSE);
-		shell.setText("In An");
-		
 		createUI();
-
-		shell.setLocation(10, 10);
-
+		
 		shell.open();
-
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-		display.dispose();
 	}
 
 	private void createUI() {
 		
 		shell.setSize(300, 280);
+		shell.setText("In An");
+		shell.setLocation(10, 10);
 		
 		Label lb = new Label(shell, SWT.CENTER | SWT.BORDER);
 		lb.setText("Nhap Ten Mon Hoc/Sinh Vien");
@@ -59,15 +47,18 @@ public class Form_InAn {
 		ButtonCancel.setSize(50, 25);
 		ButtonCancel.setLocation(190, 95);
 		ButtonCancel.setText("Cancel");
-		ButtonCancel.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				System.exit(0);
-			}
-		});
+		ButtonCancel.addListener(SWT.Selection, btnCancle());
 		
 		Text txread = new Text(shell, SWT.LEFT | SWT.READ_ONLY | SWT.BORDER| SWT.V_SCROLL);
 		txread.setLocation(50, 135);
 		txread.setSize(190, 100);
 	}
 
+	public Listener btnCancle() {
+		return new Listener() {
+			public void handleEvent(Event event) {
+				shell.close();
+			}
+		};
+	}
 }

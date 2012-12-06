@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Form_AWT_Login extends JFrame implements ActionListener {
+public class DKF_Login extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
@@ -14,13 +14,13 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 	JPanel panel2;
 	JButton btnLogin;
 	JButton btnCancel;
-	JTextField t1;
-	JTextField t2;
-	JLabel l1;
-	JLabel l2;
-	JLabel l3;
+	JTextField tefUsername;
+	JTextField tefPassword;
+	JLabel lbWelcome;
+	JLabel lbUsername;
+	JLabel lbPassword;
 
-	public Form_AWT_Login() {
+	public DKF_Login() {
 		setSize(320, 230);
 		setTitle("Login Form");
 		setResizable(false);
@@ -32,11 +32,11 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 		btnLogin = new JButton("Login");
 		btnCancel = new JButton("Cancel");
 
-		t1 = new JTextField(20);
-		t2 = new JPasswordField(20);
-		l1 = new JLabel("Welcome");
-		l2 = new JLabel("Username : ");
-		l3 = new JLabel("Password : ");
+		tefUsername = new JTextField(20);
+		tefPassword = new JPasswordField(20);
+		lbWelcome = new JLabel("Welcome");
+		lbUsername = new JLabel("Username : ");
+		lbPassword = new JLabel("Password : ");
 
 		btnLogin.addActionListener(this);
 		btnCancel.addActionListener(this);
@@ -44,19 +44,19 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 		contentPane.add(panel1, "North");
 		contentPane.add(panel2, "Center");
 
-		panel1.add(l1);
-		panel2.add(l2);
-		panel2.add(t1);
-		panel2.add(l3);
-		panel2.add(t2);
+		panel1.add(lbWelcome);
+		panel2.add(lbUsername);
+		panel2.add(tefUsername);
+		panel2.add(lbPassword);
+		panel2.add(tefPassword);
 		panel2.add(btnLogin);
 		panel2.add(btnCancel);
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		String Login = t1.getText();
-		String Pass = t2.getText();
+		String Login = tefUsername.getText();
+		String Pass = tefPassword.getText();
 
 		if (e.getActionCommand().equals("Login")) {
 			if (e.getSource() == btnLogin) {
@@ -67,7 +67,7 @@ public class Form_AWT_Login extends JFrame implements ActionListener {
 				}
 
 				else {
-					JFrame f = new Form_AWT_Menu();
+					JFrame f = new DKF_Menu();
 					f.setVisible(true);
 					this.setVisible(false);
 				}
