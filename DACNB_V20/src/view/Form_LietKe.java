@@ -15,15 +15,6 @@ public class Form_LietKe {
 		createUI();
 
 		shell.open();
-<<<<<<< HEAD
-
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-=======
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 	}
 
 	private void createUI() {
