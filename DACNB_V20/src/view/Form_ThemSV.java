@@ -32,7 +32,6 @@ public class Form_ThemSV {
 				display.sleep();
 			}
 		}
-		display.dispose();
 	}
 	private void createUI() {
 	

@@ -78,6 +78,8 @@ public class Login {
 					messageBox.setMessage("Welcome " + TextAcc.getText());
 					messageBox.open();
 					
+//					new Main_QLMH(d);
+					
 				}
 				
 			}
