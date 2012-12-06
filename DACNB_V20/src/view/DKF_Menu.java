@@ -69,10 +69,10 @@ public class DKF_Menu extends JFrame implements ActionListener {
 		JMenuItem mnuExit = new JMenuItem("Thoat");
 		Exit.add(mnuExit);
 
-		mnQLMH.addActionListener(this);
-		mnQLSV.addActionListener(this);
-		mnInAn.addActionListener(this);
-		Exit.addActionListener(this);
+//		mnQLMH.addActionListener(this);
+//		mnQLSV.addActionListener(this);
+//		mnInAn.addActionListener(this);
+//		Exit.addActionListener(this);
 
 		mnuLietKeMonHoc.addActionListener(this);
 		mnuThemMonHoc.addActionListener(this);

@@ -73,7 +73,7 @@ public class DKF_XemThongTinSinhVien extends JInternalFrame implements
 							"Error", JOptionPane.ERROR_MESSAGE);
 				} else {
 					DKF_Menu.getAddFormXemTTSV();
-					this.setVisible(false);
+					this.setVisible(true);
 				}
 			}
 		}
