@@ -26,7 +26,6 @@ public class Form_LietKe {
 				display.sleep();
 			}
 		}
-		display.dispose();
 	}
 
 	private void createUI() {
