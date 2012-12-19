@@ -1,111 +1,98 @@
-/*create type NgaySinh_O as object(
-thu varchar(20),
-ngay date,
-thang date,
-nam year 
-);
-*/
 CREATE TYPE SinhVien_O AS OBJECT(
-  IDSinhVien varchar(10),
-  TenSV varchar(50),
-   NgaySinh date
---  NgaySinh date,
---  DiaChi varchar(200),
---  KhoaHoc varchar(10),
---  Lop varchar(10),
---  Nganh varchar(50)
-) not final;
-
-create type SinhVien_in_Course under SinhVien_O(
-LopHoc varchar(10),
-NamHoc varchar(4)
+  IDSinhVien varchar2(10),
+  TenSV varchar2(50),
+  NgaySinh date,
+  LopHoc varchar2(10),
+  NamHoc varchar2,
+  member procedure proc_getbyID (p_IDSinhVien in varchar2,p_TenSV out varchar2,p_NgaySinh out date,p_HocKy out varchar2,p_NamHoc out varchar2),
+  member procedure proc_InsertSinhVien (p_IDSinhVien in varchar2,p_TenSV in varchar2,p_NgaySinh in date,p_HocKy in varchar2,p_NamHoc in varchar2),
+  member procedure proc_UpdateSinhVien (p_IDSinhVien in varchar2,p_TenSV in varchar2,p_NgaySinh in date,p_HocKy in varchar2,p_NamHoc in varchar2),
+  member procedure proc_DeleteSinhVien (p_IDSinhVien in varchar2)
 );
---CREATE TYPE SinhVien1 AS TABLE OF SinhVien;
+/
 create table SinhVien of SinhVien_O(
   IDSinhVien not null,
   primary key (IDSinhVien)
 );
 
-
-
 create type Khoa_O as object(
-  IDKhoa varchar(10),
-  TenKhoa varchar(50),
-  TruongKhoa varchar(50),
-  Mon_Khoa ref Mon_O
+  IDKhoa varchar2(10),
+  TenKhoa varchar2(50),
+  TruongKhoa varchar2(50),
+  Mon_Khoa ref Mon_O,
+  member procedure proc_getbyID (p_IDKhoa in varchar2,p_TenKhoa out varchar2,p_TruongKhoa out varchar2),
+  member procedure proc_InsertKhoa (p_IDKhoa in varchar2,p_TenKhoa in varchar2,p_TruongKhoa in varchar2),
+  member procedure proc_UpdateKhoa (p_IDKhoa in varchar2,p_TenKhoa in varchar2,p_TruongKhoa in varchar2),
+  member procedure proc_DeleteKhoa (p_IDKhoa in varchar2)
 );
-
+/
 --create type Khoa1 as table of Khoa;
 create table Khoa of Khoa_O(
   IDKhoa not null,
   primary key(IDKhoa)
 );
 
-/*
-create type Nganh_O as object(
-  IDNganh varchar(10),
-  TenNganh varchar(50),
-  SinhVien_Nganh ref SinhVien_O
-);
---create type Nganh1 as table of Nganh;
-create table Nganh of Nganh_O(
-  IDNganh not null,
-  primary key (IDNganh),
-
-);
-*/
 
 create type Mon_O as object(
-  IDMon varchar(10),
-  TenMon varchar(50),
-  Mon_Diem ref Diem_O
-)not final;
+  IDMon varchar2(10),
+  TenMon varchar2(50),
+  Mon_Diem ref BangDiem_O,
+  member procedure proc_getbyID (p_IDMon in varchar2,p_TenMon out varchar2),
+  member procedure proc_InsertMon (p_IDMon in varchar2,p_TenMon in varchar2),
+  member procedure proc_UpdateMon (p_IDMon in varchar2,p_TenMon in varchar2),
+  member procedure proc_DeleleMon (p_IDMon in varchar2)
+);
+/
 --create type Mon1 as table of Mon;
-create table Mon of Mon(
+    create table Mon of Mon_O( 
   IDMon not null,
-  primary key (IDMon),
+  primary key (IDMon)
+
 );
 
 create type BangDiem_O as object(
-  IDMon varchar(10),
-  IDSinhVien varchar(10),
-  DiemQT float,
-  DiemHK float,
-  DiemTB float
+  IDBangDiem varchar2(10),
+  DiemQT float(5),
+  DiemHK float(5),
+  DiemTB float(5),
+  member procedure proc_getbyID (p_IDBangDiem in varchar2,p_DiemQT out float(5),p_DiemHK out float(5), p_DiemTB out float(5)),
+  member procedure proc_InsertBangDiem (p_IDBangDiem in varchar2,p_,p_DiemQT in float(5),p_DiemHK in float(5), p_DiemTB in float(5)),
+  member procedure proc_UpdateBangDiem (p_IDBangDiem in varchar2,p_D,p_DiemQT in float(5),p_DiemHK in float(5), p_DiemTB in float(5)),
+  member procedure proc_DeleteBangDiem (p_IDBangDiem in varchar2)
 );
+/
 --create type Diem1 as table of Diem;
-create table BangDiem of BangDiem_O(
-  IDMon not null
-  IDSinhVien not null,
-  primary key (IDMon,IDSinhVien),
+    create table BangDiem of BangDiem_O;
+
+
+---------------Lop: moi sinh vien co mot lop duy nhat , trong lop co tong cac mon hoc co dinh, tuy thuoc vao khoa va nganh hoc. --------------------
+create type LopMonHoc_O as object(
+  IDLop varchar2(20),
+  TenLop varchar2(20),
+  ThoiGianBatDau date,
+  ThoiGianKetThuc date,
+  member procedure proc_getbyID (p_IDLop in varchar2,p_TenLop out varchar2,p_ThoiGianBatDau out date,p_ThoiGianKetThuc out date),
+  member procedure proc_InsertLopMonHoc (p_IDLop in varchar2,p_TenLop in varchar2,p_ThoiGianBatDau in date,p_ThoiGianKetThuc in date),
+  member procedure proc_UpdateLopMonHoc (p_IDLop in varchar2,p_TenLop in varchar2,p_ThoiGianBatDau in date,p_ThoiGianKetThuc in date),
+  member procedure proc_DeleteLopMonHoc (p_IDLop in varchar2)
+);
+/
+create table LopMonHoc of LopMonHoc_O(
+  IDLop not null,
+  primary key (IDLop)
 );
 
-create type ThoiGianHoc_O as object(
-  HocKy varchar(20),
-  ThoiGianBatDau varchar(4),
-  ThoiGianKetThuc varchar(4),
-  GioHoc varchar(20)
-);
-------------Lop: moi sinh vien co mot lop duy nhat , trong lop co tong cac mon hoc co dinh, tuy thuoc vao khoa va nganh hoc. --------------------
-create type LopMonHoc_O as object(
-  IDLop varchat(20),
-  TenLop varchar(20),
-  ThoiGianHoc ThoiGianHoc_O
-)not final;
-create table LopMonHoc of Lop_O(
-  IDLop not final,
-  primary key (IDLop),
-);
 ------------------------------
 create table SinhVien_Mon(
-  sinhvienM ref SinhVien,
-  monM ref Mon
+  sinhvienM ref SinhVien_O,
+  monM ref Mon_O
 );
+
 create table SinhVien_LopMonHoc(
-  SinhVienL ref SinhVien,
-  LopL ref LopMonHoc
+  SinhVienL ref SinhVien_O,
+  LopL ref LopMonHoc_O
 );
+
 -----------------------------
 commit;
 
------------ 
