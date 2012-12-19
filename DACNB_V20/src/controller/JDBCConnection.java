@@ -10,8 +10,8 @@ import model.ConnectionJDBC;
 
 public class JDBCConnection {
 
-	private static final String user = "QLSV";
-	private static final String password = "12345";
+	private static final String user = "ORACLE_HIBERNATE";
+	private static final String password = "meoden12";
 	private String serverName = "localhost";
 	private String portNumber = "1521";
 	private String sid = "XE";

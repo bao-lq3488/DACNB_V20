@@ -40,6 +40,7 @@ public class Login {
 				display.sleep();
 			}
 		}
+		display.dispose();
 	}
 
 	public KeyListener escClicked() {
@@ -154,8 +155,15 @@ public class Login {
 					messageBox.open();
 					
 					shell.getDisplay().dispose();
+					shell.dispose();
 					Display display = new Display();
 					new Main_QLMH(display);
+//					while (!shell.isDisposed()) {
+//						if (!display.readAndDispatch()) {
+//							display.sleep();
+//						}
+//					}
+//					display.dispose();
 				}
 				
 			}
@@ -174,6 +182,5 @@ public class Login {
 		Display display = new Display();
 		new Login(display);
 		
-		display.dispose();
 	}
 }
