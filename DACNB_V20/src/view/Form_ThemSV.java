@@ -1,5 +1,7 @@
 package view;
 
+import java.sql.Connection;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -11,9 +13,13 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+import controller.JDBCConnection;
+
 public class Form_ThemSV {
 	
 	Shell shell;
+	Text txt_idSinhVien;
+	Text txt_tenSinhVien;
 
 	public Form_ThemSV(Shell maiShell) {
 
@@ -21,6 +27,11 @@ public class Form_ThemSV {
 		
 		createUI();
 	
+		Connection conn = null;
+		JDBCConnection jdbccon = new JDBCConnection(conn);
+		String query = "INSERT INTO SINHVIEN (IDSINHVIEN,TENSINHVIEN,NGAYSINH,DIACHI,STATUS,IDLOP,DATEJOIN,DATEEND) "
+					+ "VALUES ('"+ txt_idSinhVien.getText() +"','" + txt_tenSinhVien.getText() + "',to_date('1991/01/01','YYYY/MM/DD'),'HCM','DANG HOC','QL091A','2009','2012')";
+		jdbccon.insertQuery(query, conn);
 		this.shell.open();
 	}
 	
