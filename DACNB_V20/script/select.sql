@@ -1,0 +1,2 @@
+select TenSV
+from SinhVien;

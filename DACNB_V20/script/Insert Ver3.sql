@@ -1,40 +1,47 @@
 ------ SinhVien--------------------------------------
-INSERT INTO SinhVien(SinhVien_O(IDSinhVien,TenSV,NgaySinh))
-  VALUES ('093581','Nguyen Thanh Tam',to_date('1991/09/05','YYYY/MM/DD'),'HCM','2009','QL091A','CNTT'));
-INSERT INTO SinhVien  
-  VALUES (SinhVien_O('093565','Nguyen Trinh Thanh Phuc',to_date('1991/09/16','YYYY/MM/DD'),'BIEN HOA','2009','QL091A','CNTT'));
-INSERT INTO SinhVien  
-  VALUES (SinhVien_O('093488','Le Quoc Bao',to_date('1991/01/01','YYYY/MM/DD'),'HCM','2009','QL091A','CNTT'));
-INSERT INTO SinhVien 
-  VALUES (SinhVien_O('093527','Hoang Duy Khanh',to_date('1991/01/01','YYYY/MM/DD'),'HCM','2009','QL091A','CNTT'));
-INSERT INTO SinhVien 
-  VALUES (SinhVien_O('070078','Tran Bao Quang',to_date('1989/06/15','YYYY/MM/DD'),'HCM','2007','HT071','CNTT'));
-INSERT INTO SinhVien_in_Course(LopHoc,NamHoc)
-  VALUES('QL071','2007');
-INSERT INTO SinhVien_in_Course(LopHoc,NamHoc)
-  VALUES('QL081','2008');
-INSERT INTO SinhVien_in_Course(LopHoc,NamHoc)
-  VALUES('QL091','2009');
-INSERT INTO SinhVien_in_Course(LopHoc,NamHoc)
-  VALUES('HT071','2007');
-INSERT INTO SinhVien_in_Course(LopHoc,NamHoc)
-  VALUES('HT081','2008');
-INSERT INTO SinhVien_in_Course(LopHoc,NamHoc)
-  VALUES('HT091','2009');
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc)
+    VALUES ('093581','Nguyen Thanh Tam',to_date('1991-09-05','yyyy-mm-dd'),'QL081','2008');
+
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc)  
+    VALUES ('093565','Nguyen Trinh Thanh Phuc',to_date('1991-09-16','yyyy-mm-dd'),'QL081','2008');
+
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc)  
+    VALUES ('093488','Le Quoc Bao',to_date('1991-01-01','yyyy-mm-dd'),'QL081','2008');
+
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc) 
+    VALUES ('093527','Hoang Duy Khanh',to_date('1991-01-01','yyyy-mm-dd'),'QL081','2008');
+
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc) 
+    VALUES ('070078','Tran Bao Quang',to_date('1989-06-15','yyyy-mm-dd'),'HT071','2007');
+
 
   -------------------------Mon---------------------------------------
 Insert Into Mon(IDMon,TenMon)
     Values ('123','Giao Duc Cong Dan');
 Insert Into Mon(IDMon,TenMon)
     Values ('456','Van Hoc');
+    
 --------------------------Khoa---------------------------------------
-INSERT INTO Khoa(Khoa_O(IDKhoa,TenKhoa,TruongKhoa))
-  VALUES(Khoa_O('CNTT','Cong Nghe Thong Tin','Thay Phat'));
-INSERT INTO Khoa(Khoa_O(IDKhoa,TenKhoa,TruongKhoa))
-  VALUES(Khoa_O('QTKD','Quan Tri Kinh Doanh','Co Quyen'));
+INSERT INTO Khoa(IDKhoa,TenKhoa,TruongKhoa)
+  VALUES('CNTT','Cong Nghe Thong Tin','Thay Phat');
+INSERT INTO Khoa(IDKhoa,TenKhoa,TruongKhoa)
+  VALUES('QTKD','Quan Tri Kinh Doanh','Co Quyen');
+  
 ----------------------LopMonHoc----------------------------------------
-INSERT INTO LopMonHoc(LopMonHoc_O(IDLop,TenLop,ThoiGianHoc_O(ThoiGianHoc_O(HocKy,ThoiGianBatDau,ThoiGianKetThuc,GioHoc)))
-  VALUES(LopMonHoc_O('GDCD','Lop Giao Duc Cong Dan',ThoiGianHoc_O('2','2007','2008','5 gio sang')));
-INSERT INTO LopMonHoc(LopMonHoc_O(IDLop,TenLop,ThoiGianHoc_O(ThoiGianHoc_O(HocKy,ThoiGianBatDau,ThoiGianKetThuc,GioHoc)))
-  VALUES(LopMonHoc_O('VH','Lop Van Hoc',ThoiGianHoc_O('2','2007','2008','10 gio toi')));
-----------------------------------------------------------------
+INSERT INTO LopMonHoc(IDLop,TenLop,ThoiGianBatDau,ThoiGianKetThuc)
+    VALUES('GDCD','Lop Cong Dan',to_date('2009-01-01','yyyy-mm-dd'),to_date('2009-04-01','yyyy-mm-dd'));
+INSERT INTO LopMonHoc(IDLop,TenLop,ThoiGianBatDau,ThoiGianKetThuc)
+    VALUES('VH','Lop Van Hoc',to_date('2009-02-02','yyyy-mm-dd'),to_date('2009-05-01','yyyy-mm-dd'));
+  
+----------------------------BangDiem------------------------------------
+INSERT INTO BangDiem(IDBangDiem,DiemQT,DiemHK,DiemTB)
+    VALUES('A',8.43,7.34,6.37);
+INSERT INTO BangDiem(IDBangDiem,DiemQT,DiemHK,DiemTB)
+    VALUES('B',8.56,7.38,10.34);
+INSERT INTO BangDiem(IDBangDiem,DiemQT,DiemHK,DiemTB)
+    VALUES('C',10.34,10.76,10.25);
+INSERT INTO BangDiem(IDBangDiem,DiemQT,DiemHK,DiemTB)
+    VALUES('D',9.45,10.76,6.56);
+INSERT INTO BangDiem(IDBangDiem,DiemQT,DiemHK,DiemTB)
+    VALUES('E',6.36,10.65,7.56);
+--------------------------------------------------------------------------------

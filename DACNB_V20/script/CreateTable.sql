@@ -1,4 +1,4 @@
-use QuanLySinhVien
+
 
 CREATE TABLE SinhVien(
   IDSinhVien varchar2(10),
@@ -8,7 +8,7 @@ CREATE TABLE SinhVien(
   KhoaHoc varchar2(10),
   Lop varchar2(10),
   Nganh varchar(50)
-  );
+  )
 
 
 create table Khoa(
@@ -16,20 +16,20 @@ create table Khoa(
   TenKhoa varchar2(50),
   IDMon varchar2(10),
   TruongKhoa varchar2(50)
-);
+)
 
 create table nganh(
   IDNganh varchar2(10),
   TenNganh varchar2(50),
   IDSinhVien VARCHAR2(10)
-);
+)
 
 create table Mon(
   IDMon varchar2(10),
   TenMon varchar2(50),
   IDSINHVIEN VARCHAR2(10),
   IDKhoa Varchar2(10)
-);
+)
 
 create table Diem(
   IDDiem varchar2(10),
@@ -37,7 +37,7 @@ create table Diem(
   DiemQT float,
   DiemHK float,
   DiemTB float
-);
+)
 
 commit;
   
