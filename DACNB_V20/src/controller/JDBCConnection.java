@@ -39,7 +39,7 @@ public class JDBCConnection {
 
 	}
 
-	public void runQuery(String query, Connection conn){
+	public void insertQuery(String query, Connection conn){
 
 			try {
 				stmt = conn.createStatement();
