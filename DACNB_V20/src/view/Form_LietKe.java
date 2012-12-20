@@ -1,8 +1,10 @@
 package view;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
+import model.ConnectionJDBC;
 import model.SinhVien;
 
 import org.eclipse.swt.SWT;
@@ -16,8 +18,7 @@ import org.eclipse.swt.widgets.TableItem;
 public class Form_LietKe {
 
 	Shell shell;
-	SinhVien sv = new SinhVien();
-	private SinhVien sinhVien;
+	public SinhVien sinhVien = new SinhVien();
 
 	public Form_LietKe(Shell mainShell) throws SQLException {
 
@@ -61,17 +62,16 @@ public class Form_LietKe {
 		// | SWT.SHADOW_OUT);
 		// lblKeNgang.setLocation(0, 20);
 		// lblKeNgang.setSize(300, 30);
-		composite.setLayout(new FillLayout());
-		final Table table = new Table(composite, SWT.BORDER);
+		//composite.setLayout(new FillLayout());
+		final Table table = new Table(shell , SWT.BORDER);
 
 		shell.setText("A Table Shell Example");
 		shell.setLayout(new FillLayout());
 
-		shell.pack();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		shell.open();
-		TableColumn[] column = new TableColumn[3];
+
+		TableColumn[] column = new TableColumn[8];
 		column[0] = new TableColumn(table, SWT.NONE);
 		column[0].setText("Ma Sinh Vien");
 
@@ -79,26 +79,49 @@ public class Form_LietKe {
 		column[1].setText("Ten Sinh Vien");
 
 		column[2] = new TableColumn(table, SWT.NONE);
-		column[2].setText("DiaChi");
+		column[2].setText("Ngay Sinh");
+		
+		column[3] = new TableColumn(table, SWT.NONE);
+		column[3].setText("Dia Chi");
+		
+		column[4] = new TableColumn(table, SWT.NONE);
+		column[4].setText("Status");
+		
+		column[5] = new TableColumn(table, SWT.NONE);
+		column[5].setText("ID LOP");
+		
+		column[6] = new TableColumn(table, SWT.NONE);
+		column[6].setText("Nam nhap hoc");
+		
+		column[7] = new TableColumn(table, SWT.NONE);
+		column[7].setText("Nam ket thuc");
 
 		fillTable(table);
 		for (int i = 0, n = column.length; i < n; i++) {
 			column[i].pack();
 		}
+		shell.pack();
 	}
 
 	private void fillTable(Table table) throws SQLException {
 		table.setRedraw(false);
 		
-		for(Iterator<SinhVien> iterator = SinhVien.setAllSinhvien().iterator();iterator.hasNext();)
-		{
+		
+		for(Iterator<SinhVien> iterator = sinhVien.getAllSinhvien().iterator();iterator.hasNext();)
+		{		
 			sinhVien = (SinhVien) iterator.next();
 			TableItem item = new TableItem(table, SWT.NONE);
 			int c = 0;
-			item.setText(c++, sv.getIDSinhVien());
-			item.setText(c++, sv.getTenSinhVien());
-			item.setText(c++, sv.getDiaChi());
+			item.setText(c++, sinhVien.getIDSINHVIEN());
+			item.setText(c++, sinhVien.getTENSinhVien());
+			item.setText(c++, sinhVien.getNGAYSINH());
+			item.setText(c++, sinhVien.getDIACHI());
+			item.setText(c++, sinhVien.getStatus());
+			item.setText(c++, sinhVien.getIdLOP());
+			item.setText(c++, sinhVien.getDatejoin());
+			item.setText(c++, sinhVien.getDateend());
 		}
+		
 		table.setRedraw(true);
 	}
 }
