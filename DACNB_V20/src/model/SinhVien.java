@@ -86,7 +86,7 @@ public class SinhVien {
 		ArrayList<SinhVien> svList = new ArrayList<SinhVien>();
 		ConnectionJDBC conn = new ConnectionJDBC(
 				"oracle.jdbc.driver.OracleDriver", "localhost", "1521", "XE",
-				"ORACLE_HIBERNATE", "meoden12", null);
+				"qlsv", "12345", null);
 		Connection con = DriverManager.getConnection(conn.url,
 				conn.getUsername(), conn.getPassword());
 		String qry = "SELECT IDSINHVIEN,TENSINHVIEN,NGAYSINH,DIACHI,STATUS,IDLOP,DATEJOIN,DATEEND FROM SINHVIEN";
