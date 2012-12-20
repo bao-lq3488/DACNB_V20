@@ -172,12 +172,9 @@ public class Main_QLMH {
 	public Listener btn_LietKe_MH_Clicked() {
 		return new Listener() {
 			public void handleEvent(Event arg0) {
-				try {
+		
 					new Form_LietKe(shell);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 			}
 		};
 	}

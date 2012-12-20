@@ -11,7 +11,7 @@ public class main {
 	public static void main(final String arg[]) {
 		try{
 			ConnectionJDBC con = null;
-			con = new ConnectionJDBC("oracle.jdbc.driver.OracleDriver","localhost","1521","XE","ORACLE_HIBERNATE","meoden12",null);
+			con = new ConnectionJDBC("oracle.jdbc.driver.OracleDriver","localhost","1521","XE","qlsv","12345",null);
 			System.out.println("Connection : " + con.doConnection());
 			//SinhVien.selectSinhVien();
 			SinhVien.setAllSinhvien();
