@@ -1,15 +1,14 @@
 package view;
 
+import java.sql.SQLException;
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 
 public class Main_QLMH {
@@ -173,7 +172,12 @@ public class Main_QLMH {
 	public Listener btn_LietKe_MH_Clicked() {
 		return new Listener() {
 			public void handleEvent(Event arg0) {
-				new Form_LietKe(shell);
+				try {
+					new Form_LietKe(shell);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		};
 	}

@@ -1,5 +1,12 @@
 package view;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import model.ConnectionJDBC;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -10,6 +17,8 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import controller.JDBCConnection;
 
 import controller.themSinhVien;
 
@@ -80,20 +89,46 @@ public class Form_ThemSV {
 	}
 
 	Shell shell;
+<<<<<<< HEAD
 	Text txt_idSinhVien, txt_tenSinhVien, txt_ngaysinhSinhVien, txt_diachi,
 			txt_status;
 	Text txt_idLop, txt_dateJoin, txt_dateEnd;
+=======
+	Text txt_idSinhVien;
+	Text txt_tenSinhVien;
+	String s = "";
+	String query;
+	Connection conn = null;
+	JDBCConnection jdbccon = null;
+	
+	Connection con = null;
+	ConnectionJDBC conn1 = null;
+	Statement stmt = null;
+	
+	public Form_ThemSV(Shell mainShell) {
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 
+<<<<<<< HEAD
 	public Form_ThemSV(Shell maiShell) {
 
 		this.shell = new Shell(maiShell, SWT.APPLICATION_MODAL | SWT.CLOSE);
 
+=======
+		this.shell = new Shell(SWT.APPLICATION_MODAL | SWT.CLOSE);
+		conn1 = new ConnectionJDBC("oracle.jdbc.driver.OracleDriver","localhost", "1521", "XE", "ORACLE_HIBERNATE", "meoden12",null);
+		
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		createUI();
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		this.shell.open();
+		
 	}
 
 	private void createUI() {
+<<<<<<< HEAD
 
 		// shell.setSize(300, 200);
 		// shell.setText("In An");
@@ -108,6 +143,9 @@ public class Form_ThemSV {
 		// txtBox.setLocation(45, 50);
 		// txtBox.setSize(200, 70);
 
+=======
+	
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		GridLayout gl = new GridLayout();
 		gl.numColumns = 4;
 		gl.verticalSpacing = 10;
@@ -116,10 +154,25 @@ public class Form_ThemSV {
 		Label lbl_idSinhVien = new Label(this.shell, SWT.CENTER);
 		lbl_idSinhVien.setText("ID Sinh Vien:");
 		lbl_idSinhVien.setLayoutData(gd);
+<<<<<<< HEAD
 
 		gd = new GridData(SWT.FILL, SWT.FILL, true, true);
 		txt_idSinhVien = new Text(shell, SWT.LEFT | SWT.BORDER);
+=======
+		
+		gd = new GridData(SWT.FILL,SWT.FILL,true,true);
+		final Text txt_idSinhVien = new Text(this.shell, SWT.CENTER);
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 		txt_idSinhVien.setLayoutData(gd);
+		txt_idSinhVien.addListener(SWT.Modify, new Listener() {
+
+	        public void handleEvent(Event e) {
+
+	            s = txt_idSinhVien.getText();
+
+	        }
+
+	    });
 
 		gd = new GridData(SWT.FILL, SWT.FILL, true, true);
 		Label lbl_tenSinhVien = new Label(this.shell, SWT.CENTER);
@@ -204,6 +257,7 @@ public class Form_ThemSV {
 
 		return new Listener() {
 			public void handleEvent(Event event) {
+<<<<<<< HEAD
 				// String idSinhVien = txt_idSinhVien.getText();
 				// String tenSinhVien = txt_tenSinhVien.getText();
 				// String ngaysinh = txt_ngaysinhSinhVien.getText();
@@ -218,6 +272,43 @@ public class Form_ThemSV {
 							SWT.ICON_ERROR);
 					messageBox.setMessage("them khong thanh cong");
 					messageBox.open();
+=======
+//				try {
+//					Statement stmt = con.createStatement();
+//					String query = "INSERT INTO SINHVIEN (IDSINHVIEN,TENSINHVIEN,NGAYSINH,DIACHI,STATUS,IDLOP,DATEJOIN,DATEEND) "
+//						+ "VALUES ('" + s + "','phan shoang dung',to_date('1991/01/01','YYYY/MM/DD'),'HCM','DANG HOC','QL091A','2009','2012')";
+//					stmt.executeQuery(query);
+//					} catch (SQLException e) {
+					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+				
+				try {
+					con = DriverManager.getConnection(conn1.url,conn1.getUsername(), conn1.getPassword());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					stmt = con.createStatement();
+					String query = "INSERT INTO SINHVIEN (IDSINHVIEN,TENSINHVIEN,NGAYSINH,DIACHI,STATUS,IDLOP,DATEJOIN,DATEEND) "
+							+ "VALUES ('" + s + "','phan shoang dung',to_date('1991/01/01','YYYY/MM/DD'),'HCM','DANG HOC','QL091A','2009','2012')";
+						stmt.executeUpdate(query);
+						MessageBox m = new MessageBox(shell);
+						m.open();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} finally {
+					try {
+						stmt.close();
+						con.close();
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 				}
 			}
 		};
@@ -231,3 +322,5 @@ public class Form_ThemSV {
 		};
 	}
 }
+
+

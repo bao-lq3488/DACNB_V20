@@ -45,6 +45,7 @@ public class Login {
 				display.sleep();
 			}
 		}
+		display.dispose();
 	}
 
 	public KeyListener escClicked() {
@@ -159,8 +160,15 @@ public class Login {
 					messageBox.open();
 					
 					shell.getDisplay().dispose();
+					shell.dispose();
 					Display display = new Display();
 					new Main_QLMH(display);
+//					while (!shell.isDisposed()) {
+//						if (!display.readAndDispatch()) {
+//							display.sleep();
+//						}
+//					}
+//					display.dispose();
 				}
 				
 			}
@@ -179,7 +187,10 @@ public class Login {
 		Display display = new Display();
 		new Login(display);
 		
+<<<<<<< HEAD
 		
 		display.dispose();
+=======
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 	}
 }
