@@ -82,11 +82,11 @@ public class SinhVien {
 	String DATEJOIN;
 	String DATEEND;
 
-	public static ArrayList<SinhVien> setAllSinhvien() throws SQLException {
+	public ArrayList<SinhVien> getAllSinhvien() throws SQLException {
 		ArrayList<SinhVien> svList = new ArrayList<SinhVien>();
 		ConnectionJDBC conn = new ConnectionJDBC(
 				"oracle.jdbc.driver.OracleDriver", "localhost", "1521", "XE",
-				"QLSV", "12345", null);
+				"ORACLE_HIBERNATE", "meoden12", null);
 		Connection con = DriverManager.getConnection(conn.url,
 				conn.getUsername(), conn.getPassword());
 		String qry = "SELECT IDSINHVIEN,TENSINHVIEN,NGAYSINH,DIACHI,STATUS,IDLOP,DATEJOIN,DATEEND FROM SINHVIEN";
@@ -104,11 +104,6 @@ public class SinhVien {
 				sv.setIdLOP(rs.getString("IDLOP"));
 				sv.setDatejoin(rs.getString("DATEJOIN"));
 				sv.setDateend(rs.getString("DATEEND"));
-				System.out.println(sv.getIDSINHVIEN() + "	    "
-						+ sv.getTENSinhVien() + "	    " + sv.getNGAYSINH()
-						+ "	    " + sv.getDIACHI() + "	    " + sv.getStatus()
-						+ "	    " + sv.getIdLOP() + "	    " + sv.getDatejoin()
-						+ "	    " + sv.getDateend());
 				svList.add(sv);
 			}
 

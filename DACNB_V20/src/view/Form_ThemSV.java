@@ -11,6 +11,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
@@ -51,7 +52,7 @@ public class Form_ThemSV {
 
 		this.shell = new Shell(SWT.APPLICATION_MODAL | SWT.CLOSE);
 		conn1 = new ConnectionJDBC("oracle.jdbc.driver.OracleDriver",
-				"localhost", "1521", "XE", "qlsv", "12345", null);
+				"localhost", "1521", "XE", "ORACLE_HIBERNATE", "meoden12", null);
 
 		createUI();
 		this.shell.open();
@@ -123,6 +124,7 @@ public class Form_ThemSV {
 		txt_idLop = new Text(this.shell, SWT.CENTER);
 		txt_idLop.setLayoutData(gd);
 		txt_idLop.addListener(SWT.Modify, getIDLop());
+		
 		gd = new GridData(SWT.FILL, SWT.FILL, true, true);
 		Label lbl_dateJoin = new Label(this.shell, SWT.CENTER);
 		lbl_dateJoin.setText("Ngay Nhap Hoc:");

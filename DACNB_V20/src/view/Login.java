@@ -1,14 +1,7 @@
 package view;
 
-import java.sql.SQLException;
-
-import model.ConnectionJDBC;
-import model.SinhVien;
-
 import org.eclipse.swt.SWT;
 
-import org.eclipse.swt.events.ControlEvent;
-import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.layout.GridData;
@@ -18,7 +11,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -53,14 +45,11 @@ public class Login {
 			
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
 				System.exit(0);
 			}
 			
 			@Override
 			public void keyPressed(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
 			}
 		};
 	}
@@ -123,10 +112,9 @@ public class Login {
 		buttonGhiNho.setSize(90, 20);
 
 		combo = new Combo(shell, SWT.DROP_DOWN);
-		String[] data = { "Sinh Vien", "Phong Dao Tao" };
+		String[] data = {"Sinh Vien", "Phong Dao Tao" };
 		combo.setItems(data);
-		combo.select(1);
-		combo.setItems(data);
+		
 		combo.setSize(90, 20);
 		combo.setLocation(10, 130);
 		combo.setText("Sinh Vien");
@@ -187,10 +175,6 @@ public class Login {
 		Display display = new Display();
 		new Login(display);
 		
-<<<<<<< HEAD
-		
 		display.dispose();
-=======
->>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 	}
 }
