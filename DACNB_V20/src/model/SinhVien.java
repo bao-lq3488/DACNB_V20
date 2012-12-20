@@ -8,71 +8,79 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SinhVien {
-	public static ConnectionJDBC conn = null;
 
-	public String getIDSinhVien() {
-		return IDSinhVien;
+	public String getIDSINHVIEN() {
+		return IDSINHVIEN;
 	}
 
-	public void setIDSinhVien(String iDSinhVien) {
-		IDSinhVien = iDSinhVien;
+	public void setIDSINHVIEN(String iDSINHVIEN) {
+		IDSINHVIEN = iDSINHVIEN;
 	}
 
-	public String getTenSinhVien() {
-		return TenSinhVien;
+	public String getTENSinhVien() {
+		return TENSINHVIEN;
 	}
 
-	public void setTenSinhVien(String tenSinhVien) {
-		TenSinhVien = tenSinhVien;
+	public void setTENSinhVien(String tENSinhVien) {
+		TENSINHVIEN = tENSinhVien;
 	}
 
-	public String getNgaySinh() {
-		return NgaySinh;
+	public String getNGAYSINH() {
+		return NGAYSINH;
 	}
 
-	public void setNgaySinh(String ngaySinh) {
-		NgaySinh = ngaySinh;
+	public void setNGAYSINH(String nGAYSINH) {
+		NGAYSINH = nGAYSINH;
 	}
 
-	public String getDiaChi() {
-		return DiaChi;
+	public String getDIACHI() {
+		return DIACHI;
 	}
 
-	public void setDiaChi(String diaChi) {
-		DiaChi = diaChi;
+	public void setDIACHI(String dIACHI) {
+		DIACHI = dIACHI;
 	}
 
-	public String getKhoaHoc() {
-		return KhoaHoc;
+	public String getStatus() {
+		return STATUS;
 	}
 
-	public void setKhoaHoc(String khoaHoc) {
-		KhoaHoc = khoaHoc;
+	public void setStatus(String status) {
+		this.STATUS = status;
 	}
 
-	public String getLop() {
-		return Lop;
+	public String getIdLOP() {
+		return IDLOP;
 	}
 
-	public void setLop(String lop) {
-		Lop = lop;
+	public void setIdLOP(String idLOP) {
+		this.IDLOP = idLOP;
 	}
 
-	public String getNganh() {
-		return Nganh;
+	public String getDatejoin() {
+		return DATEJOIN;
 	}
 
-	public void setNganh(String nganh) {
-		Nganh = nganh;
+	public void setDatejoin(String datejoin) {
+		this.DATEJOIN = datejoin;
 	}
 
-	String IDSinhVien;
-	String TenSinhVien;
-	String NgaySinh;
-	String DiaChi;
-	String KhoaHoc;
-	String Lop;
-	String Nganh;
+	public String getDateend() {
+		return DATEEND;
+	}
+
+	public void setDateend(String dateend) {
+		this.DATEEND = dateend;
+	}
+
+	String IDSINHVIEN;
+	String TENSINHVIEN;
+	String NGAYSINH;
+	String DIACHI;
+	String STATUS;
+	String IDLOP;
+	String DATEJOIN;
+	String DATEEND;
 
 	public static ArrayList<SinhVien> setAllSinhvien() throws SQLException {
 		ArrayList<SinhVien> svList = new ArrayList<SinhVien>();
@@ -81,24 +89,26 @@ public class SinhVien {
 				"QLSV", "12345", null);
 		Connection con = DriverManager.getConnection(conn.url,
 				conn.getUsername(), conn.getPassword());
-		String qry = "SELECT IDSINHVIEN,TENSV,NGAYSINH,DIACHI,KHOAHOC,LOP,IDNGANH FROM SINHVIEN";
+		String qry = "SELECT IDSINHVIEN,TENSINHVIEN,NGAYSINH,DIACHI,STATUS,IDLOP,DATEJOIN,DATEEND FROM SINHVIEN";
 		Statement stmt = null;
 		try {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(qry);
 			while (rs.next()) {
 				SinhVien sv = new SinhVien();
-				sv.setIDSinhVien(rs.getString("IDSINHVIEN"));
-				sv.setTenSinhVien(rs.getString("TENSV"));
-				sv.setNgaySinh(rs.getString("NGAYSINH"));
-				sv.setDiaChi(rs.getString("DIACHI"));
-				sv.setKhoaHoc(rs.getString("KHOAHOC"));
-				sv.setLop(rs.getString("LOP"));
-				sv.setNganh(rs.getString("IDNGANH"));
-				System.out.println(sv.getIDSinhVien() + "     "
-						+ sv.getTenSinhVien() + "    " + sv.getNgaySinh()
-						+ "   " + sv.getDiaChi() + "    " + sv.getKhoaHoc()
-						+ "    " + sv.getLop() + "   " + sv.getNganh());
+				sv.setIDSINHVIEN(rs.getString("IDSINHVIEN"));
+				sv.setTENSinhVien(rs.getString("TENSINHVIEN"));
+				sv.setNGAYSINH(rs.getString("NGAYSINH"));
+				sv.setDIACHI(rs.getString("DIACHI"));
+				sv.setStatus(rs.getString("STATUS"));
+				sv.setIdLOP(rs.getString("IDLOP"));
+				sv.setDatejoin(rs.getString("DATEJOIN"));
+				sv.setDateend(rs.getString("DATEEND"));
+				System.out.println(sv.getIDSINHVIEN() + "	    "
+						+ sv.getTENSinhVien() + "	    " + sv.getNGAYSINH()
+						+ "	    " + sv.getDIACHI() + "	    " + sv.getStatus()
+						+ "	    " + sv.getIdLOP() + "	    " + sv.getDatejoin()
+						+ "	    " + sv.getDateend());
 				svList.add(sv);
 			}
 

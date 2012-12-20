@@ -75,25 +75,26 @@ public class ConnectionJDBC {
 		this.username = username;
 		this.password = password;
 
-		url = "jdbc:oracle:thin:@" + this.getServerName() + ":"
+		this.url = "jdbc:oracle:thin:@" + this.getServerName() + ":"
 				+ this.getPortNumber() + ":" + this.getSid();
 
 	}
 
 	public boolean doConnection() {
+
+		
 		try {
-			Class.forName(driverName);
-
-			connection = DriverManager.getConnection(url, username, password);
+			Class.forName(this.driverName);
+			this.connection = DriverManager.getConnection(this.url, this.username, this.password);
 		} catch (ClassNotFoundException e) {
-
 			System.out.println("ClassNotFoundException : " + e.getMessage());
 			return false;
 		} catch (SQLException e) {
 
-			System.out.println(e.getMessage());
+			System.out.println("test" + e.getMessage());
 			return false;
 		}
+		
 		return true;
 	}
 	public ConnectionJDBC getConnection() throws SQLException{

@@ -48,7 +48,7 @@ constructor function Khoa_O(IDKhoa varchar) return self as result
   get_inforSV return varchar
 );
 
-create type body SinhVien_O is 
+create type body SinhVien_O is member procedure
   constructor function Khoa_O(IDKhoa varchar) return self as result
   is external IDKhoa "093488"
   end;

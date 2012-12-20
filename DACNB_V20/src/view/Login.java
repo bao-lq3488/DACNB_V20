@@ -1,7 +1,16 @@
 package view;
 
+import java.sql.SQLException;
+
+import model.ConnectionJDBC;
+import model.SinhVien;
+
 import org.eclipse.swt.SWT;
 
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.ControlListener;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
@@ -29,11 +38,31 @@ public class Login {
 		creatUI();
 
 		shell.open();
+		shell.addKeyListener(escClicked());
+		
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
+		display.dispose();
+	}
+
+	public KeyListener escClicked() {
+		return new KeyListener() {
+			
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				System.exit(0);
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 	}
 
 	public void creatUI() {
@@ -131,8 +160,15 @@ public class Login {
 					messageBox.open();
 					
 					shell.getDisplay().dispose();
+					shell.dispose();
 					Display display = new Display();
 					new Main_QLMH(display);
+//					while (!shell.isDisposed()) {
+//						if (!display.readAndDispatch()) {
+//							display.sleep();
+//						}
+//					}
+//					display.dispose();
 				}
 				
 			}
@@ -151,6 +187,10 @@ public class Login {
 		Display display = new Display();
 		new Login(display);
 		
+<<<<<<< HEAD
+		
 		display.dispose();
+=======
+>>>>>>> branch 'master' of https://github.com/bao-lq3488/DACNB_V20.git
 	}
 }
