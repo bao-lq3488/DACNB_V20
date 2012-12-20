@@ -14,7 +14,8 @@ public class main {
 			con = new ConnectionJDBC("oracle.jdbc.driver.OracleDriver","localhost","1521","XE","ORACLE_HIBERNATE","meoden12",null);
 			System.out.println("Connection : " + con.doConnection());
 			//SinhVien.selectSinhVien();
-			SinhVien.setAllSinhvien();
+			SinhVien sv = new SinhVien();
+			sv.getAllSinhvien();
 		}catch (SQLException ex) {
 			System.out.println(ex);
 		}
