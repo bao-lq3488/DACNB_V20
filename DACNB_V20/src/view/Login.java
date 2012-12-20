@@ -1,5 +1,10 @@
 package view;
 
+import java.sql.SQLException;
+
+import model.ConnectionJDBC;
+import model.SinhVien;
+
 import org.eclipse.swt.SWT;
 
 import org.eclipse.swt.events.ControlEvent;
@@ -173,6 +178,7 @@ public class Login {
 	public static void main(String args[]) {
 		Display display = new Display();
 		new Login(display);
+		
 		
 		display.dispose();
 	}
