@@ -7,7 +7,7 @@ import model.SinhVien;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -17,17 +17,18 @@ public class Form_LietKe {
 
 	Shell shell;
 	SinhVien sv = new SinhVien();
+	private SinhVien sinhVien;
 
 	public Form_LietKe(Shell mainShell) throws SQLException {
 
 		shell = new Shell(mainShell, SWT.APPLICATION_MODAL | SWT.CLOSE);
 
-		createUI();
+		createUI(shell);
 
 		shell.open();
 	}
 
-	private void createUI() throws SQLException {
+	private void createUI(Composite composite) throws SQLException {
 
 		// shell.setSize(300, 180);
 		// shell.setText("Liet Ke");
@@ -60,7 +61,8 @@ public class Form_LietKe {
 		// | SWT.SHADOW_OUT);
 		// lblKeNgang.setLocation(0, 20);
 		// lblKeNgang.setSize(300, 30);
-		Table table = new Table(shell, SWT.BORDER);
+		composite.setLayout(new FillLayout());
+		final Table table = new Table(composite, SWT.BORDER);
 
 		shell.setText("A Table Shell Example");
 		shell.setLayout(new FillLayout());
@@ -69,7 +71,7 @@ public class Form_LietKe {
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		shell.open();
-		TableColumn[] column = new TableColumn[4];
+		TableColumn[] column = new TableColumn[3];
 		column[0] = new TableColumn(table, SWT.NONE);
 		column[0].setText("Ma Sinh Vien");
 
@@ -79,17 +81,24 @@ public class Form_LietKe {
 		column[2] = new TableColumn(table, SWT.NONE);
 		column[2].setText("DiaChi");
 
+		fillTable(table);
 		for (int i = 0, n = column.length; i < n; i++) {
 			column[i].pack();
 		}
-		Iterator<SinhVien> iterator = SinhVien.setAllSinhvien().iterator();
-		while (iterator.hasNext()) {
+	}
+
+	private void fillTable(Table table) throws SQLException {
+		table.setRedraw(false);
+		
+		for(Iterator<SinhVien> iterator = SinhVien.setAllSinhvien().iterator();iterator.hasNext();)
+		{
+			sinhVien = (SinhVien) iterator.next();
 			TableItem item = new TableItem(table, SWT.NONE);
 			int c = 0;
 			item.setText(c++, sv.getIDSinhVien());
 			item.setText(c++, sv.getTenSinhVien());
 			item.setText(c++, sv.getDiaChi());
-
 		}
+		table.setRedraw(true);
 	}
 }
