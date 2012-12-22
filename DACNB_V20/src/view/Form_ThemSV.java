@@ -248,18 +248,7 @@ public class Form_ThemSV {
 		// TODO Auto-generated method stub
 		return new Listener() {
 			public void handleEvent(Event event) {
-				// try {
-				// Statement stmt = con.createStatement();
-				// String query =
-				// "INSERT INTO SINHVIEN (IDSINHVIEN,TENSINHVIEN,NGAYSINH,DIACHI,STATUS,IDLOP,DATEJOIN,DATEEND) "
-				// + "VALUES ('" + s +
-				// "','phan shoang dung',to_date('1991/01/01','YYYY/MM/DD'),'HCM','DANG HOC','QL091A','2009','2012')";
-				// stmt.executeQuery(query);
-				// } catch (SQLException e) {
-				// TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
-
+				
 				try {
 					con = DriverManager.getConnection(conn1.url,
 							conn1.getUsername(), conn1.getPassword());
