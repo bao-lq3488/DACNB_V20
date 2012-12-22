@@ -1,12 +1,16 @@
 CREATE TYPE SinhVien_O AS OBJECT(
   IDSinhVien varchar2(10),
-  TenSV varchar2(50),
+  TenSinhVien varchar2(50),
   NgaySinh date,
-  LopHoc varchar2(10),
-  NamHoc varchar2,
-  member procedure proc_getbyID (p_IDSinhVien in varchar2,p_TenSV out varchar2,p_NgaySinh out date,p_HocKy out varchar2,p_NamHoc out varchar2),
-  member procedure proc_InsertSinhVien (p_IDSinhVien in varchar2,p_TenSV in varchar2,p_NgaySinh in date,p_HocKy in varchar2,p_NamHoc in varchar2),
-  member procedure proc_UpdateSinhVien (p_IDSinhVien in varchar2,p_TenSV in varchar2,p_NgaySinh in date,p_HocKy in varchar2,p_NamHoc in varchar2),
+  DiaChi varchar2(50),
+  Status varchar2(100),
+  IDLop varchar2 (20),
+  DateJoin varchar2(10),
+  DateEnd varchar2(10),
+  
+  member procedure proc_getbyID (p_IDSinhVien in varchar2,p_TenSV out varchar2,p_NgaySinh out date,p_DiaChi out varchar2,p_Status out varchar2,p_IDLop out varchar2,p_DateJoin out varchar2,p_DateEnd out varchar2),
+  member procedure proc_InsertSinhVien (p_IDSinhVien in varchar2,p_TenSV in varchar2,p_NgaySinh in date,p_DiaChi in varchar2,p_Status in varchar2,p_IDLop in varchar2,p_DateJoin in varchar2,p_DateEnd in varchar2),
+  member procedure proc_UpdateSinhVien (p_IDSinhVien in varchar2,p_TenSV in varchar2,p_NgaySinh in date,p_DiaChi in varchar2,p_Status in varchar2,p_IDLop in varchar2,p_DateJoin in varchar2,p_DateEnd in varchar2),
   member procedure proc_DeleteSinhVien (p_IDSinhVien in varchar2)
 );
 /

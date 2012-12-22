@@ -1,18 +1,18 @@
 ------ SinhVien--------------------------------------
-INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc)
-    VALUES ('093581','Nguyen Thanh Tam',to_date('1991-09-05','yyyy-mm-dd'),'QL081','2008');
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,DiaChi,Status,IDLop,DateJoin,DateEnd)
+    VALUES ('093581','Nguyen Thanh Tam',to_date('1991-09-05','yyyy-mm-dd'),'HCM,'Dang Hoc',''QL081','2008','2010');
 
-INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc)  
-    VALUES ('093565','Nguyen Trinh Thanh Phuc',to_date('1991-09-16','yyyy-mm-dd'),'QL081','2008');
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,DiaChi,Status,IDLop,DateJoin,DateEnd)  
+    VALUES ('093565','Nguyen Trinh Thanh Phuc',to_date('1991-09-16','yyyy-mm-dd'),'HCM','Dang Hoc','QL081','2008','2010');
 
-INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc)  
-    VALUES ('093488','Le Quoc Bao',to_date('1991-01-01','yyyy-mm-dd'),'QL081','2008');
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,DiaChi,Status,IDLop,DateJoin,DateEnd)  
+    VALUES ('093488','Le Quoc Bao',to_date('1991-01-01','yyyy-mm-dd'),'HCM',' dang hoc','QL081','2008','2010');
 
-INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc) 
-    VALUES ('093527','Hoang Duy Khanh',to_date('1991-01-01','yyyy-mm-dd'),'QL081','2008');
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,DiaChi,Status,IDLop,DateJoin,DateEnd) 
+    VALUES ('093527','Hoang Duy Khanh',to_date('1991-01-01','yyyy-mm-dd'),'HCM','Dang Hoc','QL081','2008','2010');
 
-INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,LopHoc,NamHoc) 
-    VALUES ('070078','Tran Bao Quang',to_date('1989-06-15','yyyy-mm-dd'),'HT071','2007');
+INSERT INTO SinhVien(IDSinhVien,TenSV,NgaySinh,DiaChi,Status,IDLop,DateJoin,DateEnd) 
+    VALUES ('070078','Tran Bao Quang',to_date('1989-06-15','yyyy-mm-dd'),'HCM','Dang Hoc','HT071','2007','2010');
 
 
   -------------------------Mon---------------------------------------
